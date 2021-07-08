@@ -1,0 +1,15 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 8 juil. 2021, 15:16:30
+    Author     : flo
+*/
+body {
+    background-image: url('/img/zeroimmo.png'); 
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
