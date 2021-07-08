@@ -20,3 +20,11 @@ body {
         background-image: none;
     }
 }
+
+.top-title {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 160%;
+    padding-top: 0.5em;
+}
