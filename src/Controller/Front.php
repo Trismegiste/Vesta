@@ -12,7 +12,7 @@ class Front extends AbstractController
     /**
      * @Route("/")
      */
-    public function essai(): Response
+    public function index(): Response
     {
         return $this->render('front/index.html.twig');
     }
