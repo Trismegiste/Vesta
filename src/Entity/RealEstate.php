@@ -5,19 +5,24 @@ namespace App\Entity;
 /**
  * Dossier de vente qui va suivre le workflow
  */
-class RealEstate
+class RealEstate implements Immovable
 {
 
     protected $currentState;
 
-    public function getCurrentState(): string
+    public function getCurrentState()
     {
         return $this->currentState;
     }
 
-    public function setCurrentState(string $param)
+    public function setCurrentState($param, $context = [])
     {
         $this->currentState = $param;
+    }
+
+    public function getAddress(): Address
+    {
+        
     }
 
 }
