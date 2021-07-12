@@ -6,7 +6,7 @@ use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
 /**
- * Dossier de vente qui va suivre le workflow
+ * RealEstate is a real Estate
  */
 class RealEstate implements Immovable, Root
 {
@@ -15,6 +15,11 @@ class RealEstate implements Immovable, Root
 
     protected $currentState;
     protected $location;
+
+    public function __construct()
+    {
+        $this->location = new Address();
+    }
 
     public function getCurrentState()
     {

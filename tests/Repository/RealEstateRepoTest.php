@@ -36,6 +36,10 @@ class RealEstateRepoTest extends TestCase
     public function testWrite()
     {
         $obj = new RealEstate();
+        $adr = $obj->getAddress();
+        $adr->body = "42 av. First Street";
+        $adr->cp = "06000";
+        $adr->city = "Nissa la Bella";
         $this->sut->save($obj);
     }
 

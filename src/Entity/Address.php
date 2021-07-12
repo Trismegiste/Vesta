@@ -16,4 +16,11 @@ class Address
     public $cp;
     public $city;
 
+    public function __construct(string $body = '', string $cp = '', string $city = '')
+    {
+        $this->body = $body;
+        $this->city = $city;
+        $this->cp = $cp;
+    }
+
 }

@@ -11,9 +11,7 @@ use App\Entity\RealEstate;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Description of RealEstate
- *
- * @author flo
+ * RealEstateTest tests for RealEstate
  */
 class RealEstateTest extends TestCase
 {
