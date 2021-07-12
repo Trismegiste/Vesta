@@ -23,3 +23,18 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    MongoDB\Driver\Manager:
+        arguments:
+            - '%env(resolve:DATABASE_URL)%'
+            
+    Trismegiste\Toolbox\MongoDb\RepositoryFactory:
+        $dbName: '%env(resolve:DATABASE_NAME)%'
+        
+    
+    app.user.repository:
+        class: Trismegiste\Toolbox\MongoDb\Repository
+        factory: ['@Trismegiste\Toolbox\MongoDb\RepositoryFactory', 'create']
+        arguments: ['user']
+
+    Trismegiste\Toolbox\MongoDb\Repository $userRepo: '@app.user.repository'
