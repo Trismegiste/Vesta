@@ -9,6 +9,7 @@ use App\Repository\RealEstateRepo;
 use MongoDB\Driver\Manager;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
+use Tests\Toolbox\MongoDb\MongoCheck;
 
 /**
  * Description of RealEstateRepoTest
@@ -17,6 +18,8 @@ use Psr\Log\LoggerInterface;
  */
 class RealEstateRepoTest extends TestCase
 {
+
+    use MongoCheck;
 
     protected $sut;
     protected $mongo;
@@ -27,6 +30,7 @@ class RealEstateRepoTest extends TestCase
         $this->mongo = new Manager('mongodb://localhost:27017');
         $this->logger = $this->createMock(LoggerInterface::class);
         $this->sut = new RealEstateRepo($this->mongo, 'virimmo', 'repo_test', $this->logger);
+        $this->ping($this->mongo, 'virimmo');
     }
 
     public function testWrite()
