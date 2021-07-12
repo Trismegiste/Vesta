@@ -6,6 +6,7 @@
 
 namespace App\Tests\Entity;
 
+use App\Entity\Immovable;
 use App\Entity\RealEstate;
 use PHPUnit\Framework\TestCase;
 
@@ -26,7 +27,7 @@ class RealEstateTest extends TestCase
 
     public function testCreation()
     {
-        $this->assertInstanceOf(\App\Entity\Immovable::class, $this->sut);
+        $this->assertInstanceOf(Immovable::class, $this->sut);
     }
 
 }
