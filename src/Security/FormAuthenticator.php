@@ -48,7 +48,7 @@ class FormAuthenticator extends AbstractLoginFormAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        return null;
+        return new \Symfony\Component\HttpFoundation\RedirectResponse('/');
     }
 
 }
