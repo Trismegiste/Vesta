@@ -38,7 +38,6 @@ class FormAuthenticator extends AbstractLoginFormAuthenticator
         $csrfToken = $request->request->get('csrf_token');
 
         // ... validate no parameter is empty
-        return new \Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport(new UserBadge($username), []);
 
         return new Passport(
                 new UserBadge($username),

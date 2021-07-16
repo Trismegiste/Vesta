@@ -35,11 +35,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      */
     public function loadUserByUsername($username)
     {
-        $u= new User($username, '123123');
-        $u->setPk(new \MongoDB\BSON\ObjectId());
-        
-        return $u;
-        
+
         // Load a User object from your data source or throw UsernameNotFoundException.
         // The $username argument may not actually be a username:
         // it is whatever value is being returned by the getUsername()

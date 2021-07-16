@@ -6,7 +6,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
-class User implements UserInterface, Root {
+class User implements UserInterface, Root
+{
 
     use RootImpl;
 
@@ -18,7 +19,8 @@ class User implements UserInterface, Root {
      */
     private $password;
 
-    public function __construct(string $user, string $pwd) {
+    public function __construct(string $user, string $pwd)
+    {
         $this->username = $user;
         $this->password = $pwd;
         $this->roles[] = 'ROLE_ADMIN';
@@ -29,14 +31,16 @@ class User implements UserInterface, Root {
      *
      * @see UserInterface
      */
-    public function getUsername(): string {
+    public function getUsername(): string
+    {
         return (string) $this->username;
     }
 
     /**
      * @see UserInterface
      */
-    public function getRoles(): array {
+    public function getRoles(): array
+    {
         $roles = $this->roles;
         // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
@@ -47,23 +51,31 @@ class User implements UserInterface, Root {
     /**
      * @see UserInterface
      */
-    public function getPassword(): string {
+    public function getPassword(): string
+    {
         return (string) $this->password;
     }
 
     /**
      * @see UserInterface
      */
-    public function getSalt() {
+    public function getSalt()
+    {
         // not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
      * @see UserInterface
      */
-    public function eraseCredentials() {
+    public function eraseCredentials()
+    {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->username;
     }
 
 }
