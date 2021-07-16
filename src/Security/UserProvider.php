@@ -10,12 +10,14 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Trismegiste\Toolbox\MongoDb\Repository;
 
-class UserProvider implements UserProviderInterface, PasswordUpgraderInterface {
+class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
+{
 
     protected $logger;
     protected $repository;
 
-    public function __construct(LoggerInterface $log, Repository $userRepo) {
+    public function __construct(LoggerInterface $log, Repository $userRepo)
+    {
         $this->logger = $log;
         $this->repository = $userRepo;
     }
@@ -31,7 +33,13 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface {
      *
      * @throws UsernameNotFoundException if the user is not found
      */
-    public function loadUserByUsername($username) {
+    public function loadUserByUsername($username)
+    {
+        $u= new User($username, '123123');
+        $u->setPk(new \MongoDB\BSON\ObjectId());
+        
+        return $u;
+        
         // Load a User object from your data source or throw UsernameNotFoundException.
         // The $username argument may not actually be a username:
         // it is whatever value is being returned by the getUsername()
@@ -59,7 +67,8 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface {
      *
      * @return UserInterface
      */
-    public function refreshUser(UserInterface $user) {
+    public function refreshUser(UserInterface $user)
+    {
         if (!$user instanceof User) {
             throw new UnsupportedUserException(sprintf('Invalid user class "%s".', get_class($user)));
         }
@@ -75,14 +84,16 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface {
     /**
      * Tells Symfony to use this provider for this User class.
      */
-    public function supportsClass($class) {
+    public function supportsClass($class)
+    {
         return User::class === $class;
     }
 
     /**
      * Upgrades the encoded password of a user, typically for using a better hash algorithm.
      */
-    public function upgradePassword(UserInterface $user, string $newEncodedPassword): void {
+    public function upgradePassword(UserInterface $user, string $newEncodedPassword): void
+    {
         // TODO: when encoded passwords are in use, this method should:
         // 1. persist the new password in the user storage
         // 2. update the $user object with $user->setPassword($newEncodedPassword);

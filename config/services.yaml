@@ -30,7 +30,6 @@ services:
             
     Trismegiste\Toolbox\MongoDb\RepositoryFactory:
         $dbName: '%env(resolve:DATABASE_NAME)%'
-        
     
     app.user.repository:
         class: Trismegiste\Toolbox\MongoDb\Repository
