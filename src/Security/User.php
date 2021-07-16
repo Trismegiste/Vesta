@@ -2,11 +2,12 @@
 
 namespace App\Security;
 
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
-class User implements UserInterface, Root
+class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
 {
 
     use RootImpl;
