@@ -35,6 +35,10 @@ header img {
     font-weight: 400;
 }
 
+.icon-particulier div {
+    text-align: center;
+}
+
 h2.impact {
     text-transform: uppercase; 
     font-weight: 800;
