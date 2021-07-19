@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/css/main.css">
 {% endblock %}
 
-{% block title %}Bienvenue{% endblock %}
+{% block title %}{% trans %}TITRE ACCUEIL{% endtrans %}{% endblock %}
 
 {% block content %}
     <header class="pure-g">
@@ -12,7 +12,7 @@
             <img src="/img/logo.jpg" class="pure-img"/>
         </div>
         <div class="pure-u-1-2">
-            <h1>ZEROPOURCENT.IMMO - L'IMMO SANS COMMISSION</h1>
+            <h1>{% trans %}SLOGAN IMMO{% endtrans %}</h1>
         </div>
         <div class="pure-u-1-4">
             SOCNET
@@ -20,9 +20,9 @@
     </header>
     <nav class="pure-g menu-particulier">
         <div class="pure-u-1-6"><h2>Accueil</h2></div>
-        <div class="pure-u-1-6"><h2 class="impact">vendre</h2></div>
-        <div class="pure-u-1-6"><h2 class="impact">acheter</h2></div>
-        <div class="pure-u-1-6"><h2 class="impact">location</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color1">acheter</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color2">vendre</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color3">location</h2></div>
         <div class="pure-u-1-6"><h2>Rejoignez-nous</h2></div>
         <div class="pure-u-1-6"><h2>Mon compte</h2></div>
     </nav>

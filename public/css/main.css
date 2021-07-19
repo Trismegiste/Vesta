@@ -21,8 +21,8 @@ header h1 {
 
 header img {
     width: 40%;
-    margin-left:2em;
-    margin-top: 2em;
+    margin-left:1em;
+    margin-top: 1em;
 }
 
 .menu-particulier {
@@ -38,4 +38,16 @@ header img {
 h2.impact {
     text-transform: uppercase; 
     font-weight: 800;
+}
+
+.color1 {
+    color: #eb008a;
+}
+
+.color2 {
+    color: #004aab;
+}
+
+.color3 {
+    color: #5ce1e6;
 }
