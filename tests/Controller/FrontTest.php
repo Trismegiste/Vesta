@@ -1,7 +1,7 @@
 <?php
 
 /*
- * VirImmo
+ * Vesta
  */
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -12,11 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class FrontTest extends WebTestCase
 {
 
-    use App\Tests\Controller\SecuredClientImpl;
-
     public function testIndex()
     {
-        $client = static::getAuthenticatedClient();
+        $client = static::createClient();
         $client->request('GET', '/');
         $this->assertPageTitleContains('Bienv');
     }

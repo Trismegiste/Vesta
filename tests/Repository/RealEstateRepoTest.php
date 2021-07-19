@@ -1,7 +1,7 @@
 <?php
 
 /*
- * VirImmo
+ * Vesta
  */
 
 use App\Entity\RealEstate;

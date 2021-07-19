@@ -20,7 +20,7 @@ trait SecuredClientImpl
     static protected function getAuthenticatedClient(array $options = [], array $server = [])
     {
         $client = static::createClient($options, $server);
-        $crawler = $client->request('GET', '/login');
+        $crawler = $client->request('GET', '/account/login');
         $loginForm = $crawler->selectButton('Sign in')->form();
         $client->submit($loginForm, [
             'username' => CreateUserTest::username,
@@ -28,7 +28,7 @@ trait SecuredClientImpl
             'csrf_token' => $loginForm->get('csrf_token')->getValue(),
         ]);
 
-        if ($client->getResponse()->headers->get('Location') === '/login') {
+        if ($client->getResponse()->headers->get('Location') === '/account/login') {
             throw new RuntimeException("Bad configuration for TEST : authentication failed");
         }
 

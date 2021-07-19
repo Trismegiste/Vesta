@@ -1,7 +1,7 @@
 <?php
 
 /*
- * VirImmo
+ * Vesta
  */
 
 namespace App\Entity;

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * VirImmo
+ * Vesta
  */
 
 namespace App\Security;
@@ -28,7 +28,7 @@ class FormAuthenticator extends AbstractLoginFormAuthenticator
     //put your code here
     protected function getLoginUrl(Request $request): string
     {
-        return '/login';
+        return '/account/login';
     }
 
     public function authenticate(Request $request): PassportInterface
