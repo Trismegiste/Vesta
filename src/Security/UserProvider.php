@@ -5,6 +5,7 @@ namespace App\Security;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Symfony\Component\Security\Core\Exception\UserNotFoundException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
@@ -85,15 +86,15 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
 
     public function loadUserByIdentifier(string $identifier): UserInterface
     {
-        // Load a User object from your data source or throw UsernameNotFoundException.
-        // The $username argument may not actually be a username:
+        // Load a User object from your data source or throw UserNotFoundException.
+        // The $identifier argument may not actually be a username:
         // it is whatever value is being returned by the getUsername()
         // method in your User class.
 
         $iter = $this->repository->search(['username' => $identifier]);
         $users = iterator_to_array($iter);
         if (count($users) !== 1) {
-            throw new UsernameNotFoundException("Unknow user");
+            throw new UserNotFoundException("Unknow user");
         }
 
         return $users[0];
