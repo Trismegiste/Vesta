@@ -13,9 +13,7 @@
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="pure-input-1" required autofocus>
         <label for="inputPassword">{% trans %}Password{% endtrans %}</label>
         <input type="password" name="password" id="inputPassword" class="pure-input-1" required>
-
         <input type="hidden" name="csrf_token" value="{{ csrf_token('authenticate') }}"/>
-
         <button class="pure-button" type="submit">
             {% trans %}Sign in{% endtrans %}
         </button>
