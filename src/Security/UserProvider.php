@@ -35,19 +35,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      */
     public function loadUserByUsername($username)
     {
-
-        // Load a User object from your data source or throw UsernameNotFoundException.
-        // The $username argument may not actually be a username:
-        // it is whatever value is being returned by the getUsername()
-        // method in your User class.
-
-        $iter = $this->repository->search(['username' => $username]);
-        $users = iterator_to_array($iter);
-        if (count($users) !== 1) {
-            throw new UsernameNotFoundException("Unknow user");
-        }
-
-        return $users[0];
+        return $this->loadUserByIdentifier($username);
     }
 
     /**
@@ -93,6 +81,22 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
         // TODO: when encoded passwords are in use, this method should:
         // 1. persist the new password in the user storage
         // 2. update the $user object with $user->setPassword($newEncodedPassword);
+    }
+
+    public function loadUserByIdentifier(string $identifier): UserInterface
+    {
+        // Load a User object from your data source or throw UsernameNotFoundException.
+        // The $username argument may not actually be a username:
+        // it is whatever value is being returned by the getUsername()
+        // method in your User class.
+
+        $iter = $this->repository->search(['username' => $identifier]);
+        $users = iterator_to_array($iter);
+        if (count($users) !== 1) {
+            throw new UsernameNotFoundException("Unknow user");
+        }
+
+        return $users[0];
     }
 
 }

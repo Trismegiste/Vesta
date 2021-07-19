@@ -14,9 +14,7 @@
         <label for="inputPassword">{% trans %}Password{% endtrans %}</label>
         <input type="password" name="password" id="inputPassword" class="pure-input-1" required>
 
-        <input type="hidden" name="csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-               >
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('authenticate') }}"/>
 
         <button class="pure-button" type="submit">
             {% trans %}Sign in{% endtrans %}

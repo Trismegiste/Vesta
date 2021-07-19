@@ -12,11 +12,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class FrontTest extends WebTestCase
 {
 
+    use App\Tests\Controller\SecuredClientImpl;
+
     public function testIndex()
     {
-        $client = static::createClient();
+        $client = static::getAuthenticatedClient();
         $client->request('GET', '/');
-        $this->assertPageTitleContains('Welcome');
+        $this->assertPageTitleContains('Bienv');
     }
 
 }
