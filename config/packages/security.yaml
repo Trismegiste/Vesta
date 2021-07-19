@@ -19,8 +19,11 @@ security:
             security: false
         # =======> https://symfony.com/doc/current/security/authenticator_manager.html
         main:
+            lazy: false
             custom_authenticators:
                 - App\Security\FormAuthenticator  
+            logout:
+                path: app_logout
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

@@ -24,11 +24,12 @@ class Security extends AbstractController
     }
 
     /**
-     * @Route("/account/logout", name="app_logout", methods={"GET"})
+     * @Route("/logout", name="app_logout", methods={"GET"})
      */
     public function logout()
     {
-        return new Response('aaaaaaahhhhhhhhhhhhh');
+        // Don\'t forget to activate logout in security.yaml
+        throw new \Exception('Bad config');
     }
 
 }
