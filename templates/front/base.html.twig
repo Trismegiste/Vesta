@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     {{  parent() }}
-    <link rel="stylesheet" href="/css/main.css?{{ random(456789) }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}?{{ random(456789) }}">
 {% endblock %}
 
 {% block title %}{% trans %}LANDING TITLE{% endtrans %}{% endblock %}
@@ -9,7 +9,7 @@
 {% block body %}
     <header class="pure-g">
         <div class="pure-u-1-5">
-            <img src="/img/logo.jpg" class="pure-img"/>
+            <img src="{{ asset('img/logo.jpg') }}" class="pure-img"/>
         </div>
         <div class="pure-u-1-2">
             <h1>{% trans %}SLOGAN IMMO{% endtrans %}</h1>
@@ -19,12 +19,12 @@
         </div>
     </header>
     <nav class="pure-g icon-particulier">
-        <div class="pure-u-1-6"><img src="/img/maison.svg"/></div>
-        <div class="pure-u-1-6"><img src="/img/clefs.svg"/></div>
-        <div class="pure-u-1-6"><img src="/img/cochon.svg"/></div>
-        <div class="pure-u-1-6"><img src="/img/location.svg"/></div>
-        <div class="pure-u-1-6"><img src="/img/liveyourdream.svg"/></div>
-        <div class="pure-u-1-6"><img src="/img/laptop.svg"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/maison.svg') }}"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/clefs.svg') }}"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/cochon.svg') }}"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/location.svg') }}"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/liveyourdream.svg') }}"/></div>
+        <div class="pure-u-1-6"><img src="{{ asset('img/laptop.svg') }}"/></div>
     </nav>
     <nav class="pure-g menu-particulier">
         <div class="pure-u-1-6"><h2><a href="{{ path('app_front_index') }}" class="color0">Accueil</a></h2></div>

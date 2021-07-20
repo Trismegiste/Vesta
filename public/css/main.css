@@ -35,7 +35,7 @@ header img {
     font-weight: 400;
 }
 
-.menu-particulier a {
+a {
     text-decoration: none;
 }
 
@@ -108,5 +108,9 @@ h2.impact {
 }
 
 .realestate .navbar div {
+    text-align: center;
+}
+
+nav.actions {
     text-align: center;
 }

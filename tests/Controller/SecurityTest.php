@@ -20,7 +20,7 @@ class SecurityTest extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
     {
         $client = static::createClient();
         $crawler = $client->request('GET', '/account/login');
-        $loginForm = $crawler->selectButton('__Sign in')->form();
+        $loginForm = $crawler->selectButton('Se connecter')->form();
         $client->submit($loginForm, [
             'username' => CreateUserTest::username,
             'password' => CreateUserTest::password,
