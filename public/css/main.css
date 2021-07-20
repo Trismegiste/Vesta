@@ -63,3 +63,23 @@ h2.impact {
 .color3 {
     color: #5ce1e6;
 }
+
+.listing {
+    padding: 1em;
+}
+
+.listing header {
+    color: white;
+    text-align: center;
+    font-size: 130%;
+    font-weight: 600;
+}
+
+.listing article {
+    background-color: white;
+    margin-bottom: 1em;
+}
+
+.listing article figure, .listing article figcaption, .listing article nav {
+    margin: 0.5em 0 0 0.5em;
+}

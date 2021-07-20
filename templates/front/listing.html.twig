@@ -1,0 +1,26 @@
+{% extends "front/base.html.twig" %}
+{% block content %}
+    <section class="listing">
+        <header>{% trans %}SEARCH RESULT{% endtrans %}</header>
+            {% for immo in result %}
+            <article class="pure-g">
+                <div class="pure-u-1-6">
+                    <figure>
+                        <img class="pure-img" src="https://placekitten.com/g/1000/1000"/>
+                    </figure>
+                </div>
+                <div class="pure-u-2-3">
+                    <figcaption>
+                        text
+                    </figcaption>
+                </div>
+                <div class="pure-u-1-6">
+                    <nav>
+                        button
+                    </nav>
+                </div>
+            </article>
+        {% endfor %}
+        <footer></footer>
+    </section>
+{% endblock %}

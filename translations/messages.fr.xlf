@@ -25,6 +25,10 @@
         <source>LANDING TITLE</source>
         <target>Bienvenue</target>
       </trans-unit>
+      <trans-unit id="A7XQeFy" resname="SEARCH RESULT">
+        <source>SEARCH RESULT</source>
+        <target>Résultat de votre recherche</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
