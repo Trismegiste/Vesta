@@ -11,9 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * Description of Buy
- *
- * @author flo
+ * Section Achat de biens immobilier
  */
 class Buy extends AbstractController
 {
