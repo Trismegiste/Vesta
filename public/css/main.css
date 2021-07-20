@@ -35,9 +35,8 @@ header img {
     font-weight: 400;
 }
 
-.menu-particulier h2 a {
+.menu-particulier a {
     text-decoration: none;
-    color : black;
 }
 
 .icon-particulier div {
@@ -47,6 +46,10 @@ header img {
 h2.impact {
     text-transform: uppercase; 
     font-weight: 800;
+}
+
+.color0 {
+    color:black;
 }
 
 .color1 {
