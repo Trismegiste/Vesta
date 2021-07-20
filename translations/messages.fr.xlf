@@ -33,6 +33,10 @@
         <source>RDV SETTING</source>
         <target>Je prends RDV</target>
       </trans-unit>
+      <trans-unit id="94ftYOh" resname="SEARCH RESULT TITLE">
+        <source>SEARCH RESULT TITLE</source>
+        <target>Résultat de recherche</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
