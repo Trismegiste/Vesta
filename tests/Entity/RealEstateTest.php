@@ -52,15 +52,29 @@ class RealEstateTest extends TestCase
         $this->assertEquals(3, $this->sut->getPiece());
     }
 
-    public function testTag()
+    public function testEmptyTag()
     {
         $this->assertCount(0, $this->sut->getTagArray());
+        $this->sut->deleteTag('yolo');
+        $this->assertCount(0, $this->sut->getTagArray());
+    }
+
+    public function testAddingTag()
+    {
         $this->sut->addTag('sdb');
         $this->assertCount(1, $this->sut->getTagArray());
         $this->sut->deleteTag('yolo');
         $this->assertCount(1, $this->sut->getTagArray());
         $this->sut->deleteTag('sdb');
         $this->assertCount(0, $this->sut->getTagArray());
+    }
+
+    public function testAddingDuplicatedTag()
+    {
+        $this->sut->addTag('sdb');
+        $this->assertCount(1, $this->sut->getTagArray());
+        $this->sut->addTag('sdb');
+        $this->assertCount(1, $this->sut->getTagArray());
     }
 
 }

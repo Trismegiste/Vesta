@@ -83,7 +83,9 @@ class RealEstate implements Immovable, Root
 
     public function addTag(string $tag): void
     {
-        array_push($this->tag, $tag);
+        if (false === array_search($tag, $this->tag)) {
+            array_push($this->tag, $tag);
+        }
     }
 
     public function deleteTag(string $tag): void
