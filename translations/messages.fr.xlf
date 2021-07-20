@@ -29,6 +29,10 @@
         <source>SEARCH RESULT</source>
         <target>Résultat de votre recherche</target>
       </trans-unit>
+      <trans-unit id="g7eM.es" resname="RDV SETTING">
+        <source>RDV SETTING</source>
+        <target>Je prends RDV</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
