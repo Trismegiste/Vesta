@@ -82,7 +82,11 @@ h2.impact {
 }
 
 .realestate figure, .listing article figcaption, .listing article nav {
-    margin: 0.5em 0 0 0.5em;
+    margin: 0.6em 0 0 0.6em;
+}
+
+.realestate .endmargin {
+    margin-bottom: 0.6em;
 }
 
 .realestate figcaption h3 {
@@ -101,4 +105,8 @@ h2.impact {
     padding: 0.2em 1em;
     margin: 0 1em 0 0;
     background-color: lightgray;
+}
+
+.realestate .navbar div {
+    text-align: center;
 }

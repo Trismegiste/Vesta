@@ -7,15 +7,15 @@
     <body>
       <trans-unit id="47ienTP" resname="Username">
         <source>Username</source>
-        <target>__Username</target>
+        <target>Votre identifiant</target>
       </trans-unit>
       <trans-unit id="588_9PF" resname="Password">
         <source>Password</source>
-        <target>__Password</target>
+        <target>Votre mot de passe</target>
       </trans-unit>
       <trans-unit id="v9QCsvb" resname="Sign in">
         <source>Sign in</source>
-        <target>__Sign in</target>
+        <target>Se connecter</target>
       </trans-unit>
       <trans-unit id="VSr_TZE" resname="SLOGAN IMMO">
         <source>SLOGAN IMMO</source>
