@@ -1,7 +1,7 @@
 {% extends "base.html.twig" %}
 {% block stylesheets %}
     {{  parent() }}
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css?{{ random(456789) }}">
 {% endblock %}
 
 {% block title %}{% trans %}LANDING TITLE{% endtrans %}{% endblock %}
@@ -27,12 +27,12 @@
         <div class="pure-u-1-6"><img src="/img/laptop.svg"/></div>
     </nav>
     <nav class="pure-g menu-particulier">
-        <div class="pure-u-1-6"><h2>Accueil</h2></div>
+        <div class="pure-u-1-6"><h2><a href="{{ path('app_front_index') }}">Accueil</a></h2></div>
         <div class="pure-u-1-6"><h2 class="impact color1">acheter</h2></div>
         <div class="pure-u-1-6"><h2 class="impact color2">vendre</h2></div>
         <div class="pure-u-1-6"><h2 class="impact color3">location</h2></div>
         <div class="pure-u-1-6"><h2>Rejoignez-nous</h2></div>
-        <div class="pure-u-1-6"><h2><a href="{{ '#' }}">Mon compte</a></h2></div>
+        <div class="pure-u-1-6"><h2><a href="{{ path('app_login') }}">Mon compte</a></h2></div>
     </nav>
     {% block content %}{% endblock %}
 {% endblock %}
