@@ -73,13 +73,32 @@ h2.impact {
     text-align: center;
     font-size: 130%;
     font-weight: 600;
+    margin-bottom: 0.5em;
 }
 
-.listing article {
+.realestate {
     background-color: white;
     margin-bottom: 1em;
 }
 
-.listing article figure, .listing article figcaption, .listing article nav {
+.realestate figure, .listing article figcaption, .listing article nav {
     margin: 0.5em 0 0 0.5em;
+}
+
+.realestate figcaption h3 {
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1.3em;
+}
+
+.realestate ul.tags {
+    margin: 1.5em 0;
+    padding: 0;
+}
+
+.realestate ul.tags li {
+    display: inline;
+    padding: 0.2em 1em;
+    margin: 0 1em 0 0;
+    background-color: lightgray;
 }

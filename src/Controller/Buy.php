@@ -23,7 +23,7 @@ class Buy extends AbstractController
      */
     public function listing(): Response
     {
-        $listing = ['e'];
+        $listing = ['e',1];
         return $this->render('front/listing.html.twig', ['result' => $listing]);
     }
 
