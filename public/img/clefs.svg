@@ -9,9 +9,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="8.9206438mm"
-   height="9.5194197mm"
-   viewBox="0 0 8.9206438 9.5194197"
+   width="11.540919mm"
+   height="9.5194902mm"
+   viewBox="0 0 11.540919 9.5194903"
    version="1.1"
    id="svg2415"
    inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
@@ -32,6 +32,41 @@
          id="path652"
          inkscape:connector-curvature="0" />
     </clipPath>
+    <clipPath
+       id="clip17">
+      <path
+         inkscape:connector-curvature="0"
+         id="path655"
+         d="M 419.03516,101 H 443 v 18.49609 h -23.96484 z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip18">
+      <path
+         inkscape:connector-curvature="0"
+         id="path658"
+         d="m 430,97.007812 h 7 V 104 h -7 z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip19">
+      <path
+         inkscape:connector-curvature="0"
+         id="path661"
+         d="m 442,104 h 4.76953 v 5 H 442 Z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip20">
+      <path
+         inkscape:connector-curvature="0"
+         id="path664"
+         d="m 514.42969,110.53125 h 29.23047 v 11.05078 h -29.23047 z m 0,0" />
+    </clipPath>
+    <clipPath
+       id="clip21">
+      <path
+         inkscape:connector-curvature="0"
+         id="path667"
+         d="m 525,94.597656 h 18 V 111 h -18 z m 0,0" />
+    </clipPath>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -41,8 +76,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="9.6616368"
-     inkscape:cx="-1.3194023"
-     inkscape:cy="12.407004"
+     inkscape:cx="-8.7372552"
+     inkscape:cy="11.973244"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -71,9 +106,9 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(1.4365119,38.866853)">
+     transform="translate(5.5259432,39.529388)">
     <g
-       transform="matrix(0.35277777,0,0,0.35277777,-116.33324,-73.641713)"
+       transform="matrix(0.35277777,0,0,0.35277777,-119.11253,-74.30418)"
        style="display:inline"
        id="g2388">
       <path

@@ -35,6 +35,11 @@ header img {
     font-weight: 400;
 }
 
+.menu-particulier h2 a {
+    text-decoration: none;
+    color : black;
+}
+
 .icon-particulier div {
     text-align: center;
 }

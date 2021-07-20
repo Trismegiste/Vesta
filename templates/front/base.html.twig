@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+{% block stylesheets %}
+    {{  parent() }}
+    <link rel="stylesheet" href="/css/main.css">
+{% endblock %}
+
+{% block title %}{% trans %}LANDING TITLE{% endtrans %}{% endblock %}
+
+{% block body %}
+    <header class="pure-g">
+        <div class="pure-u-1-5">
+            <img src="/img/logo.jpg" class="pure-img"/>
+        </div>
+        <div class="pure-u-1-2">
+            <h1>{% trans %}SLOGAN IMMO{% endtrans %}</h1>
+        </div>
+        <div class="pure-u-1-4">
+            SOCNET
+        </div>
+    </header>
+    <nav class="pure-g icon-particulier">
+        <div class="pure-u-1-6"><img src="/img/maison.svg"/></div>
+        <div class="pure-u-1-6"><img src="/img/clefs.svg"/></div>
+        <div class="pure-u-1-6"><img src="/img/cochon.svg"/></div>
+        <div class="pure-u-1-6"><img src="/img/location.svg"/></div>
+        <div class="pure-u-1-6"><img src="/img/liveyourdream.svg"/></div>
+        <div class="pure-u-1-6"><img src="/img/laptop.svg"/></div>
+    </nav>
+    <nav class="pure-g menu-particulier">
+        <div class="pure-u-1-6"><h2>Accueil</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color1">acheter</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color2">vendre</h2></div>
+        <div class="pure-u-1-6"><h2 class="impact color3">location</h2></div>
+        <div class="pure-u-1-6"><h2>Rejoignez-nous</h2></div>
+        <div class="pure-u-1-6"><h2><a href="{{ '#' }}">Mon compte</a></h2></div>
+    </nav>
+    {% block content %}{% endblock %}
+{% endblock %}
