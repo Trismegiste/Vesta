@@ -77,4 +77,10 @@ class RealEstateTest extends TestCase
         $this->assertCount(1, $this->sut->getTagArray());
     }
 
+    public function testPrix()
+    {
+        $this->sut->setPrix(42);
+        $this->assertEquals(42, $this->sut->getPrix());
+    }
+
 }

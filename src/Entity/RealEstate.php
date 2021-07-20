@@ -20,6 +20,7 @@ class RealEstate implements Immovable, Root
     protected $location;
     protected $surface;
     protected $piece;
+    protected $prix;
 
     public function __construct()
     {
@@ -99,6 +100,16 @@ class RealEstate implements Immovable, Root
     public function getTagArray(): array
     {
         return $this->tag;
+    }
+
+    public function getPrix(): int
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(int $p)
+    {
+        $this->prix = $p;
     }
 
 }
