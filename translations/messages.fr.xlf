@@ -37,6 +37,18 @@
         <source>SEARCH RESULT TITLE</source>
         <target>Résultat de recherche</target>
       </trans-unit>
+      <trans-unit id=".CMK1xE" resname="COMMENT VIEW">
+        <source>COMMENT VIEW</source>
+        <target>Voir les avis</target>
+      </trans-unit>
+      <trans-unit id="Xssd6.u" resname="VIRTUAL VISIT">
+        <source>VIRTUAL VISIT</source>
+        <target>Visite virtuelle</target>
+      </trans-unit>
+      <trans-unit id=".crOvRO" resname="WATCH ON MAP">
+        <source>WATCH ON MAP</source>
+        <target>Voir sur la carte</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>

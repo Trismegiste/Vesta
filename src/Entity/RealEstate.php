@@ -97,7 +97,7 @@ class RealEstate implements Immovable, Root
         }
     }
 
-    public function getTagArray(): array
+    public function getTag(): array
     {
         return $this->tag;
     }

@@ -35,12 +35,29 @@ class RealEstateRepo implements Repository
 
     public function search(array $filter = [], array $excludedField = [], string $descendingSortField = null): Iterator
     {
-        return new \ArrayIterator([1]);
+        $tmp = [];
+        for ($k = 0; $k < 10; $k++) {
+            $obj = new \App\Entity\RealEstate();
+            $obj->setTitre($this->getRandomString(40));
+            $obj->setDescription($this->getRandomString(300));
+            for ($t = 0; $t < 4; $t++) {
+                $obj->addTag($this->getRandomString(8));
+            }
+
+            array_push($tmp, $obj);
+        }
+
+        return new \ArrayIterator($tmp);
     }
 
     public function searchAutocomplete(string $field, string $startWith, int $limit = 20)
     {
         
+    }
+
+    protected function getRandomString(int $n): string
+    {
+        return str_shuffle(str_repeat(' ', $n / 6) . base64_encode(random_bytes($n)));
     }
 
 }

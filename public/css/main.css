@@ -115,3 +115,7 @@ h2.impact {
 nav.actions {
     text-align: center;
 }
+
+.realestate figcaption p {
+    line-height: 150%;
+}
