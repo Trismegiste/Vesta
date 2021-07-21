@@ -36,11 +36,11 @@ class RealEstateRepo implements Repository
     public function search(array $filter = [], array $excludedField = [], string $descendingSortField = null): Iterator
     {
         $tmp = [];
-        for ($k = 0; $k < 10; $k++) {
+        for ($k = 0; $k < random_int(10, 20); $k++) {
             $obj = new \App\Entity\RealEstate();
             $obj->setTitle($this->getRandomString(random_int(30, 50)));
             $obj->setDescription($this->getRandomString(random_int(200, 400)));
-            for ($t = 0; $t < random_int(2, 8); $t++) {
+            for ($t = 0; $t < random_int(2, 6); $t++) {
                 $obj->addTag($this->getRandomString(random_int(3, 8)));
             }
             $obj->setPrice(1000 * random_int(80, 700));
