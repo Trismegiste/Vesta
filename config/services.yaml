@@ -37,3 +37,7 @@ services:
         arguments: ['user']
 
     Trismegiste\Toolbox\MongoDb\Repository $userRepo: '@app.user.repository'
+    
+    app.realestate.repository:
+        class: App\Respository\RealEstateRepo
+        

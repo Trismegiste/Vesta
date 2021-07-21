@@ -16,12 +16,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class Buy extends AbstractController
 {
 
+    protected $realestateRepo;
+
+    public function __construct(\App\Repository\RealEstateRepo $repository)
+    {
+        $this->realestateRepo = $repository;
+    }
+
     /**
      * @Route("/listing", methods={"GET"})
      */
     public function listing(): Response
     {
-        $listing = [1, 2, 3, 4];
+        $listing = $this->realestateRepo->search();
+
         return $this->render('front/listing.html.twig', ['result' => $listing]);
     }
 
