@@ -40,8 +40,8 @@ class RealEstateRepo implements Repository
             $obj = new \App\Entity\RealEstate();
             $obj->setTitre($this->getRandomString(random_int(30, 50)));
             $obj->setDescription($this->getRandomString(random_int(200, 400)));
-            for ($t = 0; $t < 4; $t++) {
-                $obj->addTag($this->getRandomString(8));
+            for ($t = 0; $t < random_int(1, 8); $t++) {
+                $obj->addTag($this->getRandomString(random_int(3, 8)));
             }
             $obj->setPrix(1000 * random_int(80, 700));
 
