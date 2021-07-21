@@ -58,7 +58,7 @@ class RealEstateRepo implements Repository
 
     protected function getRandomString(int $n): string
     {
-        return str_shuffle(str_repeat(' ', $n / 6) . base64_encode(random_bytes($n)));
+        return str_shuffle(str_repeat(' ', $n / 5) . base64_encode(random_bytes($n)));
     }
 
 }

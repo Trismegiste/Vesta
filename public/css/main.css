@@ -39,6 +39,10 @@ a {
     text-decoration: none;
 }
 
+.icon-particulier {
+    margin-bottom: 0.2em;
+}
+
 .icon-particulier div {
     text-align: center;
 }

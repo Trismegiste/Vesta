@@ -16,6 +16,7 @@ class FrontTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/');
+        $this->assertResponseIsSuccessful();
         $this->assertPageTitleContains('Bienv');
     }
 
