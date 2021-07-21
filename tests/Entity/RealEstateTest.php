@@ -30,8 +30,8 @@ class RealEstateTest extends TestCase
 
     public function testTitre()
     {
-        $this->sut->setTitre("Un titre");
-        $this->assertEquals('Un titre', $this->sut->getTitre());
+        $this->sut->setTitle("Un titre");
+        $this->assertEquals('Un titre', $this->sut->getTitle());
     }
 
     public function testDescription()
@@ -48,8 +48,8 @@ class RealEstateTest extends TestCase
 
     public function testNombrePiece()
     {
-        $this->sut->setPiece(3.5);
-        $this->assertEquals(3, $this->sut->getPiece());
+        $this->sut->setRoom(3.5);
+        $this->assertEquals(3, $this->sut->getRoom());
     }
 
     public function testEmptyTag()
@@ -79,8 +79,8 @@ class RealEstateTest extends TestCase
 
     public function testPrix()
     {
-        $this->sut->setPrix(42);
-        $this->assertEquals(42, $this->sut->getPrix());
+        $this->sut->setPrice(42);
+        $this->assertEquals(42, $this->sut->getPrice());
     }
 
 }

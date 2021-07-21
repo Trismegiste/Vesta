@@ -15,6 +15,7 @@ class BuyTest extends WebTestCase
     {
         $client = static::createClient();
         $client->request('GET', '/listing');
+        $this->assertResponseIsSuccessful();
         $this->assertPageTitleContains('Résultat');
     }
 

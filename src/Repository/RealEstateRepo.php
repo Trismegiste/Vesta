@@ -38,12 +38,12 @@ class RealEstateRepo implements Repository
         $tmp = [];
         for ($k = 0; $k < 10; $k++) {
             $obj = new \App\Entity\RealEstate();
-            $obj->setTitre($this->getRandomString(random_int(30, 50)));
+            $obj->setTitle($this->getRandomString(random_int(30, 50)));
             $obj->setDescription($this->getRandomString(random_int(200, 400)));
-            for ($t = 0; $t < random_int(1, 8); $t++) {
+            for ($t = 0; $t < random_int(2, 8); $t++) {
                 $obj->addTag($this->getRandomString(random_int(3, 8)));
             }
-            $obj->setPrix(1000 * random_int(80, 700));
+            $obj->setPrice(1000 * random_int(80, 700));
 
             array_push($tmp, $obj);
         }

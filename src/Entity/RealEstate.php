@@ -14,14 +14,14 @@ class RealEstate implements Immovable, Root
     use RootImpl;
 
     protected $currentState;
-    protected $titre;
+    protected $title;
     protected $description;
     protected $tag = [];
     protected $location;
     protected $surface;
-    protected $piece;
-    protected $prix;
-    protected $devise = 'EUR';
+    protected $room;
+    protected $price;
+    protected $currency = 'EUR';
 
     public function __construct()
     {
@@ -43,9 +43,9 @@ class RealEstate implements Immovable, Root
         return $this->location;
     }
 
-    public function setTitre(string $t): void
+    public function setTitle(string $t): void
     {
-        $this->titre = $t;
+        $this->title = $t;
     }
 
     public function setDescription(string $t): void
@@ -58,14 +58,14 @@ class RealEstate implements Immovable, Root
         $this->surface = $s;
     }
 
-    public function setPiece(string $p): void
+    public function setRoom(string $p): void
     {
-        $this->piece = $p;
+        $this->room = $p;
     }
 
-    public function getTitre(): string
+    public function getTitle(): string
     {
-        return $this->titre;
+        return $this->title;
     }
 
     public function getDescription(): string
@@ -78,9 +78,9 @@ class RealEstate implements Immovable, Root
         return $this->surface;
     }
 
-    public function getPiece(): int
+    public function getRoom(): int
     {
-        return $this->piece;
+        return $this->room;
     }
 
     public function addTag(string $tag): void
@@ -103,19 +103,19 @@ class RealEstate implements Immovable, Root
         return $this->tag;
     }
 
-    public function getPrix(): int
+    public function getPrice(): int
     {
-        return $this->prix;
+        return $this->price;
     }
 
-    public function setPrix(int $p)
+    public function setPrice(int $p)
     {
-        $this->prix = $p;
+        $this->price = $p;
     }
 
-    public function getDevise(): string
+    public function getCurrency(): string
     {
-        return $this->devise;
+        return $this->currency;
     }
 
 }
