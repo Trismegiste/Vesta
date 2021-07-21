@@ -22,14 +22,16 @@
                         </nav>
                         <ul class="tags">
                             {% for tag in immo.tag %}
-                                <li style="color: hsl({{ crc_hue(tag) }}, 70%, 30%); background-color: hsl({{ crc_hue(tag) }}, 70%, 85%)">{{ tag }}</li>
+                                <li style="color: hsl({{ crc_hue(tag) }}, 70%, 25%); background-color: hsl({{ crc_hue(tag) }}, 70%, 85%)">
+                                    {{ tag }}
+                                </li>
                             {% endfor %}
                         </ul>
                     </figcaption>
                 </div>
                 <div class="pure-u-1-8">
                     <nav class="actions">
-                        <h3>200.000 €</h3>
+                        <h3>{{ immo.prix|format_currency('EUR', locale='fr', attrs={fraction_digit: 0}) }}</h3>
                         <a href="#"><img src="{{ asset('img/arrowright.svg') }}"/><br/>
                             {% trans %}RDV SETTING{% endtrans %}</a>
                     </nav>

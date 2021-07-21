@@ -43,6 +43,7 @@ class RealEstateRepo implements Repository
             for ($t = 0; $t < 4; $t++) {
                 $obj->addTag($this->getRandomString(8));
             }
+            $obj->setPrix(1000 * random_int(80, 700));
 
             array_push($tmp, $obj);
         }

@@ -119,3 +119,8 @@ nav.actions {
 .realestate figcaption p {
     line-height: 150%;
 }
+
+.realestate nav.actions h3 {
+    font-size: 150%;
+    font-weight: 300;
+}

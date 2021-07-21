@@ -10,3 +10,5 @@ php --ri mongo
 
 sudo apt install mongodb
 sudo systemctl start mongodb 
+
+sudo apt install php7.4-intl
