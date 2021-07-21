@@ -31,7 +31,7 @@
                 </div>
                 <div class="pure-u-1-8">
                     <nav class="actions">
-                        <h3>{{ immo.prix|format_currency('EUR', locale='fr', attrs={fraction_digit: 0}) }}</h3>
+                        <h3>{{ immo.prix|format_currency(immo.devise, locale='fr', attrs={fraction_digit: 0}) }}</h3>
                         <a href="#"><img src="{{ asset('img/arrowright.svg') }}"/><br/>
                             {% trans %}RDV SETTING{% endtrans %}</a>
                     </nav>

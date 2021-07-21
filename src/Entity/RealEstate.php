@@ -21,6 +21,7 @@ class RealEstate implements Immovable, Root
     protected $surface;
     protected $piece;
     protected $prix;
+    protected $devise = 'EUR';
 
     public function __construct()
     {
@@ -110,6 +111,11 @@ class RealEstate implements Immovable, Root
     public function setPrix(int $p)
     {
         $this->prix = $p;
+    }
+
+    public function getDevise(): string
+    {
+        return $this->devise;
     }
 
 }
