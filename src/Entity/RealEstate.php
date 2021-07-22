@@ -22,6 +22,8 @@ class RealEstate implements Immovable, Root
     protected $room;
     protected $price;
     protected $currency = 'EUR';
+    protected $latitude;
+    protected $longitude;
 
     public function __construct()
     {
@@ -116,6 +118,22 @@ class RealEstate implements Immovable, Root
     public function getCurrency(): string
     {
         return $this->currency;
+    }
+
+    public function setCoord(float $long, float $lat): void
+    {
+        $this->longitude = $long;
+        $this->latitude = $lat;
+    }
+
+    public function getLatitude(): float
+    {
+        return $this->latitude;
+    }
+
+    public function getLongitude(): float
+    {
+        return $this->longitude;
     }
 
 }
