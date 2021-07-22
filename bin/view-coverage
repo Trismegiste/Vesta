@@ -1,0 +1,2 @@
+phpdbg -qrr bin/phpunit
+firefox doc/coverage/index.html

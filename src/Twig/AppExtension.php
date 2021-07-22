@@ -9,6 +9,9 @@ namespace App\Twig;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * Extension for Twig
+ */
 class AppExtension extends AbstractExtension
 {
 
@@ -19,6 +22,12 @@ class AppExtension extends AbstractExtension
         ];
     }
 
+    /**
+     * Gets a hue between 0 to 360° from a string
+     * 
+     * @param string $tag
+     * @return int
+     */
     public function getHue(string $tag): int
     {
         $hue = hexdec(substr(hash('crc32', $tag), 7));
