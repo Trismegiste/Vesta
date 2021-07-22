@@ -65,5 +65,7 @@
             L.marker([{{ immo.latitude }}, {{ immo.longitude }}]).addTo(map)
                     .bindPopup('{{ immo.title|e('js') }}');
         {% endfor %}
+
+            map.fitBounds({{result.boundaries|json_encode() }});
     </script>
 {% endblock %}

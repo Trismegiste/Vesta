@@ -30,7 +30,7 @@ class Buy extends AbstractController
     {
         $listing = $this->realestateRepo->search();
 
-        return $this->render('front/listing.html.twig', ['result' => $listing]);
+        return $this->render('front/listing.html.twig', ['result' => new \App\Entity\ImmoSet($listing)]);
     }
 
 }
