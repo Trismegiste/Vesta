@@ -6,6 +6,8 @@
 
 namespace App\Controller;
 
+use App\Entity\ImmoSet;
+use App\Repository\RealEstateRepo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +20,7 @@ class Buy extends AbstractController
 
     protected $realestateRepo;
 
-    public function __construct(\App\Repository\RealEstateRepo $repository)
+    public function __construct(RealEstateRepo $repository)
     {
         $this->realestateRepo = $repository;
     }
@@ -30,7 +32,7 @@ class Buy extends AbstractController
     {
         $listing = $this->realestateRepo->search();
 
-        return $this->render('front/listing.html.twig', ['result' => new \App\Entity\ImmoSet($listing)]);
+        return $this->render('front/listing.html.twig', ['result' => new ImmoSet($listing)]);
     }
 
 }

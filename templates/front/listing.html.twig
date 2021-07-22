@@ -66,6 +66,6 @@
                     .bindPopup('{{ immo.title|e('js') }}');
         {% endfor %}
 
-            map.fitBounds({{result.boundaries|json_encode() }});
+            map.fitBounds({{ result.boundaries|json_encode() }});
     </script>
 {% endblock %}
