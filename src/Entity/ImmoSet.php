@@ -62,7 +62,7 @@ class ImmoSet implements \Iterator
 
         foreach ($this->iter as $item) {
             if (!$item instanceof Immovable) {
-                throw new InvalidArgumentException("Item is not an Immovable");
+                throw new \InvalidArgumentException("Item is not an Immovable");
             }
             if ($item->getLongitude() < $minLong) {
                 $minLong = $item->getLongitude();
