@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use App\Entity\ImmoSet;
+use App\Entity\RealEstate;
 use App\Repository\RealEstateRepo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,7 +41,8 @@ class Buy extends AbstractController
      */
     public function detail(): Response
     {
-        return new Response("aaaaaaaaaaaa");
+        $listing = $this->realestateRepo->search();
+        return $this->render('front/detail.html.twig', ['immo' => $listing->current()]);
     }
 
 }
