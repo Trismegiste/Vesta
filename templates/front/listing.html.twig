@@ -17,13 +17,19 @@
             <article class="pure-g realestate">
                 <div class="pure-u-1-8">
                     <figure>
-                        <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
+                        <a href="{{ path('app_buy_detail') }}">
+                            <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
+                        </a>
                     </figure>
                 </div>
                 <div class="pure-u-3-4">
                     <figcaption>
-                        <h3>{{ immo.title }}</h3>
-                        <p>{{ immo.description }}</p>
+                        <a href="{{ path('app_buy_detail') }}">
+                            <h3>{{ immo.title }}</h3>
+                        </a>
+                        <a href="{{ path('app_buy_detail') }}">
+                            <p>{{ immo.description }}</p>
+                        </a>
                         <nav class="pure-g navbar">
                             <div class="pure-u-1-3">{% trans %}COMMENT VIEW{% endtrans %} (0)</div>
                             <div class="pure-u-1-3">{% trans %}VIRTUAL VISIT{% endtrans %}</div>

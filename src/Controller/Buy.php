@@ -35,4 +35,12 @@ class Buy extends AbstractController
         return $this->render('front/listing.html.twig', ['result' => new ImmoSet($listing)]);
     }
 
+    /**
+     * @Route("/detail", methods={"GET"})
+     */
+    public function detail(): Response
+    {
+        return new Response("aaaaaaaaaaaa");
+    }
+
 }

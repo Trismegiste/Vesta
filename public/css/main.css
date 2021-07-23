@@ -133,3 +133,7 @@ nav.actions {
     height: 250px;
     margin-bottom: 1em;
 }
+
+.realestate figcaption a {
+    color: black;
+}
