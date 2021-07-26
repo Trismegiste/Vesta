@@ -10,7 +10,7 @@ use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
 /**
- * Generic class of a meeting between users at a location and an date
+ * Generic class of a meeting between users at a location and a date
  */
 abstract class Meeting implements Root
 {
@@ -20,7 +20,7 @@ abstract class Meeting implements Root
     protected $location;
     protected $rdvTime;
 
-    public function __construct(Address $loc, int $ts)
+    public function __construct(Immovable $loc, int $ts)
     {
         $this->location = $loc;
         $this->rdvTime = $ts;

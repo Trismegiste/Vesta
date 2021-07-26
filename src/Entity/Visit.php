@@ -7,11 +7,13 @@
 namespace App\Entity;
 
 /**
- * Description of Visit
- *
- * @author flo
+ * Visit of a consumer (buyer) in a real estate
  */
 class Visit extends Meeting
 {
-    //put your code here
+
+    protected $owner;
+    protected $buyer;
+    protected $trader;
+
 }

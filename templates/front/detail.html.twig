@@ -2,41 +2,24 @@
 {% block title %}{{ immo.title }}{% endblock %}
 {% block content %}
     <article class="pure-g realestate">
-        <div class="pure-u-1-8">
+        <div class="pure-u-1-5">
             <figure>
-                <a href="{{ path('app_buy_detail') }}">
-                    <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
-                </a>
+                <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
             </figure>
-        </div>
-        <div class="pure-u-3-4">
             <figcaption>
-                <a href="{{ path('app_buy_detail') }}">
-                    <h3>{{ immo.title }}</h3>
-                </a>
-                <a href="{{ path('app_buy_detail') }}">
-                    <p>{{ immo.description }}</p>
-                </a>
-                <nav class="pure-g navbar">
-                    <div class="pure-u-1-3">{% trans %}COMMENT VIEW{% endtrans %} (0)</div>
-                    <div class="pure-u-1-3">{% trans %}VIRTUAL VISIT{% endtrans %}</div>
-                    <div class="pure-u-1-3">{% trans %}WATCH ON MAP{% endtrans %}</div>
-                </nav>
+                <h3>{{ immo.title }}</h3>
+                <p>{{ immo.description }}</p>
                 <ul class="tags">
                     {% for tag in immo.tag %}
                         <li style="color: hsl({{ crc_hue(tag) }}, 70%, 25%); background-color: hsl({{ crc_hue(tag) }}, 70%, 85%)">
                             {{ tag }}
                         </li>
                     {% endfor %}
-                </ul>
+                </ul>   
             </figcaption>
         </div>
-        <div class="pure-u-1-8">
-            <nav class="actions">
-                <h3>{{ immo.price|format_currency(immo.currency, locale='fr', attrs={fraction_digit: 0}) }}</h3>
-                <a href="#"><img src="{{ asset('img/arrowright.svg') }}"/><br/>
-                    {% trans %}RDV SETTING{% endtrans %}</a>
-            </nav>
+        <div class="pure-u-4-5">
+            <div id="container" style="height: 700px"></div>
         </div>
     </article>
 {% endblock %}
@@ -46,8 +29,9 @@
     <script src="{{ asset('js/three.min.js') }}"></script>
     <script src="{{ asset('js/panolens.min.js') }}"></script>
     <script>
+        var container = document.querySelector('#container')
         const panorama = new PANOLENS.ImagePanorama('/upload/equirectangular.jpg');
-        const viewer = new PANOLENS.Viewer({output: 'console'});
+        const viewer = new PANOLENS.Viewer({container: container});
         viewer.add(panorama);
     </script>
 {% endblock %}
