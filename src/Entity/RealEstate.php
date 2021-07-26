@@ -6,7 +6,7 @@ use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
 /**
- * RealEstate is a real Estate
+ * RealEstate is a real estate
  */
 class RealEstate implements Immovable, Root
 {
@@ -20,10 +20,12 @@ class RealEstate implements Immovable, Root
     protected $location;
     protected $surface;
     protected $room;
+    protected $floor;
     protected $price;
     protected $currency = 'EUR';
     protected $latitude;
     protected $longitude;
+    protected $owner;
 
     public function __construct()
     {

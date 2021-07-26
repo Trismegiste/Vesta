@@ -1,7 +1,7 @@
 security:
     
     password_hashers:
-        App\Security\User:
+        App\Entity\User:
             algorithm: auto
             
     # https://symfony.com/doc/current/security/experimental_authenticators.html
