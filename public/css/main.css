@@ -85,7 +85,7 @@ h2.impact {
     margin-bottom: 1em;
 }
 
-.realestate figure, .listing article figcaption, .listing article nav {
+article.realestate figure, article.realestate figcaption, article.realestate nav.actions {
     margin: 0.6em 0 0 0.6em;
 }
 
