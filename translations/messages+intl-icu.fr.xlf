@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+        <header>
+            <tool tool-id="symfony" tool-name="Symfony"/>
+        </header>
+        <body>
+            <trans-unit id="bwymCr0" resname="ROOM_NUMBER">
+                <source>ROOM_NUMBER</source>
+                <target>{room, plural, =0 {studio} one {1 pièce} other {# pièces}}</target>        
+            </trans-unit>
+            <trans-unit id="xHyV1iT" resname="FLOOR_NUMBER">
+                <source>FLOOR_NUMBER</source>
+                <target>{floor, selectordinal, =0 {RDC} one {#er étage} other {#e étage}}</target>        
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

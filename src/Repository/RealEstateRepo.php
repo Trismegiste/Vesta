@@ -47,7 +47,7 @@ class RealEstateRepo implements Repository
             $obj->setCoord(7.1 + random_int(0, 1000) / 2000, 43.7 + random_int(0, 1000) / 10000);
             $obj->setSurface(random_int(25, 125));
             $obj->setFloor(random_int(0, 8));
-            $obj->setRoom(random_int(1, 5));
+            $obj->setRoom(random_int(0, 4));
             array_push($tmp, $obj);
         }
 

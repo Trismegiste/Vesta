@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
-    <header>
-      <tool tool-id="symfony" tool-name="Symfony"/>
-    </header>
-    <body>
-      <trans-unit id="47ienTP" resname="Username">
-        <source>Username</source>
-        <target>Votre identifiant</target>
-      </trans-unit>
-      <trans-unit id="588_9PF" resname="Password">
-        <source>Password</source>
-        <target>Votre mot de passe</target>
-      </trans-unit>
-      <trans-unit id="v9QCsvb" resname="Sign in">
-        <source>Sign in</source>
-        <target>Se connecter</target>
-      </trans-unit>
-      <trans-unit id="VSr_TZE" resname="SLOGAN IMMO">
-        <source>SLOGAN IMMO</source>
-        <target>ZEROPOURCENT.IMMO - L'IMMO SANS COMMISSION</target>
-      </trans-unit>
-      <trans-unit id="xRVe8FO" resname="LANDING TITLE">
-        <source>LANDING TITLE</source>
-        <target>Bienvenue</target>
-      </trans-unit>
-      <trans-unit id="A7XQeFy" resname="SEARCH RESULT">
-        <source>SEARCH RESULT</source>
-        <target>Résultat de votre recherche</target>
-      </trans-unit>
-      <trans-unit id="g7eM.es" resname="RDV SETTING">
-        <source>RDV SETTING</source>
-        <target>Je prends RDV</target>
-      </trans-unit>
-      <trans-unit id="94ftYOh" resname="SEARCH RESULT TITLE">
-        <source>SEARCH RESULT TITLE</source>
-        <target>Résultat de recherche</target>
-      </trans-unit>
-      <trans-unit id=".CMK1xE" resname="COMMENT VIEW">
-        <source>COMMENT VIEW</source>
-        <target>Voir les avis</target>
-      </trans-unit>
-      <trans-unit id="Xssd6.u" resname="VIRTUAL VISIT">
-        <source>VIRTUAL VISIT</source>
-        <target>Visite virtuelle</target>
-      </trans-unit>
-      <trans-unit id=".crOvRO" resname="WATCH ON MAP">
-        <source>WATCH ON MAP</source>
-        <target>Voir sur la carte</target>
-      </trans-unit>
-    </body>
-  </file>
+    <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+        <header>
+            <tool tool-id="symfony" tool-name="Symfony"/>
+        </header>
+        <body>
+            <trans-unit id="47ienTP" resname="Username">
+                <source>Username</source>
+                <target>Votre identifiant</target>
+            </trans-unit>
+            <trans-unit id="588_9PF" resname="Password">
+                <source>Password</source>
+                <target>Votre mot de passe</target>
+            </trans-unit>
+            <trans-unit id="v9QCsvb" resname="Sign in">
+                <source>Sign in</source>
+                <target>Se connecter</target>
+            </trans-unit>
+            <trans-unit id="VSr_TZE" resname="SLOGAN IMMO">
+                <source>SLOGAN IMMO</source>
+                <target>ZEROPOURCENT.IMMO - L'IMMO SANS COMMISSION</target>
+            </trans-unit>
+            <trans-unit id="xRVe8FO" resname="LANDING TITLE">
+                <source>LANDING TITLE</source>
+                <target>Bienvenue</target>
+            </trans-unit>
+            <trans-unit id="A7XQeFy" resname="SEARCH RESULT">
+                <source>SEARCH RESULT</source>
+                <target>Résultat de votre recherche</target>
+            </trans-unit>
+            <trans-unit id="g7eM.es" resname="RDV SETTING">
+                <source>RDV SETTING</source>
+                <target>Je prends RDV</target>
+            </trans-unit>
+            <trans-unit id="94ftYOh" resname="SEARCH RESULT TITLE">
+                <source>SEARCH RESULT TITLE</source>
+                <target>Résultat de recherche</target>
+            </trans-unit>
+            <trans-unit id=".CMK1xE" resname="COMMENT VIEW">
+                <source>COMMENT VIEW</source>
+                <target>Voir les avis</target>
+            </trans-unit>
+            <trans-unit id="Xssd6.u" resname="VIRTUAL VISIT">
+                <source>VIRTUAL VISIT</source>
+                <target>Visite virtuelle</target>
+            </trans-unit>
+            <trans-unit id=".crOvRO" resname="WATCH ON MAP">
+                <source>WATCH ON MAP</source>
+                <target>Voir sur la carte</target>
+            </trans-unit>          
+        </body>
+    </file>
 </xliff>

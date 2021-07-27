@@ -7,6 +7,7 @@
 namespace App\Twig;
 
 use App\Entity\RealEstate;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 use Twig\TwigFunction;
@@ -16,6 +17,13 @@ use Twig\TwigFunction;
  */
 class AppExtension extends AbstractExtension
 {
+
+    protected $translator;
+
+    public function __construct(TranslatorInterface $translate)
+    {
+        $this->translator = $translate;
+    }
 
     public function getFunctions()
     {
@@ -46,11 +54,11 @@ class AppExtension extends AbstractExtension
 
     public function getCatchLine(RealEstate $immo): string
     {
-        return sprintf('%s %d m² %d pièces %de étage',
+        return sprintf('%s %d m² %s %s',
                 $immo->getTitle(),
                 $immo->getSurface(),
-                $immo->getRoom(),
-                $immo->getFloor(),
+                $this->translator->trans('ROOM_NUMBER', ['room' => $immo->getRoom()]),
+                $this->translator->trans('FLOOR_NUMBER', ['floor' => $immo->getFloor()])
         );
     }
 
