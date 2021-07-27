@@ -20,7 +20,7 @@ class RealEstate implements Immovable, Root
     protected $location;
     protected $surface;
     protected $room;
-    protected $floor;
+    protected $floorNumber;
     protected $price;
     protected $currency = 'EUR';
     protected $latitude;
@@ -62,7 +62,12 @@ class RealEstate implements Immovable, Root
         $this->surface = $s;
     }
 
-    public function setRoom(string $p): void
+    public function setFloor(int $param): void
+    {
+        $this->floorNumber = $param;
+    }
+
+    public function setRoom(int $p): void
     {
         $this->room = $p;
     }
@@ -141,6 +146,16 @@ class RealEstate implements Immovable, Root
     public function hasOffer(): bool
     {
         return (bool) random_int(0, 1);
+    }
+
+    public function isNewEntry(): bool
+    {
+        return (bool) random_int(0, 1);
+    }
+
+    public function getFloor(): int
+    {
+        return $this->floorNumber;
     }
 
 }

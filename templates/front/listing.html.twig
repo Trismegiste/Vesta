@@ -21,8 +21,12 @@
                         <a href="{{ path('app_buy_detail') }}">
                             <div class="image-container">
                                 <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
-                                <div class="flag"><img src="{{ asset('img/flag-nouveau.svg') }}"/></div>
-                                <div class="flag flag-right"><img src="{{ asset('img/flag-offre.svg') }}"/></div>
+                                {% if immo.newentry %}
+                                    <div class="flag"><img src="{{ asset('img/flag-nouveau.svg') }}"/></div>
+                                    {% endif %}
+                                    {% if immo.offer %}
+                                    <div class="flag flag-right"><img src="{{ asset('img/flag-offre.svg') }}"/></div>
+                                    {% endif %}
                             </div>
                         </a>
                     </figure>
@@ -30,7 +34,7 @@
                 <div class="pure-u-3-4">
                     <figcaption>
                         <a href="{{ path('app_buy_detail') }}">
-                            <h3>{{ immo.title }}</h3>
+                            <h3>{{ immo|catchline }}</h3>
                         </a>
                         <a href="{{ path('app_buy_detail') }}">
                             <p>{{ immo.description }}</p>
@@ -77,7 +81,7 @@
         }).addTo(map);
         {% for immo in result %}
             L.marker([{{ immo.latitude }}, {{ immo.longitude }}]).addTo(map)
-                    .bindPopup('<img class="pure-img endmargin" src="/upload/placeholder.jpg"/><br/>{{ immo.title|e('js') }}');
+                    .bindPopup('<img class="pure-img endmargin" src="/upload/placeholder.jpg"/><br/>{{ immo|catchline|e('js') }}');
         {% endfor %}
 
             map.fitBounds({{ result.boundaries|json_encode() }});
