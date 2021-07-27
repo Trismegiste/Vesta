@@ -72,7 +72,7 @@
         }).addTo(map);
         {% for immo in result %}
             L.marker([{{ immo.latitude }}, {{ immo.longitude }}]).addTo(map)
-                    .bindPopup('{{ immo.title|e('js') }}');
+                    .bindPopup('<img class="pure-img endmargin" src="/upload/placeholder.jpg"/><br/>{{ immo.title|e('js') }}');
         {% endfor %}
 
             map.fitBounds({{ result.boundaries|json_encode() }});

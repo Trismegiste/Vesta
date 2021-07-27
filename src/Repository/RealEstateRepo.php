@@ -39,7 +39,7 @@ class RealEstateRepo implements Repository
         for ($k = 0; $k < random_int(10, 20); $k++) {
             $obj = new \App\Entity\RealEstate();
             $obj->setTitle($this->getRandomString(random_int(30, 50)));
-            $obj->setDescription($this->getRandomString(random_int(200, 400)));
+            $obj->setDescription($this->getRandomString(random_int(150, 300)));
             for ($t = 0; $t < random_int(2, 6); $t++) {
                 $obj->addTag($this->getRandomString(random_int(3, 8)));
             }
@@ -58,7 +58,7 @@ class RealEstateRepo implements Repository
 
     protected function getRandomString(int $n): string
     {
-        return str_shuffle(str_repeat(' ', $n / 5) . base64_encode(random_bytes($n)));
+        return str_shuffle(str_repeat(' ', $n / 2) . base64_encode(random_bytes($n)));
     }
 
 }

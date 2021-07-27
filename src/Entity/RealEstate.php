@@ -138,4 +138,9 @@ class RealEstate implements Immovable, Root
         return $this->longitude;
     }
 
+    public function hasOffer(): bool
+    {
+        return (bool) random_int(0, 1);
+    }
+
 }
