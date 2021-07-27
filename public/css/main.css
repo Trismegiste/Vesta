@@ -69,15 +69,16 @@ h2.impact {
 }
 
 .listing {
-    padding: 1em;
+    padding: 0 1em;
 }
 
-.listing header {
+header.content-header {
     color: white;
     text-align: center;
     font-size: 130%;
     font-weight: 600;
     margin-bottom: 0.5em;
+    padding-top: 0.6em;
 }
 
 .realestate {
@@ -129,7 +130,7 @@ nav.actions {
     font-weight: 300;
 }
 
-#result-map {
+#listing-map {
     height: 250px;
     margin-bottom: 1em;
 }

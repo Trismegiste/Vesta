@@ -9,10 +9,11 @@
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 {% endblock %}
 
+{% block content_title %}{% trans %}SEARCH RESULT{% endtrans %}{% endblock %}
+
 {% block content %}
     <section class="listing">
-        <header>{% trans %}SEARCH RESULT{% endtrans %}</header>
-        <div id="result-map"></div>
+        <div id="listing-map"></div>
         {% for immo in result %}
             <article class="pure-g realestate">
                 <div class="pure-u-1-8">
@@ -67,7 +68,7 @@
     crossorigin=""></script>    
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <script>
-        var map = L.map('result-map', {
+        var map = L.map('listing-map', {
             fullscreenControl: true
         });
 
