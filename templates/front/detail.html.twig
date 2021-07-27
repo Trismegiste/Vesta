@@ -22,7 +22,7 @@
         </div>
         <div class="pure-u-4-5">
             <figure>
-                <div id="container" style="height: 700px"></div>
+                <div id="equirectangular-visit" style="height: 700px"></div>
             </figure>
         </div>
     </article>
@@ -33,7 +33,7 @@
     <script src="{{ asset('js/three.min.js') }}"></script>
     <script src="{{ asset('js/panolens.min.js') }}"></script>
     <script>
-        var container = document.querySelector('#container')
+        var container = document.querySelector('#equirectangular-visit')
         const panorama = new PANOLENS.ImagePanorama('/upload/equirectangular.jpg');
         const viewer = new PANOLENS.Viewer({container: container});
         viewer.add(panorama);
