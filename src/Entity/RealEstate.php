@@ -143,16 +143,31 @@ class RealEstate implements Immovable, Root
         return $this->longitude;
     }
 
+    /**
+     * Is there an offer on this item ?
+     * 
+     * @return bool
+     */
     public function hasOffer(): bool
     {
         return (bool) random_int(0, 1);
     }
 
+    /**
+     * Is this a new item ?
+     * 
+     * @return bool
+     */
     public function isNewEntry(): bool
     {
         return (bool) random_int(0, 1);
     }
 
+    /**
+     * The floor in the building
+     * 
+     * @return int
+     */
     public function getFloor(): int
     {
         return $this->floorNumber;

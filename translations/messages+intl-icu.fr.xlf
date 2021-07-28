@@ -7,11 +7,11 @@
         <body>
             <trans-unit id="bwymCr0" resname="ROOM_NUMBER">
                 <source>ROOM_NUMBER</source>
-                <target>{room, plural, =0 {studio} one {1 pièce} other {# pièces}}</target>        
+                <target>{room, plural, =0 {studio} one {1 pièce} other {# pièces}}</target>
             </trans-unit>
             <trans-unit id="xHyV1iT" resname="FLOOR_NUMBER">
                 <source>FLOOR_NUMBER</source>
-                <target>{floor, selectordinal, =0 {RDC} one {#er étage} other {#e étage}}</target>        
+                <target>{floor, selectordinal, =0 {RDC} one {#er étage} other {#e étage}}</target>
             </trans-unit>
         </body>
     </file>

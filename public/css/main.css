@@ -68,6 +68,44 @@ h2.impact {
     color: #5ce1e6;
 }
 
+/* SEARCH */
+
+.buy-search input[type="text"] {
+    border-radius: 2em;
+    text-align: center;
+    font-weight: 800;
+    color: #004aab;
+}
+
+.buy-search select {
+    border-radius: 2em;
+    font-weight: 800;
+    color: #004aab;
+}
+
+input[type="text"].price-currency {
+    text-align: right;
+}
+
+.buy-search span {
+    display: block;
+    text-align: center;
+    font-weight: 800;
+    color: #004aab;
+    font-size: 120%;
+    padding: 0.5em;
+}
+
+.buy-search input[type="button"] {
+    margin-top: 0.3em;
+    border-radius: 2em;
+    font-weight: 800;
+    color: #004aab;
+    background-color: #5ce1e6;
+}
+
+/* LISTING */
+
 .listing {
     padding: 0 1em;
 }

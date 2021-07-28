@@ -48,7 +48,11 @@
             <trans-unit id=".crOvRO" resname="WATCH ON MAP">
                 <source>WATCH ON MAP</source>
                 <target>Voir sur la carte</target>
-            </trans-unit>          
+            </trans-unit>     
+            <trans-unit id="mja2GZm" resname="SEARCH TITLE">
+                <source>SEARCH TITLE</source>
+                <target>Recherchez un bien immobilier</target>
+            </trans-unit>     
         </body>
     </file>
 </xliff>
