@@ -52,7 +52,19 @@
             <trans-unit id="mja2GZm" resname="SEARCH TITLE">
                 <source>SEARCH TITLE</source>
                 <target>Recherchez un bien immobilier</target>
-            </trans-unit>     
+            </trans-unit>   
+            <trans-unit id="rF6ygA." resname="PRICE RANGE">
+                <source>PRICE RANGE</source>
+                <target>À</target>
+            </trans-unit>
+            <trans-unit id="vPGShA1" resname="REAL ESTATE TYPE">
+                <source>REAL ESTATE TYPE</source>
+                <target>TYPE</target>
+            </trans-unit>  
+            <trans-unit id="Vnso5cj" resname="BUTTON SEARCH">
+                <source>BUTTON SEARCH</source>
+                <target>Recherchez</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
