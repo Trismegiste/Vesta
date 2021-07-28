@@ -68,8 +68,13 @@ h2.impact {
     color: #5ce1e6;
 }
 
-/* SEARCH */
+/* HEADER */
+.social-network {
+    margin-top: 1em;
+    background-color: white;
+}
 
+/* SEARCH */
 .buy-search input[type="text"] {
     border-radius: 2em;
     text-align: center;
@@ -152,6 +157,9 @@ article.realestate figure, article.realestate figcaption, article.realestate nav
 
 .realestate .navbar div {
     text-align: center;
+}
+
+.realestate .navbar div a {
     color: #777;
 }
 
