@@ -37,9 +37,9 @@ class Buy extends AbstractController
     }
 
     /**
-     * @Route("/detail", methods={"GET"})
+     * @Route("/visit", methods={"GET"})
      */
-    public function detail(): Response
+    public function visit(): Response
     {
         $listing = $this->realestateRepo->search();
         return $this->render('front/visit.html.twig', ['immo' => $listing->current()]);

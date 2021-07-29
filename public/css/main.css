@@ -204,3 +204,21 @@ nav.actions {
 .flag img {
     width: 27%;
 }
+
+/* widget navicon */
+nav.realestate-navicon {
+    text-align: center;
+    font-size: 300%;
+}
+
+.color-soft {
+    color: #86a9e0;
+}
+
+.color-hot {
+    color: #f09134;
+}
+
+.color-action {
+    color: #b93ba7;
+}
