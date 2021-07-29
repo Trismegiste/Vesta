@@ -1,5 +1,5 @@
 <nav class="pure-g realestate-navicon">
-    <div class="pure-u-1-3"><a href="#" class="color-soft"><i class="icon-loupe"></a></i></div>
-    <div class="pure-u-1-3"><a href="#" class="color-hot"><i class="icon-vr360"></a></i></div>
+    <div class="pure-u-1-3"><a href="{{ path('app_buy_detail', {pk: immo.pk}) }}" class="color-soft"><i class="icon-loupe"></a></i></div>
+    <div class="pure-u-1-3"><a href="{{ path('app_buy_visit', {pk: immo.pk}) }}" class="color-hot"><i class="icon-vr360"></a></i></div>
     <div class="pure-u-1-3"><a href="#" class="color-action"><i class="icon-arrowright"></a></i></div>
 </nav>

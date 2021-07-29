@@ -37,12 +37,21 @@ class Buy extends AbstractController
     }
 
     /**
-     * @Route("/visit", methods={"GET"})
+     * @Route("/visit/{pk}", methods={"GET"}, requirements={"pk"="[\da-f]{24}"})
      */
-    public function visit(): Response
+    public function visit(string $pk): Response
     {
         $listing = $this->realestateRepo->search();
         return $this->render('front/visit.html.twig', ['immo' => $listing->current()]);
+    }
+
+    /**
+     * @Route("/detail/{pk}", methods={"GET"}, requirements={"pk"="[\da-f]{24}"})
+     */
+    public function detail(string $pk): Response
+    {
+        $listing = $this->realestateRepo->search();
+        return $this->render('front/detail.html.twig', ['immo' => $listing->current()]);
     }
 
 }

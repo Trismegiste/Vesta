@@ -38,6 +38,7 @@ class RealEstateRepo implements Repository
         $tmp = [];
         for ($k = 0; $k < random_int(10, 20); $k++) {
             $obj = new \App\Entity\RealEstate();
+            $obj->setPk(new \MongoDB\BSON\ObjectId());
             $obj->setTitle(['Appartement', 'Villa', 'Maison'][random_int(0, 2)]);
             $obj->setDescription($this->getRandomString(random_int(150, 300)));
             for ($t = 0; $t < random_int(2, 6); $t++) {
