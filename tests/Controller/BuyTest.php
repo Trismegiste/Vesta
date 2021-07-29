@@ -19,10 +19,17 @@ class BuyTest extends WebTestCase
         $this->assertPageTitleContains('Résultat');
     }
 
-    public function testDetail()
+    public function testVisit()
     {
         $client = static::createClient();
         $client->request('GET', '/visit/123456789012345678901234');
+        $this->assertResponseIsSuccessful();
+    }
+
+    public function testDetail()
+    {
+        $client = static::createClient();
+        $client->request('GET', '/detail/123456789012345678901234');
         $this->assertResponseIsSuccessful();
     }
 
