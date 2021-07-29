@@ -71,7 +71,13 @@ h2.impact {
 /* HEADER */
 .social-network {
     margin-top: 1em;
+    padding: 1em;
     background-color: white;
+}
+
+.social-network a {
+    font-size: 180%;   
+    color: #777;
 }
 
 /* SEARCH */

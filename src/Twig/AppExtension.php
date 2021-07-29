@@ -52,6 +52,12 @@ class AppExtension extends AbstractExtension
         return (360.0 * $hue) / 16;
     }
 
+    /**
+     * Gets the standard advertisement for a RealEstate
+     * 
+     * @param RealEstate $immo
+     * @return string
+     */
     public function getCatchLine(RealEstate $immo): string
     {
         return sprintf('%s %d m² %s %s',
