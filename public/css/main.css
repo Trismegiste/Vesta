@@ -167,6 +167,10 @@ nav.actions {
     text-align: center;
 }
 
+nav.actions i.big {
+    font-size: 500%;
+}
+
 .realestate figcaption p {
     line-height: 150%;
 }
