@@ -42,7 +42,7 @@ class Buy extends AbstractController
     public function detail(): Response
     {
         $listing = $this->realestateRepo->search();
-        return $this->render('front/detail.html.twig', ['immo' => $listing->current()]);
+        return $this->render('front/visit.html.twig', ['immo' => $listing->current()]);
     }
 
 }
