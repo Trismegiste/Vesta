@@ -65,6 +65,10 @@
                 <source>BUTTON SEARCH</source>
                 <target>Recherchez</target>
             </trans-unit>
+            <trans-unit id="QzrZMa5" resname="VIEW DETAIL">
+                <source>VIEW DETAIL</source>
+                <target>Voir détail</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>
