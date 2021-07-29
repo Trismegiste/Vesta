@@ -22,7 +22,7 @@ class BuyTest extends WebTestCase
     public function testDetail()
     {
         $client = static::createClient();
-        $client->request('GET', '/visit');
+        $client->request('GET', '/visit/123456789012345678901234');
         $this->assertResponseIsSuccessful();
     }
 
