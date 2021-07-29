@@ -81,7 +81,10 @@
         }).addTo(map);
         {% for immo in result %}
             L.marker([{{ immo.latitude }}, {{ immo.longitude }}]).addTo(map)
-                    .bindPopup('<img class="pure-img endmargin" src="/upload/placeholder.jpg"/><br/>{{ immo|catchline|e('js') }}');
+                    .bindPopup('{% apply e('js') %}
+                    <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
+                    {% include 'front/widget/realestate_navicon.html.twig' %}
+                    {{ immo|catchline }} {% endapply %}', {className: 'immo-popup-map'});
         {% endfor %}
 
             map.fitBounds({{ result.boundaries|json_encode() }});

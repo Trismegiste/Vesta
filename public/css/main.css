@@ -215,14 +215,19 @@ nav.realestate-navicon {
     font-size: 300%;
 }
 
-.color-soft {
+/* secondary colors */
+nav a.color-soft {
     color: #86a9e0;
 }
 
-.color-hot {
+nav a.color-hot {
     color: #f09134;
 }
 
-.color-action {
+nav a.color-action {
     color: #b93ba7;
+}
+
+.immo-popup-map nav.realestate-navicon {
+    font-size: 240%;
 }
