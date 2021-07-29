@@ -77,6 +77,12 @@
       "search": [
         "vr360"
       ]
+    },
+    {
+      "uid": "22cfc7af2c4f158b37317c65c92b48c2",
+      "css": "location",
+      "code": 59395,
+      "src": "elusive"
     }
   ]
 }
