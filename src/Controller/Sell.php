@@ -21,7 +21,7 @@ class Sell extends AbstractController
      */
     public function create(): Response
     {
-        return new Response('azazaz');
+        return $this->render('front/seller/create.html.twig');
     }
 
 }
