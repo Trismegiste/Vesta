@@ -6,3 +6,12 @@
     {% endif %}
     {{ parent() }}
 {%- endblock form_start %}
+
+{% block button_attributes -%}
+    {% if attr.class is not defined %}
+        {% set attr = attr|merge({'class': 'pure-button pure-button-primary' }) %}
+    {% else %}
+        {% set attr = attr|merge({'class': 'pure-button pure-button-primary ' ~ attr.class }) %}
+    {% endif %}
+    {{ parent() }}
+{%- endblock button_attributes %}
