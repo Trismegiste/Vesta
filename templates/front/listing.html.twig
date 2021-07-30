@@ -56,7 +56,7 @@
                                 </a>
                             </div>
                             <div class="pure-u-1-3">
-                                <a href="#" class="trigger-open-popup" data-index="{{ idx }}">
+                                <a href="#" id="openpopup{{ immo.pk }}">
                                     <i class="icon-location"></i>
                                     {% trans %}WATCH ON MAP{% endtrans %}
                                 </a>
@@ -84,7 +84,8 @@
                     title: '{{ immo|catchline|e('js') }}',
                     thumb: '<img class="pure-img endmargin" src="/upload/placeholder.jpg"/>',
                     navig: '{{ include("front/widget/realestate_navicon.html.twig")|spaceless }}',
-                    coord: [{{ immo.latitude }}, {{ immo.longitude }}]
+                    coord: [{{ immo.latitude }}, {{ immo.longitude }}],
+                    popup: 'openpopup{{ immo.pk }}'
                 });
             </script>
         {% endfor %}
@@ -98,26 +99,30 @@
     crossorigin=""></script>    
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <script>
+                // initialising the leaflet map
                 var map = L.map('listing-map', {fullscreenControl: true});
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 }).addTo(map);
-                var markers = [];
+
+                // scanning the real estate data for marker and adding external control (openPopup)
                 for (var idx = 0; idx < dataPopup.length; idx++) {
                     var immo = dataPopup[idx];
-                    markers.push(L.marker(immo.coord)
+                    var immoMarker = L.marker(immo.coord)
                             .addTo(map)
-                            .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'}));
-                }
+                            .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'})
 
-                map.fitBounds({{ result.boundaries|json_encode() }});
-
-                // event trigger
-                var control = document.getElementsByClassName('trigger-open-popup');
-                for (var idx = 0; idx < control.length; idx++) {
-                    control[idx].onclick = function (e) {
-                        markers[e.target.dataset['index']].openPopup();
+                    // getting the <a> for opening the popup
+                    var obj = document.getElementById(immo.popup)
+                    // adding the leaflet marker on the DOM tag
+                    obj.marker = immoMarker
+                    // adding the event observer on the <a> tag
+                    obj.onclick = function (e) {
+                        e.target.marker.openPopup()
                     }
                 }
+
+                // reisize de leaflet map to fit the real estate markers
+                map.fitBounds({{ result.boundaries|json_encode() }})
     </script>
 {% endblock %}
