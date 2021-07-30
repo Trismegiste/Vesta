@@ -100,22 +100,20 @@
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <script>
                 // initialising the leaflet map
-                var map = L.map('listing-map', {fullscreenControl: true});
+                var map = L.map('listing-map', {fullscreenControl: true})
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
+                }).addTo(map)
 
                 // scanning the real estate data for marker and adding external control (openPopup)
                 for (var idx = 0; idx < dataPopup.length; idx++) {
-                    var immo = dataPopup[idx];
-                    var immoMarker = L.marker(immo.coord)
-                            .addTo(map)
-                            .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'})
-
+                    var immo = dataPopup[idx]
                     // getting the <a> for opening the popup
                     var obj = document.getElementById(immo.popup)
                     // adding the leaflet marker on the DOM tag
-                    obj.marker = immoMarker
+                    obj.marker = L.marker(immo.coord)
+                            .addTo(map)
+                            .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'})
                     // adding the event observer on the <a> tag
                     obj.onclick = function (e) {
                         e.target.marker.openPopup()
