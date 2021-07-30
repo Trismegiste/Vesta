@@ -13,6 +13,9 @@
 
 {% block content %}
     <section class="listing">
+        <script>
+            var dataPopup = [];
+        </script>
         <div id="listing-map"></div>
         {% for idx, immo in result %}
             <article class="pure-g realestate">
@@ -76,6 +79,14 @@
                     </nav>
                 </div>
             </article>
+            <script>
+                dataPopup.push({
+                    title: '{{ immo|catchline|e('js') }}',
+                    thumb: '<img class="pure-img endmargin" src="/upload/placeholder.jpg"/>',
+                    navig: '{{ include("front/widget/realestate_navicon.html.twig")|spaceless }}',
+                    coord: [{{ immo.latitude }}, {{ immo.longitude }}]
+                });
+            </script>
         {% endfor %}
         <footer></footer>
     </section>
@@ -87,28 +98,26 @@
     crossorigin=""></script>    
     <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
     <script>
-        var map = L.map('listing-map', {fullscreenControl: true});
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        var markers = [];
-        {% for immo in result %}
-            markers.push(L.marker([{{ immo.latitude }}, {{ immo.longitude }}])
-                    .addTo(map)
-                    .bindPopup(
-                            '{% apply e('js') %}
-                            <img class="pure-img endmargin" src="/upload/placeholder.jpg"/>
-                            {% include 'front/widget/realestate_navicon.html.twig' %}
-                            {{ immo|catchline }}
-                            {% endapply %}', {className: 'immo-popup-map'}));
-        {% endfor %}
+                var map = L.map('listing-map', {fullscreenControl: true});
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+                var markers = [];
+                for (var idx = 0; idx < dataPopup.length; idx++) {
+                    var immo = dataPopup[idx];
+                    markers.push(L.marker(immo.coord)
+                            .addTo(map)
+                            .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'}));
+                }
 
-        map.fitBounds({{ result.boundaries|json_encode() }});
+                map.fitBounds({{ result.boundaries|json_encode() }});
 
-        // event trigger
-        var control = document.getElementsByClassName('trigger-open-popup')
-        for (var idx = 0; idx < control.length; idx++) {
-            control[idx].onclick = function(e) { markers[e.target.dataset['index']].openPopup() }
-        }
+                // event trigger
+                var control = document.getElementsByClassName('trigger-open-popup');
+                for (var idx = 0; idx < control.length; idx++) {
+                    control[idx].onclick = function (e) {
+                        markers[e.target.dataset['index']].openPopup();
+                    }
+                }
     </script>
 {% endblock %}
