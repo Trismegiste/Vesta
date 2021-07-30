@@ -238,3 +238,10 @@ nav a.color-action {
 .immo-popup-map nav.realestate-navicon {
     font-size: 220%;
 }
+
+.buyer-form {
+    border: #eb008a solid 3px;
+    margin: 1.5em;
+    background-color: #eee;
+    padding: 1.5em;
+}
