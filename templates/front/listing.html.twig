@@ -116,6 +116,8 @@
                             .bindPopup(immo.thumb + immo.navig + immo.title, {className: 'immo-popup-map'})
                     // adding the event observer on the <a> tag
                     obj.onclick = function (e) {
+                        document.getElementById('listing-map').style.height = '500px'
+                        map.invalidateSize()
                         e.target.marker.openPopup()
                     }
                 }
