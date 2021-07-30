@@ -1,0 +1,8 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_start -%}
+    {% if attr.class is not defined %}
+        {% set attr = attr|merge({'class': 'pure-form'}) %}
+    {% endif %}
+    {{ parent() }}
+{%- endblock form_start %}

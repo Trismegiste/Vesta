@@ -68,7 +68,11 @@
             <trans-unit id="QzrZMa5" resname="VIEW DETAIL">
                 <source>VIEW DETAIL</source>
                 <target>Voir détail</target>
-            </trans-unit>            
+            </trans-unit>           
+            <trans-unit id="peuPK0." resname="REAL ESTATE CREATE">
+                <source>REAL ESTATE CREATE</source>
+                <target>Inscription du bien à vendre</target>
+            </trans-unit> 
         </body>
     </file>
 </xliff>

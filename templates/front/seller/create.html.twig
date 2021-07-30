@@ -1,5 +1,9 @@
 {% extends "front/base.html.twig" %}
 
+{% block title %}{% trans %}REAL ESTATE CREATE{% endtrans %}{% endblock %}
+
+{% block content_title %}{% trans %}REAL ESTATE CREATE{% endtrans %}{% endblock %}
+
 {% block content %}
-    SELLER
+    {{ form(form) }}
 {% endblock %}

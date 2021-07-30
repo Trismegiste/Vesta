@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,7 +22,11 @@ class Sell extends AbstractController
      */
     public function create(): Response
     {
-        return $this->render('front/seller/create.html.twig');
+        $form = $this->createFormBuilder()
+                ->add('email', TextType::class)
+                ->getForm();
+
+        return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
     }
 
 }
