@@ -39,9 +39,44 @@
     <script src="{{ asset('pannellum/pannellum.js') }}"></script>
     <script>
         pannellum.viewer('equirectangular-visit', {
-            "type": "equirectangular",
-            "panorama": "{{ asset('upload/equirectangular.jpg') }}",
-            "autoLoad": true
+            default: {
+                "firstScene": "pano1",
+                "sceneFadeDuration": 1000,
+                "autoLoad": true
+            },
+            scenes: {
+                pano1: {
+                    title: "Salle de bains",
+                    "type": "equirectangular",
+                    "panorama": "{{ asset('upload/pano1.jpg') }}",
+                    hotSpots: [
+                        {
+                            "pitch": 0,
+                            "yaw": 0,
+                            "type": "scene",
+                            "text": "Salle à manger",
+                            "sceneId": "pano2"
+                        },
+                        {
+                            "pitch": 0,
+                            "yaw": 180,
+                            "type": "scene",
+                            "text": "Salon",
+                            "sceneId": "pano3"
+                        }
+                    ]
+                },
+                pano2: {
+                    title: "Salle à manger",
+                    "type": "equirectangular",
+                    "panorama": "{{ asset('upload/pano2.jpg') }}"
+                },
+                pano3: {
+                    title: "Salon",
+                    "type": "equirectangular",
+                    "panorama": "{{ asset('upload/pano3.jpg') }}"
+                }
+            }
         });
     </script>
 {% endblock %}
