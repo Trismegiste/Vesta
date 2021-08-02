@@ -38,7 +38,7 @@
     {{ parent() }}
     <script src="{{ asset('pannellum/pannellum.js') }}"></script>
     <script>
-        pannellum.viewer('equirectangular-visit', {
+        var visit3d = pannellum.viewer('equirectangular-visit', {
             default: {
                 "firstScene": "pano1",
                 "sceneFadeDuration": 1000,
@@ -77,6 +77,28 @@
                     "panorama": "{{ asset('upload/pano3.jpg') }}"
                 }
             }
-        });
+        })
+
+        visit3d.on('mousedown', function (event) {
+            // coords[0] is pitch, coords[1] is yaw
+            if (event.button === 2) {
+                var coords = visit3d.mouseEventToCoords(event);
+                // Do something with the coordinates here...
+                var tmpId = 'z' + Math.random()
+                visit3d.addHotSpot({
+                    "pitch": 0,
+                    "yaw": coords[1],
+                    "type": "scene",
+                    id: tmpId,
+                    //        sceneId: 'pano3',
+                    "text": "Click to add a picture",
+                    clickHandlerFunc: function (e, pk) {
+                        console.log(pk)
+                        visit3d.removeHotSpot(pk)
+                    },
+                    clickHandlerArgs: tmpId
+                })
+            }
+        })
     </script>
 {% endblock %}
