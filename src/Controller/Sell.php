@@ -25,6 +25,7 @@ class Sell extends AbstractController
     {
         $form = $this->createFormBuilder()
                 ->add('email', TextType::class)
+                ->add('password', TextType::class)
                 ->add('Envoi', SubmitType::class)
                 ->getForm();
 

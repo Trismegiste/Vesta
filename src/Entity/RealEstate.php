@@ -173,4 +173,15 @@ class RealEstate implements Immovable, Root
         return $this->floorNumber;
     }
 
+    /**
+     * Gets the percentage (between 0 to 100) for ALL the requisite
+     * informations needed by the Notary
+     * 
+     * @return int
+     */
+    public function getCompletionPercent(): int
+    {
+        return 0;
+    }
+
 }

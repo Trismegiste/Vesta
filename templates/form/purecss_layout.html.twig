@@ -9,9 +9,9 @@
 
 {% block button_attributes -%}
     {% if attr.class is not defined %}
-        {% set attr = attr|merge({'class': 'pure-button pure-button-primary' }) %}
+        {% set attr = attr|merge({'class': 'pure-button button-primary' }) %}
     {% else %}
-        {% set attr = attr|merge({'class': 'pure-button pure-button-primary ' ~ attr.class }) %}
+        {% set attr = attr|merge({'class': 'pure-button button-primary ' ~ attr.class }) %}
     {% endif %}
     {{ parent() }}
 {%- endblock button_attributes %}

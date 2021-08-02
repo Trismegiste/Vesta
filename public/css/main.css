@@ -107,8 +107,11 @@ input[type="text"].price-currency {
     padding: 0.5em;
 }
 
-.buy-search input[type="submit"] {
+.buy-search button {
     margin-top: 0.3em;
+}
+
+button.button-primary  {
     border-radius: 2em;
     font-weight: 800;
     color: #004aab;
@@ -239,7 +242,8 @@ nav a.color-action {
     font-size: 220%;
 }
 
-.buyer-form {
+/* SELLER */
+.seller-form {
     border: #eb008a solid 3px;
     margin: 1.5em;
     background-color: #eee;
