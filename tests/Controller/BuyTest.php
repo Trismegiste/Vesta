@@ -11,12 +11,12 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class BuyTest extends WebTestCase
 {
 
-    public function testListing()
+    public function testSearchEmpty()
     {
         $client = static::createClient();
-        $client->request('GET', '/listing');
+        $client->request('GET', '/search');
         $this->assertResponseIsSuccessful();
-        $this->assertPageTitleContains('Résultat');
+        $this->assertPageTitleContains('Recherchez');
     }
 
     public function testVisit()
