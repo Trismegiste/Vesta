@@ -23,11 +23,7 @@ class Sell extends AbstractController
      */
     public function create(): Response
     {
-        $form = $this->createFormBuilder()
-                ->add('email', TextType::class)
-                ->add('password', TextType::class)
-                ->add('Envoi', SubmitType::class)
-                ->getForm();
+        $form = $this->createForm(\App\Form\RealEstateSubscribing::class);
 
         return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
     }

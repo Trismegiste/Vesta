@@ -89,6 +89,54 @@
                 <source>QUOTING</source>
                 <target>ESTIMER</target>
             </trans-unit>            
+            <trans-unit id="Crypto">
+                <source>Crypto</source>
+                <target>Mot de passe</target>
+            </trans-unit>            
+            <trans-unit id="Firstname">
+                <source>Firstname</source>
+                <target>Prénom</target>
+            </trans-unit>            
+            <trans-unit id="Lastname">
+                <source>Lastname</source>
+                <target>Nom</target>
+            </trans-unit>            
+            <trans-unit id="Phone">
+                <source>Phone</source>
+                <target>Téléphone</target>
+            </trans-unit>            
+            <trans-unit id="Professional">
+                <source>Professional</source>
+                <target>Professionnel ?</target>
+            </trans-unit>            
+            <trans-unit id="Address">
+                <source>Address</source>
+                <target>Adresse</target>
+            </trans-unit>            
+            <trans-unit id="Postalcode">
+                <source>Postalcode</source>
+                <target>CP</target>
+            </trans-unit>            
+            <trans-unit id="City">
+                <source>City</source>
+                <target>Ville</target>
+            </trans-unit>            
+            <trans-unit id="Dweller">
+                <source>Dweller</source>
+                <target>Présent lors de visites ?</target>
+            </trans-unit>            
+            <trans-unit id="Identity">
+                <source>Identity</source>
+                <target>Pièce d'identité ou KBIS</target>
+            </trans-unit>            
+            <trans-unit id="Owner act">
+                <source>Owner act</source>
+                <target>Acte de propriété</target>
+            </trans-unit>       
+            <trans-unit id="Subscribe">
+                <source>Subscribe</source>
+                <target>S'enregistrer</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>
