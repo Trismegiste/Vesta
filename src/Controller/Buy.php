@@ -6,12 +6,13 @@
 
 namespace App\Controller;
 
-use App\Entity\ImmoSet;
-use App\Entity\RealEstate;
+use App\Form\SearchType;
 use App\Repository\RealEstateRepo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\ImmoSet;
 
 /**
  * Section Achat de biens immobilier
@@ -27,13 +28,23 @@ class Buy extends AbstractController
     }
 
     /**
-     * @Route("/listing", methods={"GET"})
+     * @Route("/search", methods={"GET"})
      */
-    public function listing(): Response
+    public function search(Request $request): Response
     {
-        $listing = $this->realestateRepo->search();
+        $form = $this->createForm(SearchType::class, null, [
+            'action' => $this->generateUrl('app_buy_search'),
+            'method' => 'GET',
+        ]);
 
-        return $this->render('front/listing.html.twig', ['result' => new ImmoSet($listing)]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $listing = $this->realestateRepo->search();
+
+            return $this->render('front/listing.html.twig', ['result' => new ImmoSet($listing)]);
+        }
+
+        return $this->render('front/buyer/search.html.twig', ['form' => $form->createView()]);
     }
 
     /**

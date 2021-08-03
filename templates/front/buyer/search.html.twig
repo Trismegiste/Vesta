@@ -1,0 +1,34 @@
+{% extends "front/base.html.twig" %}
+
+{% block content_title %}{% trans %}SEARCH TITLE{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="pure-g">
+        <div class="pure-u-1-3"></div>
+        <div class="pure-u-1-3">
+            {{ form_start(form, {attr: { class: 'pure-form pure-form-stacked buy-search'}}) }}
+            {{ form_widget(form['city'], {attr: {class: 'pure-input-1'}}) }}
+            <div class="pure-g">
+                <div class="pure-u-2-5">
+                    {{ form_widget(form['price_floor'], {attr: {placeholder: '€', class: 'pure-input-1 price-currency'}}) }}
+                </div>
+                <div class="pure-u-1-5"><span>{% trans %}PRICE RANGE{% endtrans %}</span></div>
+                <div class="pure-u-2-5">
+                    {{ form_widget(form['price_ceil'], {attr: {placeholder: '€', class: 'pure-input-1 price-currency'}}) }}
+                </div>
+            </div>
+            <div class="pure-g">
+                <div class="pure-u-1-5"><span>{% trans %}REAL ESTATE TYPE{% endtrans %}</span></div>
+                <div class="pure-u-4-5">
+                    <select class="pure-input-1">
+                        <option>Appartement</option>
+                        <option>Villa</option>
+                    </select>
+                </div>
+            </div>
+            {{ form_widget(form['search'], {label: 'BUTTON SEARCH', attr: {class: 'pure-input-1'}} ) }}
+            {{ form_end(form) }}
+        </div>
+        <div class="pure-u-1-3"></div>
+    </div>
+{% endblock %}
