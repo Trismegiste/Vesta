@@ -73,6 +73,22 @@
                 <source>REAL ESTATE CREATE</source>
                 <target>Inscription du bien à vendre</target>
             </trans-unit> 
+            <trans-unit id="54DDenB" resname="BUYING">
+                <source>BUYING</source>
+                <target>ACHETER</target>
+            </trans-unit>
+            <trans-unit id="vK0rJ_s" resname="LANDING CATCHLINE">
+                <source>LANDING CATCHLINE</source>
+                <target>0% de Commission - 100% de services</target>
+            </trans-unit>
+            <trans-unit id="Cfmt4.D" resname="SELLING">
+                <source>SELLING</source>
+                <target>VENDRE</target>
+            </trans-unit>
+            <trans-unit id="95HXlAh" resname="QUOTING">
+                <source>QUOTING</source>
+                <target>ESTIMER</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>

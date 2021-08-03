@@ -80,6 +80,18 @@ h2.impact {
     color: #777;
 }
 
+/* LANDING PAGE */
+.big-landing-button {
+    display: block;
+    margin: 1.5em;
+    padding: 0.3em;
+    border: 0.6em white solid;
+    color: #004aab;
+    text-align: center;
+    font-size: 150%;
+    font-weight: bold;
+}
+
 /* SEARCH */
 .buy-search input[type="text"] {
     border-radius: 2em;
