@@ -6,9 +6,9 @@
 
 namespace App\Controller;
 
+use App\Form\RealEstateSubscribing;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -21,9 +21,17 @@ class Sell extends AbstractController
     /**
      * @Route("/sell", methods={"GET","POST"})
      */
-    public function create(): Response
+    public function create(Request $request): Response
     {
-        $form = $this->createForm(\App\Form\RealEstateSubscribing::class);
+        $form = $this->createForm(RealEstateSubscribing::class);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $subscribingData = $form->getData();
+            var_dump($subscribingData);
+
+            return $this->redirectToRoute('subscribing_ok');
+        }
 
         return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
     }
