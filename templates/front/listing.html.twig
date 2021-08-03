@@ -9,7 +9,7 @@
     <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
 {% endblock %}
 
-{% block content_title %}{% trans %}SEARCH RESULT{% endtrans %}{% endblock %}
+{% block content_title %}{% trans %}SEARCH RESULT{% endtrans %} {{ city|capitalize }}{% endblock %}
 
 {% block content %}
     <section class="listing">
