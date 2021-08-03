@@ -261,3 +261,14 @@ nav a.color-action {
     background-color: #eee;
     padding: 1.5em;
 }
+
+/* GENERAL FORM */
+.pure-form fieldset label {
+    text-align: right;
+    display: block;
+    padding-right: 1em;
+}
+
+.pure-form fieldset input {
+    margin-bottom: 0.5em;
+}
