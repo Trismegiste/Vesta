@@ -107,11 +107,11 @@
             </trans-unit>            
             <trans-unit id="Professional">
                 <source>Professional</source>
-                <target>Professionnel ?</target>
+                <target>Êtes-vous un professionnel ?</target>
             </trans-unit>            
-            <trans-unit id="Address">
-                <source>Address</source>
-                <target>Adresse</target>
+            <trans-unit id="Real address">
+                <source>Real address</source>
+                <target>Adresse du bien</target>
             </trans-unit>            
             <trans-unit id="Postalcode">
                 <source>Postalcode</source>
@@ -123,7 +123,7 @@
             </trans-unit>            
             <trans-unit id="Dweller">
                 <source>Dweller</source>
-                <target>Présent lors de visites ?</target>
+                <target>Serez-vous présent lors de visites ?</target>
             </trans-unit>            
             <trans-unit id="Identity">
                 <source>Identity</source>
@@ -136,7 +136,11 @@
             <trans-unit id="Subscribe">
                 <source>Subscribe</source>
                 <target>S'enregistrer</target>
-            </trans-unit>            
+            </trans-unit>     
+            <trans-unit id="Crypto2">
+                <source>Crypto2</source>
+                <target>Confirmez votre mot de passe</target>
+            </trans-unit>                   
         </body>
     </file>
 </xliff>

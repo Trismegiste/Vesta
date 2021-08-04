@@ -257,7 +257,7 @@ nav a.color-action {
 /* SELLER */
 .seller-form {
     border: #eb008a solid 3px;
-    margin: 1.5em;
+    margin: 0 1.5em 1.5em;
     background-color: #f7f7f7;
     padding: 1.5em;
 }
@@ -270,8 +270,8 @@ nav a.color-action {
 }
 
 .pure-form fieldset input[type="checkbox"] {
-    margin-top: 0.5em;
-    margin-bottom: 1.2em;
+    margin-top: 0.6em;
+    margin-bottom: 1.1em;
 }
 
 .pure-form fieldset input[type="file"] {

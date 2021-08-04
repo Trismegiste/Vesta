@@ -20,7 +20,7 @@ abstract class Meeting implements Root
     protected $location;
     protected $rdvTime;
 
-    public function __construct(Immovable $loc, int $ts)
+    public function __construct(Immovable $loc, \DateTime $ts)
     {
         $this->location = $loc;
         $this->rdvTime = $ts;

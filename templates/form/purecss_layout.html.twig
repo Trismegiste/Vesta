@@ -17,7 +17,11 @@
 {%- endblock button_attributes %}
 
 {%- block form_row -%}
-    {%- set widget_attr = {attr: {class:'pure-input-1'}} -%}
+    {% if attr.class is not defined %}
+        {%- set widget_attr = {attr: {class:'pure-input-1'}} -%}
+    {% else %}
+        {%- set widget_attr = attr -%}
+    {% endif %}
     {%- if help is not empty -%}
         {%- set widget_attr = {attr: {'aria-describedby': id ~"_help"}} -%}
     {%- endif -%}    

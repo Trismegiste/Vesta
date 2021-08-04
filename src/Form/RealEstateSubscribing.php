@@ -25,15 +25,16 @@ class RealEstateSubscribing extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-                ->add('email', EmailType::class)
-                ->add('crypto', PasswordType::class)
+                ->add('email', EmailType::class, ['attr' => ['class' => 'pure-input-2-3']])
+                ->add('crypto', PasswordType::class, ['attr' => ['class' => 'pure-input-1-2']])
+                ->add('crypto2', PasswordType::class, ['attr' => ['class' => 'pure-input-1-2']])
                 ->add('firstname', TextType::class)
                 ->add('lastname', TextType::class)
-                ->add('phone', TelType::class)
+                ->add('phone', TelType::class, ['attr' => ['class' => 'pure-input-1-2']])
                 ->add('professional', CheckboxType::class)
-                ->add('address', TextType::class)
-                ->add('postalcode', TextType::class)
-                ->add('city', TextType::class)
+                ->add('real_address', TextType::class)
+                ->add('postalcode', TextType::class, ['attr' => ['class' => 'pure-input-1-3']])
+                ->add('city', TextType::class, ['attr' => ['class' => 'pure-input-2-3']])
                 ->add('dweller', CheckboxType::class)
                 ->add('identity', FileType::class)
                 ->add('owner_act', FileType::class)
