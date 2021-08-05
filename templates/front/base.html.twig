@@ -33,7 +33,7 @@
         <div class="pure-u-1-6"><h2 class="impact"><a href="{{ path('app_sell_create') }}" class="color2">vendre</a></h2></div>
         <div class="pure-u-1-6"><h2 class="impact color3">location</h2></div>
         <div class="pure-u-1-6"><h2>Rejoignez-nous</h2></div>
-        <div class="pure-u-1-6"><h2><a href="{{ path('app_login') }}" class="color0">Mon compte</a></h2></div>
+        <div class="pure-u-1-6"><h2><a href="{{ path(is_granted('IS_AUTHENTICATED_FULLY') ? 'app_sell_profile' : 'app_login') }}" class="color0">Mon compte</a></h2></div>
     </nav>
     <header class="content-header">{% block content_title %}{% endblock %}</header>
     {% block content %}{% endblock %}

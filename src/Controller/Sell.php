@@ -45,7 +45,7 @@ class Sell extends AbstractController
     }
 
     /**
-     * @Route("/seller", methods={"GET"})
+     * @Route("/account/seller", methods={"GET"})
      */
     public function profile(): Response
     {
