@@ -12,8 +12,8 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
 
     use RootImpl;
 
-    private $username;
-    private $roles = [];
+    protected $username;
+    protected $roles = [];
     public $firstname;
     public $lastname;
     public $phone;

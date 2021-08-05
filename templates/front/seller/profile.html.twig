@@ -1,0 +1,14 @@
+{% extends "front/base.html.twig" %}
+
+{% block title %}{% trans %}MY PROFILE{% endtrans %}{% endblock %}
+
+{% block content_title %}{% trans %}QQC{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="pure-g seller-subscribing">
+        <div class="pure-u-1-4"></div>
+        <div class="pure-u-1-2">
+            {{ dump(app.user) }}
+        </div>
+    </div>
+{% endblock %}

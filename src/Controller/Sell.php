@@ -38,10 +38,18 @@ class Sell extends AbstractController
             $user = $form->getData();
             $this->userRepo->save($user);
 
-            return $this->redirectToRoute('subscribing_ok');
+            return $this->redirectToRoute('app_sell_profile');
         }
 
         return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
-    } 
+    }
+
+    /**
+     * @Route("/seller", methods={"GET"})
+     */
+    public function profile(): Response
+    {
+        return $this->render('front/seller/profile.html.twig');
+    }
 
 }
