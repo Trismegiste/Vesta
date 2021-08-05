@@ -14,6 +14,10 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
 
     private $username;
     private $roles = [];
+    public $firstname;
+    public $lastname;
+    public $phone;
+    public $professional;
 
     /**
      * @var string The hashed password

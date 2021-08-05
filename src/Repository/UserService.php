@@ -25,12 +25,14 @@ class UserService
         $this->hasher = $h->getPasswordHasher(User::class);
     }
 
-    public function createAndSave(string $email, string $crypto): User
+    public function create(string $email, string $crypto): User
     {
-        $user = new User($email, $this->hasher->hash($crypto));
-        $this->repo->save($user);
+        return new User($email, $this->hasher->hash($crypto));
+    }
 
-        return $user;
+    public function save(User $u): void
+    {
+        $this->repo->save($u);
     }
 
 }

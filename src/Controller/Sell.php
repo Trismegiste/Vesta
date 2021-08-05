@@ -31,17 +31,17 @@ class Sell extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $form = $this->createForm(RealEstateSubscribing::class);
+        $form = $this->createForm(\App\Form\SubscribingType::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            $user = $this->userRepo->createAndSave($data['email'], $data['crypto']);
+            $user = $form->getData();
+            $this->userRepo->save($user);
 
             return $this->redirectToRoute('subscribing_ok');
         }
 
         return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
-    }
+    } 
 
 }
