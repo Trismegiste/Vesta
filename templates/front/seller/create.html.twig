@@ -9,7 +9,12 @@
         <div class="pure-u-1-4"></div>
         <div class="pure-u-1-2">
             <div class="seller-form">
-                {{ form(form) }}
+                {{ form_start(form) }}
+                <fieldset>
+                    {{ form_widget(form.user) }}
+                    {{ form_widget(form.realestate) }}
+                </fieldset>
+                {{ form_end(form) }}
             </div>
         </div>
     </div>

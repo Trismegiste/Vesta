@@ -44,8 +44,9 @@ class SubscribingType extends AbstractType
                 ->add('lastname', TextType::class)
                 ->add('phone', TelType::class, ['attr' => ['class' => 'pure-input-1-2']])
                 ->add('professional', CheckboxType::class, ['required' => false])
-                //->add('owner_act', FileType::class) 
-                ->add('subscribe', SubmitType::class);
+        //     ->add('identity', FileType::class)
+        //      ->add('subscribe', SubmitType::class);
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

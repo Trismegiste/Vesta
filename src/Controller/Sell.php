@@ -31,7 +31,7 @@ class Sell extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $form = $this->createForm(\App\Form\SubscribingType::class);
+        $form = $this->createForm(RealEstateSubscribing::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
