@@ -6,14 +6,12 @@
 
 namespace App\Controller;
 
-use App\Entity\User;
 use App\Form\RealEstateSubscribing;
+use App\Repository\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\PasswordHasherFactoryInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use Trismegiste\Toolbox\MongoDb\Repository;
 
 /**
  * Seller section controller
@@ -22,12 +20,10 @@ class Sell extends AbstractController
 {
 
     protected $userRepo;
-    protected $hasher;
 
-    public function __construct(PasswordHasherFactoryInterface $h, Repository $userRepo)
+    public function __construct(UserService $repo)
     {
-        $this->userRepo = $userRepo;
-        $this->hasher = $h->getPasswordHasher(User::class);
+        $this->userRepo = $repo;
     }
 
     /**
@@ -40,8 +36,7 @@ class Sell extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $user = new User($data['email'], $this->hasher->hash($data['crypto']));
-            $this->userRepo->save($user);
+            $user = $this->userRepo->createAndSave($data['email'], $data['crypto']);
 
             return $this->redirectToRoute('subscribing_ok');
         }
