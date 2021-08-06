@@ -6,10 +6,13 @@
 
 namespace App\Form;
 
+use App\Entity\RealEstate;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
  * Creation of a new RealEstate
@@ -20,13 +23,19 @@ class NewRealEstate extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-                ->add('real_address', TextType::class)
+              //  ->add('number_building', TextType::class)
+                ->add('address', TextType::class)
                 ->add('postalcode', TextType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('city', TextType::class, ['attr' => ['class' => 'pure-input-2-3']])
-        /*      ->add('dweller', CheckboxType::class, ['required' => false])
-          ->add('owner_act', FileType::class) */
-        //      ->add('subscribe', SubmitType::class);
-        ;
+                ->add('dweller', CheckboxType::class, ['required' => false])
+                ->add('owner_act', FileType::class);
+    }
+
+    public function configureOptions(OptionsResolver $resolver): void
+    {
+        $resolver->setDefaults([
+            'data_class' => RealEstate::class
+        ]);
     }
 
 }

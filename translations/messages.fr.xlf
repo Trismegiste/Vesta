@@ -110,9 +110,13 @@
                 <target>Êtes-vous un professionnel ?</target>
             </trans-unit>            
             <trans-unit id="Real address">
-                <source>Real address</source>
+                <source>Address</source>
                 <target>Adresse du bien</target>
             </trans-unit>            
+            <trans-unit id="Number building">
+                <source>Number building</source>
+                <target>Numéro/Bâtiment</target>
+            </trans-unit>               
             <trans-unit id="Postalcode">
                 <source>Postalcode</source>
                 <target>CP</target>

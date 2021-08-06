@@ -39,5 +39,8 @@ services:
     Trismegiste\Toolbox\MongoDb\Repository $userRepo: '@app.user.repository'
     
     app.realestate.repository:
-        class: App\Respository\RealEstateRepo
-        
+        class: Trismegiste\Toolbox\MongoDb\Repository
+        factory: ['@Trismegiste\Toolbox\MongoDb\RepositoryFactory', 'create']
+        arguments: ['realestate']
+
+    Trismegiste\Toolbox\MongoDb\Repository $realRepo: '@app.realestate.repository'

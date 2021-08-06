@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Trismegiste\Toolbox\MongoDb\Repository;
 
 /**
  * Seller section controller
@@ -20,10 +21,12 @@ class Sell extends AbstractController
 {
 
     protected $userRepo;
+    protected $realRepo;
 
-    public function __construct(UserService $repo)
+    public function __construct(UserService $repo, Repository $realRepo)
     {
         $this->userRepo = $repo;
+        $this->realRepo = $realRepo;
     }
 
     /**
@@ -35,8 +38,9 @@ class Sell extends AbstractController
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $form->getData();
-            $this->userRepo->save($user);
+            $creation = $form->getData();
+            $this->userRepo->save($creation['user']);
+            $this->realRepo->save($creation['realestate']);
 
             return $this->redirectToRoute('app_sell_profile');
         }
