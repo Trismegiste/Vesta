@@ -22,9 +22,9 @@ class SearchType extends AbstractType
 
     protected $typeChoice = [];
 
-    public function __construct(YamlRepository $realTypeRepo)
+    public function __construct(YamlRepository $realParameterRepo)
     {
-        $this->typeChoice = $realTypeRepo->get();
+        $this->typeChoice = $realParameterRepo->findAll('type');
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void

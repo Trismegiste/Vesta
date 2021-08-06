@@ -6,6 +6,7 @@
 
 namespace App\Repository;
 
+use InvalidArgumentException;
 use Symfony\Component\Yaml\Yaml;
 
 /**
@@ -25,18 +26,24 @@ class YamlRepository
     protected function restore(): void
     {
         if (is_null($this->data)) {
-            $tmp = Yaml::parseFile($this->path);
-            foreach ($tmp as $row) {
-                $this->data[$row] = $row;
-            }
+            $this->data = Yaml::parseFile($this->path);
         }
     }
 
-    public function get(): array
+    public function findAll(string $key): array
     {
         $this->restore();
+        if (!array_key_exists($key, $this->data)) {
+            throw new InvalidArgumentException("No data for the key '$key'");
+        }
+        $tmp = $this->data[$key];
 
-        return $this->data;
+        $listing = [];
+        foreach ($tmp as $row) {
+            $listing[$row] = $row;
+        }
+
+        return $listing;
     }
 
 }

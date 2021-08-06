@@ -45,7 +45,7 @@ services:
     Trismegiste\Toolbox\MongoDb\Repository $realRepo: '@app.realestate.repository'
 
     # FLAT FILE SECTION
-    app.realestatetype.repository:
+    app.realestateparameter.repository:
         class: App\Repository\YamlRepository
-        arguments: ['%kernel.project_dir%/database/type.yml']
-    App\Repository\YamlRepository $realTypeRepo: '@app.realestatetype.repository'
+        arguments: ['%kernel.project_dir%/database/realestate.yml']
+    App\Repository\YamlRepository $realParameterRepo: '@app.realestateparameter.repository'
