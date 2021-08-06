@@ -15,6 +15,10 @@ class ImmoSet implements \Iterator
 {
 
     protected $iter;
+    protected $maxLat = -90;
+    protected $minLat = 90;
+    protected $maxLong = -180;
+    protected $minLong = 180;
 
     public function __construct(\Iterator $iter)
     {
@@ -23,6 +27,7 @@ class ImmoSet implements \Iterator
 
     public function current()
     {
+        $this;
         return $this->iter->current();
     }
 
@@ -47,38 +52,36 @@ class ImmoSet implements \Iterator
     }
 
     /**
-     * Gets the bounding box for all Immovable in this Iterator
+     * Gets the bounding box for all **SCANNED** Immovable in this Iterator
      * 
      * @return [[$minLat, $minLong], [$maxLat, $maxLong]]
      * @throws InvalidArgumentException
      */
     public function getBoundaries(): array
     {
-        $maxLat = -90;
-        $minLat = 90;
-        $maxLong = -180;
-        $minLong = 180;
-        $this->iter->rewind(); // @todo Is it OK with a MongoCursor ? Forward Only Cursor ?
+        return [[$this->minLat, $this->minLong], [$this->maxLat, $this->maxLong]];
+    }
 
-        foreach ($this->iter as $item) {
-            if (!$item instanceof Immovable) {
-                throw new \InvalidArgumentException("Item is not an Immovable");
-            }
-            if ($item->getLongitude() < $minLong) {
-                $minLong = $item->getLongitude();
-            }
-            if ($item->getLongitude() > $maxLong) {
-                $maxLong = $item->getLongitude();
-            }
-            if ($item->getLatitude() < $minLat) {
-                $minLat = $item->getLatitude();
-            }
-            if ($item->getLatitude() > $maxLat) {
-                $maxLat = $item->getLatitude();
-            }
+    private function updateBoudaries(): void
+    {
+        $item = $this->iter->current();
+
+        if (!$item instanceof Immovable) {
+            throw new \InvalidArgumentException("Item is not an Immovable");
         }
 
-        return [[$minLat, $minLong], [$maxLat, $maxLong]];
+        if ($item->getLongitude() < $this->minLong) {
+            $this->minLong = $item->getLongitude();
+        }
+        if ($item->getLongitude() > $this->maxLong) {
+            $this->maxLong = $item->getLongitude();
+        }
+        if ($item->getLatitude() < $this->minLat) {
+            $this->minLat = $item->getLatitude();
+        }
+        if ($item->getLatitude() > $this->maxLat) {
+            $this->maxLat = $item->getLatitude();
+        }
     }
 
 }

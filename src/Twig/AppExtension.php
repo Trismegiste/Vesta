@@ -61,7 +61,7 @@ class AppExtension extends AbstractExtension
     public function getCatchLine(RealEstate $immo): string
     {
         return sprintf('%s %d m² %s %s',
-                $immo->getTitle(),
+                'yolo',
                 $immo->getSurface(),
                 $this->translator->trans('ROOM_NUMBER', ['room' => $immo->getRoom()]),
                 $this->translator->trans('FLOOR_NUMBER', ['floor' => $immo->getFloor()])

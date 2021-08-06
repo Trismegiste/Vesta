@@ -24,6 +24,7 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    # MONGODB SECTION
     MongoDB\Driver\Manager:
         arguments:
             - '%env(resolve:DATABASE_URL)%'
@@ -35,12 +36,16 @@ services:
         class: Trismegiste\Toolbox\MongoDb\Repository
         factory: ['@Trismegiste\Toolbox\MongoDb\RepositoryFactory', 'create']
         arguments: ['user']
-
     Trismegiste\Toolbox\MongoDb\Repository $userRepo: '@app.user.repository'
     
     app.realestate.repository:
         class: Trismegiste\Toolbox\MongoDb\Repository
         factory: ['@Trismegiste\Toolbox\MongoDb\RepositoryFactory', 'create']
         arguments: ['realestate']
-
     Trismegiste\Toolbox\MongoDb\Repository $realRepo: '@app.realestate.repository'
+
+    # FLAT FILE SECTION
+    app.realestatetype.repository:
+        class: App\Repository\YamlRepository
+        arguments: ['%kernel.project_dir%/database/type.yml']
+    App\Repository\YamlRepository $realTypeRepo: '@app.realestatetype.repository'

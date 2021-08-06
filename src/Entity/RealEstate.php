@@ -14,23 +14,24 @@ class RealEstate implements Immovable, Root
     use RootImpl;
 
     protected $currentState;
-    protected $title;
-    protected $description;
+    protected $title = '';
+    protected $description = '';
     protected $tag = [];
-    protected $surface;
-    protected $room;
-    protected $floorNumber;
-    protected $price;
+    protected $surface = 0;
+    protected $room = 0;
+    protected $floorNumber = 0;
+    protected $price = 0;
     protected $currency = 'EUR';
     // location
     protected $streetAddr = '';
     protected $postalCode = '';
     protected $city = '';
-    protected $latitude;
-    protected $longitude;
+    protected $latitude = 0;
+    protected $longitude = 0;
+    // @todo autre possibilité : faire un tableau pour le stockage ['addr'=>'','pc'=>''...], les accesseurs étant inchangés
     // fk
     protected $owner;
-    public $dweller;
+    public $dweller = false;
 
     public function getCurrentState()
     {

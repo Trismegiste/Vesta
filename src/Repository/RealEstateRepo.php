@@ -6,63 +6,36 @@
 
 namespace App\Repository;
 
+use App\Entity\RealEstate;
 use Iterator;
 use Trismegiste\Toolbox\MongoDb\Repository;
-use Trismegiste\Toolbox\MongoDb\Root;
 
 /**
  * Repository for RealEstate
- *
- * @author flo
  */
-class RealEstateRepo implements Repository
+class RealEstateRepo
 {
 
-    public function delete($documentOrArray): void
+    protected $repo;
+
+    public function __construct(Repository $realRepo)
     {
-        
+        $this->repo = $realRepo;
     }
 
-    public function load(string $pk): Root
+    public function save(RealEstate $re): void
     {
-        
-    }
-
-    public function save($documentOrArray): void
-    {
-        
+        $this->repo->save($re);
     }
 
     public function search(array $filter = [], array $excludedField = [], string $descendingSortField = null): Iterator
     {
-        $tmp = [];
-        for ($k = 0; $k < random_int(10, 20); $k++) {
-            $obj = new \App\Entity\RealEstate();
-            $obj->setPk(new \MongoDB\BSON\ObjectId());
-            $obj->setTitle(['Appartement', 'Villa', 'Maison'][random_int(0, 2)]);
-            $obj->setDescription($this->getRandomString(random_int(150, 300)));
-            for ($t = 0; $t < random_int(2, 6); $t++) {
-                $obj->addTag($this->getRandomString(random_int(3, 8)));
-            }
-            $obj->setPrice(1000 * random_int(80, 700));
-            $obj->setCoord(7.1 + random_int(0, 1000) / 2000, 43.7 + random_int(0, 1000) / 10000);
-            $obj->setSurface(random_int(25, 125));
-            $obj->setFloor(random_int(0, 8));
-            $obj->setRoom(random_int(0, 4));
-            array_push($tmp, $obj);
-        }
-
-        return new \ArrayIterator($tmp);
+        return $this->repo->search($filter, $excludedField, $descendingSortField);
     }
 
-    public function searchAutocomplete(string $field, string $startWith, int $limit = 20)
+    public function findByPk(string $pk)
     {
-        
-    }
-
-    protected function getRandomString(int $n): string
-    {
-        return str_shuffle(str_repeat(' ', $n / 2) . base64_encode(random_bytes($n)));
+        return $this->repo->load($pk);
     }
 
 }

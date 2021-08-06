@@ -20,7 +20,7 @@ class UserProviderTest extends TestCase
 
     protected $sut;
 
-    protected function setUp():void
+    protected function setUp(): void
     {
         $repo = $this->createStub(Repository::class);
         $log = $this->createStub(LoggerInterface::class);
@@ -31,6 +31,12 @@ class UserProviderTest extends TestCase
     {
         $this->expectException(UserNotFoundException::class);
         $this->sut->loadUserByIdentifier('yolo');
+    }
+
+    public function testDeprecatedForCodeCoverage()
+    {
+        $this->expectException(UserNotFoundException::class);
+        $this->sut->loadUserByUsername('test');
     }
 
 }

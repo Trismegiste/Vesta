@@ -53,8 +53,8 @@ class Buy extends AbstractController
      */
     public function visit(string $pk): Response
     {
-        $listing = $this->realestateRepo->search();
-        return $this->render('front/buyer/visit.html.twig', ['immo' => $listing->current()]);
+        $immo = $this->realestateRepo->findByPk($pk);
+        return $this->render('front/buyer/visit.html.twig', ['immo' => $immo]);
     }
 
     /**
@@ -62,8 +62,8 @@ class Buy extends AbstractController
      */
     public function detail(string $pk): Response
     {
-        $listing = $this->realestateRepo->search();
-        return $this->render('front/buyer/detail.html.twig', ['immo' => $listing->current()]);
+        $immo = $this->realestateRepo->findByPk($pk);
+        return $this->render('front/buyer/detail.html.twig', ['immo' => $immo]);
     }
 
 }

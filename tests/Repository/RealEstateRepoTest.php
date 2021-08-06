@@ -6,10 +6,9 @@
 
 use App\Entity\RealEstate;
 use App\Repository\RealEstateRepo;
-use MongoDB\Driver\Manager;
 use PHPUnit\Framework\TestCase;
-use Psr\Log\LoggerInterface;
 use Tests\Toolbox\MongoDb\MongoCheck;
+use Trismegiste\Toolbox\MongoDb\Repository;
 
 /**
  * Description of RealEstateRepoTest
@@ -23,18 +22,17 @@ class RealEstateRepoTest extends TestCase
 
     protected $sut;
     protected $mongo;
-    protected $logger;
 
     protected function setUp(): void
     {
-        $this->mongo = new Manager('mongodb://localhost:27017');
-        $this->logger = $this->createMock(LoggerInterface::class);
-        $this->sut = new RealEstateRepo($this->mongo, 'virimmo', 'repo_test', $this->logger);
-        $this->ping($this->mongo, 'virimmo');
+        $this->mongo = $this->createMock(Repository::class);
+        $this->sut = new RealEstateRepo($this->mongo);
     }
 
     public function testWrite()
     {
+        $this->mongo->expects($this->once())
+                ->method('save');
         $obj = new RealEstate();
         $obj->setAddress("42 av. First Street");
         $obj->setPostalCode("06000");
