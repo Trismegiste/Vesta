@@ -23,12 +23,12 @@ class NewRealEstate extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-              //  ->add('number_building', TextType::class)
+                //  ->add('number_building', TextType::class)
                 ->add('address', TextType::class)
                 ->add('postalcode', TextType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('city', TextType::class, ['attr' => ['class' => 'pure-input-2-3']])
-                ->add('dweller', CheckboxType::class, ['required' => false])
-                ->add('owner_act', FileType::class);
+                ->add('dweller', CheckboxType::class, ['required' => false]);
+               // ->add('owner_act', FileType::class, ['required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

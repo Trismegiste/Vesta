@@ -11,8 +11,8 @@ use App\Repository\UserService;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -43,8 +43,8 @@ class SubscribingType extends AbstractType
                 ->add('firstname', TextType::class)
                 ->add('lastname', TextType::class)
                 ->add('phone', TelType::class, ['attr' => ['class' => 'pure-input-1-2']])
-                ->add('professional', CheckboxType::class, ['required' => false])
-                ->add('identity', \Symfony\Component\Form\Extension\Core\Type\FileType::class);
+                ->add('professional', CheckboxType::class, ['required' => false]);
+          //      ->add('identity', FileType::class, ['required' => false]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

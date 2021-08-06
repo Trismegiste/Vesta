@@ -17,20 +17,20 @@ class RealEstate implements Immovable, Root
     protected $title;
     protected $description;
     protected $tag = [];
-    protected $location;
     protected $surface;
     protected $room;
     protected $floorNumber;
     protected $price;
     protected $currency = 'EUR';
+    // location
+    protected $streetAddr = '';
+    protected $postalCode = '';
+    protected $city = '';
     protected $latitude;
     protected $longitude;
+    // fk
     protected $owner;
-
-    public function __construct()
-    {
-        $this->location = new Address();
-    }
+    public $dweller;
 
     public function getCurrentState()
     {
@@ -40,11 +40,6 @@ class RealEstate implements Immovable, Root
     public function setCurrentState($param, $context = [])
     {
         $this->currentState = $param;
-    }
-
-    public function getAddress(): Address
-    {
-        return $this->location;
     }
 
     public function setTitle(string $t): void
@@ -182,6 +177,46 @@ class RealEstate implements Immovable, Root
     public function getCompletionPercent(): int
     {
         return 0;
+    }
+
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+
+    public function getPostalCode(): string
+    {
+        return $this->postalCode;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->streetAddr;
+    }
+
+    public function setAddress(string $addr): void
+    {
+        $this->streetAddr = $addr;
+    }
+
+    public function setCity(string $c): void
+    {
+        $this->city = $c;
+    }
+
+    public function setPostalCode(string $pc): void
+    {
+        $this->postalCode = $pc;
+    }
+
+    public function setLatitude(float $l): void
+    {
+        $this->latitude = $l;
+    }
+
+    public function setLongitude(float $l): void
+    {
+        $this->longitude = $l;
     }
 
 }
