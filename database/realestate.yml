@@ -8,7 +8,55 @@ type:
     - Garage
     - Immeuble de rapport
 
-hotwater:
+heating:    
     - collectif
     - individuel
     - mixte
+    
+standing:
+    - Ancien
+    - Bon Standing
+    - Bourgeois
+    - Luxe
+    - Plan Courant
+    - Standing
+                                            
+hotwater:
+    - collectif
+    - individuel
+    - mixte    
+    
+security:
+    - Digicode
+    - Interphone
+    - Surveillance 24/24
+    - Videophone
+    
+construction:
+    - Béton
+    - Bois
+    - Brique
+    - Crépi
+    - Haussmannien
+    - Mosaïque
+    - Pierre
+    - Préfabriqué
+    - Structure métal
+                                            
+informationFlag:
+    - Gardien
+    - Ascenseur
+    - Piscine
+    - Jardin	
+    - Accés sécur.
+    - Tennis
+    - Accés hand.
+    - Pkg. Collectif
+    - Programme neuf
+    - Travaux en cours
+    - Jardins d'enfants
+    - Local à vélo
+    - Buanderie
+    - Salle de sport
+                                            
+                                            
