@@ -9,8 +9,10 @@ namespace App\Entity;
 /**
  * Description of a building
  */
-class Building
+class Building implements \MongoDB\BSON\Persistable
 {
+
+    use \Trismegiste\Toolbox\MongoDb\PersistableImpl;
 
     public $name; // the name of the building
     public $district;

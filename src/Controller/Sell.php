@@ -68,7 +68,7 @@ class Sell extends AbstractController
     /**
      * @Route("/realestate/edit/{pk}", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}"})
      */
-    public function edit(string $pk): Response
+    public function edit(string $pk, Request $request): Response
     {
         $realEstate = $this->realRepo->findByPk($pk);
         $form = $this->createFormBuilder()
@@ -76,6 +76,14 @@ class Sell extends AbstractController
                 ->add('update', SubmitType::class)
                 ->setData($realEstate)
                 ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $obj = $form->getData();
+            $this->realRepo->save($obj);
+
+            return $this->redirectToRoute('app_sell_profile');
+        }
 
         return $this->render('front/seller/realestate_edit.html.twig', ['immo' => $realEstate, 'form' => $form->createView()]);
     }
