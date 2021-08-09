@@ -35,6 +35,9 @@ class TermsOfSaleType extends AbstractType
                 ->add('investmentProduct', ChoiceType::class, ['choices' => ['Non' => false, 'Oui' => true], 'expanded' => true])
                 ->add('propertyTax', MoneyType::class, ['attr' => ['class' => 'pure-input-1-2']])
                 ->add('housingTax', MoneyType::class, ['attr' => ['class' => 'pure-input-1-2']])
+                ->add('charge', MoneyType::class, ['attr' => ['class' => 'pure-input-1-2']])
+                ->add('heatingCost', MoneyType::class, ['attr' => ['class' => 'pure-input-1-2']])
+                ->add('alotNumber', TextType::class, ['attr' => ['class' => 'pure-input-1-2']])
         ;
     }
 

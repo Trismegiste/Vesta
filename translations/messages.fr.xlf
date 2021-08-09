@@ -252,6 +252,14 @@
             <trans-unit id="tos12">
                 <source>Housing tax</source>
                 <target>Taxe d'habitation</target>
+            </trans-unit>         
+            <trans-unit id="tos13">
+                <source>Heating cost</source>
+                <target>Coût Chauffage / an</target>
+            </trans-unit>      
+            <trans-unit id="tos14">
+                <source>Alot number</source>
+                <target>Numéro de lot</target>
             </trans-unit>                     
         </body>
     </file>
