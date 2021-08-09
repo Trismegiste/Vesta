@@ -148,7 +148,63 @@
             <trans-unit id="MY PROFILE">
                 <source>MY PROFILE</source>
                 <target>Mon compte</target>
-            </trans-unit>                               
+            </trans-unit>         
+            <trans-unit id="XRn5Ajt" resname="BUILDING INFORMATION">
+                <source>BUILDING INFORMATION</source>
+                <target>Informations sur l'immeuble</target>
+            </trans-unit>     
+            <trans-unit id="build1">
+                <source>Building name</source>
+                <target>Nom de l'immeuble</target>
+            </trans-unit>       
+            <trans-unit id="build2">
+                <source>District</source>
+                <target>Nom du quartier</target>
+            </trans-unit>                                                      
+            <trans-unit id="build3">
+                <source>Floor count</source>
+                <target>Nombre d'étages</target>
+            </trans-unit>              
+            <trans-unit id="build4">
+                <source>Heating</source>
+                <target>Chauffage</target>
+            </trans-unit>  
+            <trans-unit id="build5">
+                <source>Coownership</source>
+                <target>Copropriété</target>
+            </trans-unit>                                                      
+            <trans-unit id="build6">
+                <source>Alot amount</source>
+                <target>Nombre de lots</target>
+            </trans-unit>               
+            <trans-unit id="build7">
+                <source>Hot water</source>
+                <target>Eau chaude</target>
+            </trans-unit>  
+            <trans-unit id="build8">
+                <source>Standing</source>
+                <target>Standing</target>
+            </trans-unit>                                                      
+            <trans-unit id="build9">
+                <source>Security</source>
+                <target>Sécurité</target>
+            </trans-unit>               
+            <trans-unit id="build10">
+                <source>Construction</source>
+                <target>Type de construction</target>
+            </trans-unit>  
+            <trans-unit id="build11">
+                <source>Facelift</source>
+                <target>Ravalement de façade</target>
+            </trans-unit>                                                      
+            <trans-unit id="build12">
+                <source>Information flag</source>
+                <target>Prestations</target>
+            </trans-unit>  
+            <trans-unit id="build13">
+                <source>Update</source>
+                <target>Mettre à jour</target>
+            </trans-unit>                           
         </body>
     </file>
 </xliff>

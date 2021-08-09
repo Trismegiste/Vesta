@@ -1,0 +1,20 @@
+{% extends "front/base.html.twig" %}
+
+{% block title %}{% trans %}TERMS OF SALE{% endtrans %}{% endblock %}
+
+{% block content_title %}{% trans %}TERMS OF SALE{% endtrans %}{% endblock %}
+
+{% block content %}
+    <div class="pure-g seller-subscribing">
+        <div class="pure-u-1-4"></div>
+        <div class="pure-u-1-2">
+            <div class="seller-form">
+                {{ form_start(form) }}
+                <fieldset>
+                    {{ form_widget(form.terms_of_sale) }}
+                </fieldset>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

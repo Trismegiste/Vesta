@@ -9,7 +9,6 @@ namespace App\Form\Immo;
 use App\Entity\Building;
 use App\Repository\YamlRepository;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -18,7 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Form the building
+ * Form for the building
  */
 class BuildingType extends AbstractType
 {
@@ -33,16 +32,16 @@ class BuildingType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-                ->add('name', TextType::class)
+                ->add('name', TextType::class, ['label' => 'Building name'])
                 ->add('district', TextType::class)
-                ->add('floor', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
-                ->add('heating', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('heating')])
+                ->add('floor', NumberType::class, ['label' => 'Floor count', 'attr' => ['class' => 'pure-input-1-3']])
+                ->add('heating', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('heating'), 'placeholder' => '---'])
                 ->add('coownership', ChoiceType::class, ['choices' => ['Oui' => true, 'Non' => false], 'expanded' => true])
                 ->add('alotAmount', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
-                ->add('hotWater', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('hotwater')])
-                ->add('standing', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('standing')])
-                ->add('security', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('security')])
-                ->add('construction', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('construction')])
+                ->add('hotWater', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('hotwater'), 'placeholder' => '---'])
+                ->add('standing', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('standing'), 'placeholder' => '---'])
+                ->add('security', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('security'), 'placeholder' => '---'])
+                ->add('construction', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('construction'), 'placeholder' => '---'])
                 ->add('facelift', DateType::class, ['required' => false])
                 ->add('informationFlag', ChoiceType::class, [
                     'choices' => $this->choiceRepo->findAll('informationFlag'),

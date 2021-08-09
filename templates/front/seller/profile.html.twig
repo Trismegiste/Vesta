@@ -17,7 +17,7 @@
             <ul>
                 {% for immo in list %}
                     <li>
-                        <a href="{{ path('app_sell_edit',{pk: immo.pk}) }}">{{ immo.pk }}</a>
+                        <a href="{{ path('app_sell_editbuilding',{pk: immo.pk}) }}">{{ immo.pk }}</a>
                     </li>
                 {% endfor %}
             </ul>
