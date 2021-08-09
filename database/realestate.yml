@@ -9,9 +9,9 @@ type:
     - Immeuble de rapport
 
 heating:    
-    - collectif
-    - individuel
-    - mixte
+    - Collectif
+    - Individuel
+    - Mixte
     
 standing:
     - Ancien
@@ -22,9 +22,9 @@ standing:
     - Standing
                                             
 hotwater:
-    - collectif
-    - individuel
-    - mixte    
+    - Collectif
+    - Individuel
+    - Mixte 
     
 security:
     - Digicode

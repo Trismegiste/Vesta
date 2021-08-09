@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use MongoDB\BSON\ObjectIdInterface;
 use Trismegiste\Toolbox\MongoDb\Root;
 use Trismegiste\Toolbox\MongoDb\RootImpl;
 
@@ -32,6 +33,8 @@ class RealEstate implements Immovable, Root
     // fk
     protected $owner;
     public $dweller = false;
+    // MLS
+    protected $buildingInfo;
 
     public function getCurrentState()
     {
@@ -218,6 +221,21 @@ class RealEstate implements Immovable, Root
     public function setLongitude(float $l): void
     {
         $this->longitude = $l;
+    }
+
+    public function setFkOwner(ObjectIdInterface $id): void
+    {
+        $this->owner = $id;
+    }
+
+    public function getBuilding(): ?Building
+    {
+        return $this->buildingInfo;
+    }
+
+    public function setBuilding(Building $info): void
+    {
+        $this->buildingInfo = $info;
     }
 
 }

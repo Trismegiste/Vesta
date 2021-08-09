@@ -37,7 +37,7 @@ class BuildingType extends AbstractType
                 ->add('district', TextType::class)
                 ->add('floor', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('heating', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('heating')])
-                ->add('coownership', CheckboxType::class)
+                ->add('coownership', ChoiceType::class, ['choices' => ['Oui' => true, 'Non' => false], 'expanded' => true])
                 ->add('alotAmount', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('hotwater', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('hotwater')])
                 ->add('standing', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('standing')])

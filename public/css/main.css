@@ -265,9 +265,12 @@ nav a.color-action {
 
 /* GENERAL FORM */
 .pure-form fieldset label {
+    padding-right: 1em;
+}
+
+.pure-form fieldset .pure-u-1-2 > label {
     text-align: right;
     display: block;
-    padding-right: 1em;
 }
 
 .pure-form fieldset input[type="checkbox"] {
@@ -282,4 +285,13 @@ nav a.color-action {
 
 .pure-form fieldset input {
     margin-bottom: 0.5em;
+}
+
+.pure-form fieldset select {
+    margin-bottom: 0.5em;
+}
+
+.pure-form fieldset input[type="radio"] {
+    margin-top: 0.6em;
+    margin-bottom: 1.1em;
 }

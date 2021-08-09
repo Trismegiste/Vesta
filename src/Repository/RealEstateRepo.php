@@ -38,4 +38,9 @@ class RealEstateRepo
         return $this->repo->load($pk);
     }
 
+    public function findByOwner(\MongoDB\BSON\ObjectIdInterface $fk): \Iterator
+    {
+        return $this->repo->search(['owner' => $fk]);
+    }
+
 }
