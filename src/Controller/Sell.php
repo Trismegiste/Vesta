@@ -7,6 +7,7 @@
 namespace App\Controller;
 
 use App\Form\Immo\BuildingType;
+use App\Form\Immo\TermsOfSaleType;
 use App\Form\NewRealEstate;
 use App\Form\SubscribingType;
 use App\Repository\RealEstateRepo;
@@ -16,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Translation\TranslatableMessage;
 
 /**
  * Seller section controller
@@ -95,7 +97,7 @@ class Sell extends AbstractController
     {
         $realEstate = $this->realRepo->findByPk($pk);
         $form = $this->createFormBuilder()
-                ->add('terms_of_sale', \App\Form\Immo\TermsOfSaleType::class, ['property_path' => 'termsOfSale'])
+                ->add('step', TermsOfSaleType::class, ['property_path' => 'termsOfSale'])
                 ->add('update', SubmitType::class)
                 ->setData($realEstate)
                 ->getForm();
@@ -108,7 +110,11 @@ class Sell extends AbstractController
             return $this->redirectToRoute('app_sell_profile');
         }
 
-        return $this->render('front/seller/realestate_edit_termsofsale.html.twig', ['immo' => $realEstate, 'form' => $form->createView()]);
+        return $this->render('front/seller/realestate_edit_step.html.twig', [
+                    'immo' => $realEstate,
+                    'form' => $form->createView(),
+                    'title' => new TranslatableMessage('TERMS OF SALE')
+        ]);
     }
 
 }

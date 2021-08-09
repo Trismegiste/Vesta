@@ -204,7 +204,55 @@
             <trans-unit id="build13">
                 <source>Update</source>
                 <target>Mettre à jour</target>
-            </trans-unit>                           
+            </trans-unit>     
+            <trans-unit id="tos0">
+                <source>TERMS OF SALE</source>
+                <target>Conditions de vente</target>
+            </trans-unit>   
+            <trans-unit id="tos1">
+                <source>Mandatary name</source>
+                <target>Nom du mandataire</target>
+            </trans-unit>                                                
+            <trans-unit id="tos2">
+                <source>Availability date</source>
+                <target>Date de disponibilité</target>
+            </trans-unit>                     
+            <trans-unit id="tos3">
+                <source>Mandate start</source>
+                <target>Début de mandat</target>
+            </trans-unit>                     
+            <trans-unit id="tos4">
+                <source>Mandate end</source>
+                <target>Fin de mandat</target>
+            </trans-unit>                     
+            <trans-unit id="tos5">
+                <source>Mandate number</source>
+                <target>Numéro de mandat</target>
+            </trans-unit>                     
+            <trans-unit id="tos6">
+                <source>Available rent</source>
+                <target>Libre / Loué</target>
+            </trans-unit>                     
+            <trans-unit id="tos7">
+                <source>Life annuity</source>
+                <target>Viager</target>
+            </trans-unit>                     
+            <trans-unit id="tos9">
+                <source>New program</source>
+                <target>Programme neuf</target>
+            </trans-unit>                     
+            <trans-unit id="tos10">
+                <source>Investment product</source>
+                <target>Produit investisseur</target>
+            </trans-unit>                     
+            <trans-unit id="tos11">
+                <source>Property tax</source>
+                <target>Taxe foncière</target>
+            </trans-unit>      
+            <trans-unit id="tos12">
+                <source>Housing tax</source>
+                <target>Taxe d'habitation</target>
+            </trans-unit>                     
         </body>
     </file>
 </xliff>

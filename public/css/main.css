@@ -262,36 +262,3 @@ nav a.color-action {
     background-color: #f7f7f7;
     padding: 1.5em;
 }
-
-/* GENERAL FORM */
-.pure-form fieldset label {
-    padding-right: 1em;
-}
-
-.pure-form fieldset .pure-u-1-2 > label {
-    text-align: right;
-    display: block;
-}
-
-.pure-form fieldset input[type="checkbox"] {
-    margin-top: 0.6em;
-    margin-bottom: 1.1em;
-}
-
-.pure-form fieldset input[type="file"] {
-    margin-top: 0.3em;
-    margin-bottom: 0.8em;
-}
-
-.pure-form fieldset input {
-    margin-bottom: 0.5em;
-}
-
-.pure-form fieldset select {
-    margin-bottom: 0.5em;
-}
-
-.pure-form fieldset input[type="radio"] {
-    margin-top: 0.6em;
-    margin-bottom: 1.1em;
-}
