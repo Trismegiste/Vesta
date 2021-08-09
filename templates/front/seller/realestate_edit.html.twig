@@ -1,15 +1,20 @@
 {% extends "front/base.html.twig" %}
 
+{% block title %}{% trans %}BUILDING INFORMATION{% endtrans %}{% endblock %}
+
+{% block content_title %}{% trans %}BUILDING INFORMATION{% endtrans %}{% endblock %}
+
 {% block content %}
     <div class="pure-g seller-subscribing">
         <div class="pure-u-1-4"></div>
         <div class="pure-u-1-2">
-            {{ dump(immo) }}
-            {{ form_start(form) }}
-            <fieldset>
-                {{ form_widget(form.building) }}
-            </fieldset>
-            {{ form_end(form) }}
+            <div class="seller-form">
+                {{ form_start(form) }}
+                <fieldset>
+                    {{ form_widget(form.building) }}
+                </fieldset>
+                {{ form_end(form) }}
+            </div>
         </div>
     </div>
 {% endblock %}
