@@ -47,9 +47,9 @@ class DiagnosticsType extends AbstractType
                     'expanded' => true,
                     'multiple' => true
                 ])
-                ->add('energyUptake', NumberType::class) // unit: KWh/m² per year
+                ->add('energyUptake', NumberType::class, ['help' => 'KWh/m² par an'])
                 ->add('energyUptakeReportDate', DateType::class)
-                ->add('greenhouseGas', NumberType::class) // unit: Kg co²/m² per year
+                ->add('greenhouseGas', NumberType::class, ['help' => 'kg CO2/m² par an'])
                 ->add('greenhouseGasReportDate', DateType::class)
         ;
     }
