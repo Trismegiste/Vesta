@@ -36,6 +36,7 @@ class RealEstate implements Immovable, Root
     // MLS
     protected $buildingInfo;
     protected $termsOfSale;
+    protected $diagnosticDescr;
 
     public function getCurrentState()
     {
@@ -247,6 +248,16 @@ class RealEstate implements Immovable, Root
     public function setTermsOfSale(TermsOfSale $info): void
     {
         $this->termsOfSale = $info;
+    }
+
+    public function getDiagnostics(): ?Diagnostics
+    {
+        return $this->diagnosticDescr;
+    }
+
+    public function setDiagnostics(Diagnostics $info): void
+    {
+        $this->diagnosticDescr = $info;
     }
 
 }

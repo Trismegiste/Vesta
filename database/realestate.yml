@@ -59,4 +59,19 @@ informationFlag:
     - Buanderie
     - Salle de sport
                                             
-                                            
+houseStandardsFlag:
+    - NF
+    - HQE
+    - Handicapés
+
+diagnosticsFlag:
+    - Amiante
+    - Loi Carrez
+    - Plomb
+    - DPE
+    - Electricité
+    - Gaz
+    
+energyPerformance:
+    - Non Assujeti
+    - Dpe Vierge

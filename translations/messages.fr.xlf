@@ -260,7 +260,41 @@
             <trans-unit id="tos14">
                 <source>Alot number</source>
                 <target>Numéro de lot</target>
+            </trans-unit>     
+            <trans-unit id="diagno0">
+                <source>DESCRIPTION</source>
+                <target>Description</target>
+            </trans-unit>   
+            <trans-unit id="diagno1">
+                <source>House standards flag</source>
+                <target>Normes Logement</target>
+            </trans-unit>                                                
+            <trans-unit id="diagno2">
+                <source>Diagnostics flag</source>
+                <target>Diagnostics</target>
             </trans-unit>                     
+            <trans-unit id="diagno3">
+                <source>Energy performance</source>
+                <target>Performances énergétiques</target>
+            </trans-unit>       
+            <trans-unit id="diagno5">
+                <source>Energy uptake</source>
+                <target>Consommations énergétiques</target>
+            </trans-unit>                     
+            <trans-unit id="diagno9">
+                <source>Energy uptake report date</source>
+                <target>Réalisé le</target>
+            </trans-unit>                 
+            <trans-unit id="diagno6">
+                <source>Greenhouse gas</source>
+                <target>Émissions de gaz à effet de serre</target>
+            </trans-unit>                     
+            <trans-unit id="diagno7">
+                <source>Greenhouse gas report date</source>
+                <target>Réalisé le</target>
+            </trans-unit>                     
+                                                       
+                                                            
         </body>
     </file>
 </xliff>

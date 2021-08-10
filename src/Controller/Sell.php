@@ -107,13 +107,40 @@ class Sell extends AbstractController
             $obj = $form->getData();
             $this->realRepo->save($obj);
 
-            return $this->redirectToRoute('app_sell_profile');
+            return $this->redirectToRoute('app_sell_editrealestatestep', ['pk' => $pk, 'step' => 3]);
         }
 
         return $this->render('front/seller/realestate_edit_step.html.twig', [
                     'immo' => $realEstate,
                     'form' => $form->createView(),
                     'title' => new TranslatableMessage('TERMS OF SALE')
+        ]);
+    }
+
+    /**
+     * @Route("/realestate/edit/{pk}/step/{step}", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}", "step"="\d+"})
+     */
+    public function editRealEstateStep(string $pk, int $step, Request $request): Response
+    {
+        $realEstate = $this->realRepo->findByPk($pk);
+        $form = $this->createFormBuilder()
+                ->add('step', \App\Form\Immo\DiagnosticsType::class, ['property_path' => 'diagnostics'])
+                ->add('update', SubmitType::class)
+                ->setData($realEstate)
+                ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $obj = $form->getData();
+            $this->realRepo->save($obj);
+
+            return $this->redirectToRoute('app_sell_profile');
+        }
+
+        return $this->render('front/seller/realestate_edit_step.html.twig', [
+                    'immo' => $realEstate,
+                    'form' => $form->createView(),
+                    'title' => new TranslatableMessage('DESCRIPTION')
         ]);
     }
 
