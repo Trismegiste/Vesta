@@ -102,3 +102,25 @@ scenery:
     - Sans
     - Verdure
     - Ville
+    
+neighborhood:
+    - Campagne
+    - Commercial
+    - Industriel
+    - Pavillonnaire
+    - Résidentiel
+    - Ville
+    
+condition:
+    - A rafraichir
+    - A rénover
+    - Bon état
+    - Etat d'usage
+    - Exceptionnel
+    - Neuf
+    
+transportation:
+    - Bus
+    - Train
+    - Métro
+    - Tramway

@@ -41,7 +41,22 @@ class AppartDescrType extends AbstractType
                 ->add('livingRoomArea', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('ceilingHeight', NumberType::class, ['attr' => ['class' => 'pure-input-1-3']])
                 ->add('lighting', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('lighting'), 'placeholder' => '---'])
-                ->add('scenery', ChoiceType::class, ['choices' => $this->choiceRepo->findAll('scenery'), 'placeholder' => '---'])
+                ->add('scenery', ChoiceType::class, [
+                    'choices' => $this->choiceRepo->findAll('scenery'),
+                    'attr' => ['class' => 'pure-input-1-2'],
+                    'placeholder' => '---'])
+                ->add('neighborhood', ChoiceType::class, [
+                    'choices' => $this->choiceRepo->findAll('neighborhood'),
+                    'attr' => ['class' => 'pure-input-1-2'],
+                    'placeholder' => '---'])
+                ->add('condition', ChoiceType::class, [
+                    'choices' => $this->choiceRepo->findAll('condition'),
+                    'attr' => ['class' => 'pure-input-1-2'],
+                    'placeholder' => '---'])
+                ->add('transportation', ChoiceType::class, [
+                    'choices' => $this->choiceRepo->findAll('transportation'),
+                    'multiple' => true,
+                    'expanded' => true])
         ;
     }
 

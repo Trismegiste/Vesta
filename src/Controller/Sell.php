@@ -30,6 +30,16 @@ class Sell extends AbstractController
     protected $userRepo;
     protected $realRepo;
     protected $realEstateStep = [
+        1 => [
+            'type' => BuildingType::class,
+            'property' => 'building',
+            'title' => 'BUILDING INFORMATION'
+        ],
+        2 => [
+            'type' => TermsOfSaleType::class,
+            'property' => 'termsOfSale',
+            'title' => 'TERMS OF SALE'
+        ],
         3 => [
             'type' => DiagnosticsType::class,
             'property' => 'diagnostics',
@@ -82,56 +92,6 @@ class Sell extends AbstractController
     }
 
     /**
-     * @Route("/realestate/edit/{pk}/building", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}"})
-     */
-    public function editBuilding(string $pk, Request $request): Response
-    {
-        $realEstate = $this->realRepo->findByPk($pk);
-        $form = $this->createFormBuilder()
-                ->add('building', BuildingType::class, ['property_path' => 'building'])
-                ->add('update', SubmitType::class)
-                ->setData($realEstate)
-                ->getForm();
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $obj = $form->getData();
-            $this->realRepo->save($obj);
-
-            return $this->redirectToRoute('app_sell_edittermsofsale', ['pk' => $pk]);
-        }
-
-        return $this->render('front/seller/realestate_edit_building.html.twig', ['immo' => $realEstate, 'form' => $form->createView()]);
-    }
-
-    /**
-     * @Route("/realestate/edit/{pk}/termsofsale", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}"})
-     */
-    public function editTermsOfSale(string $pk, Request $request): Response
-    {
-        $realEstate = $this->realRepo->findByPk($pk);
-        $form = $this->createFormBuilder()
-                ->add('step', TermsOfSaleType::class, ['property_path' => 'termsOfSale'])
-                ->add('update', SubmitType::class)
-                ->setData($realEstate)
-                ->getForm();
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $obj = $form->getData();
-            $this->realRepo->save($obj);
-
-            return $this->redirectToRoute('app_sell_editrealestatestep', ['pk' => $pk, 'step' => 3]);
-        }
-
-        return $this->render('front/seller/realestate_edit_step.html.twig', [
-                    'immo' => $realEstate,
-                    'form' => $form->createView(),
-                    'title' => new TranslatableMessage('TERMS OF SALE')
-        ]);
-    }
-
-    /**
      * @Route("/realestate/edit/{pk}/step/{step}", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}", "step"="\d+"})
      */
     public function editRealEstateStep(string $pk, int $step, Request $request): Response
@@ -152,7 +112,8 @@ class Sell extends AbstractController
 
             $route = (array_key_exists($step + 1, $this->realEstateStep)) ?
                     $this->generateUrl('app_sell_editrealestatestep', ['pk' => $pk, 'step' => $step + 1]) :
-                    'app_sell_profile';
+                    $this->generateUrl('app_sell_profile');
+
             return $this->redirect($route);
         }
 
