@@ -11,8 +11,6 @@ use Trismegiste\Toolbox\MongoDb\PersistableImpl;
 
 /**
  * Description of Diagnostics
- *
- * @author flo
  */
 class Diagnostics implements Persistable
 {

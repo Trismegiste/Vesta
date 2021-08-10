@@ -6,7 +6,9 @@
 
 namespace App\Controller;
 
+use App\Form\Immo\AppartDescrType;
 use App\Form\Immo\BuildingType;
+use App\Form\Immo\DiagnosticsType;
 use App\Form\Immo\TermsOfSaleType;
 use App\Form\NewRealEstate;
 use App\Form\SubscribingType;
@@ -27,6 +29,18 @@ class Sell extends AbstractController
 
     protected $userRepo;
     protected $realRepo;
+    protected $realEstateStep = [
+        3 => [
+            'type' => DiagnosticsType::class,
+            'property' => 'diagnostics',
+            'title' => 'DESCRIPTION'
+        ],
+        4 => [
+            'type' => AppartDescrType::class,
+            'property' => 'appartDescr',
+            'title' => 'DESCRIPTION'
+        ]
+    ];
 
     public function __construct(UserService $repo, RealEstateRepo $realRepo)
     {
@@ -122,9 +136,11 @@ class Sell extends AbstractController
      */
     public function editRealEstateStep(string $pk, int $step, Request $request): Response
     {
+        $paramStep = $this->realEstateStep[$step];
+
         $realEstate = $this->realRepo->findByPk($pk);
         $form = $this->createFormBuilder()
-                ->add('step', \App\Form\Immo\DiagnosticsType::class, ['property_path' => 'diagnostics'])
+                ->add('step', $paramStep['type'], ['property_path' => $paramStep['property']])
                 ->add('update', SubmitType::class)
                 ->setData($realEstate)
                 ->getForm();
@@ -134,13 +150,16 @@ class Sell extends AbstractController
             $obj = $form->getData();
             $this->realRepo->save($obj);
 
-            return $this->redirectToRoute('app_sell_profile');
+            $route = (array_key_exists($step + 1, $this->realEstateStep)) ?
+                    $this->generateUrl('app_sell_editrealestatestep', ['pk' => $pk, 'step' => $step + 1]) :
+                    'app_sell_profile';
+            return $this->redirect($route);
         }
 
         return $this->render('front/seller/realestate_edit_step.html.twig', [
                     'immo' => $realEstate,
                     'form' => $form->createView(),
-                    'title' => new TranslatableMessage('DESCRIPTION')
+                    'title' => new TranslatableMessage($paramStep['title'])
         ]);
     }
 

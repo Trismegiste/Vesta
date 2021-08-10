@@ -37,6 +37,7 @@ class RealEstate implements Immovable, Root
     protected $buildingInfo;
     protected $termsOfSale;
     protected $diagnosticDescr;
+    protected $appartDescr;
 
     public function getCurrentState()
     {
@@ -258,6 +259,16 @@ class RealEstate implements Immovable, Root
     public function setDiagnostics(Diagnostics $info): void
     {
         $this->diagnosticDescr = $info;
+    }
+
+    public function getAppartDescr(): ?AppartDescr
+    {
+        return $this->appartDescr;
+    }
+
+    public function setAppartDescr(AppartDescr $info): void
+    {
+        $this->appartDescr = $info;
     }
 
 }

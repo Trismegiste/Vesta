@@ -75,3 +75,30 @@ diagnosticsFlag:
 energyPerformance:
     - Non Assujeti
     - Dpe Vierge
+    
+lighting:
+    - Est
+    - Est-Ouest
+    - Nord
+    - Nord-Est
+    - Nord-Ouest
+    - Nord-Sud
+    - Ouest
+    - Sud
+    - Sud-Est
+    - Sud-Ouest
+    
+scenery:
+    - Campagne
+    - Collines
+    - Cour
+    - Dégagée
+    - Jardins
+    - Mer
+    - Montagne
+    - Panoramique
+    - Parc
+    - Rue
+    - Sans
+    - Verdure
+    - Ville
