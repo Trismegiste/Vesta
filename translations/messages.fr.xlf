@@ -342,7 +342,10 @@
                 <source>Scenery</source>
                 <target>Vue</target>
             </trans-unit>     
-                                                        
+            <trans-unit id="STEPEDIT">
+                <source>STEP EDIT</source>
+                <target>Étape</target>
+            </trans-unit>                                                             
         </body>
     </file>
 </xliff>

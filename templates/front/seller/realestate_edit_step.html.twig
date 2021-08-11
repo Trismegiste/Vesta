@@ -2,7 +2,7 @@
 
 {% block title %}{{ title|trans }}{% endblock %}
 
-{% block content_title %}{{ title|trans }}{% endblock %}
+{% block content_title %}{% trans %}STEP EDIT{% endtrans %} {{ step }} : {{ title|trans }}{% endblock %}
 
 {% block content %}
     <div class="pure-g seller-subscribing">

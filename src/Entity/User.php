@@ -14,6 +14,7 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
 
     protected $username;
     protected $roles = [];
+    // human
     public $firstname;
     public $lastname;
     public $phone;
@@ -24,10 +25,9 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    public function __construct(string $user, string $pwd)
+    public function __construct(string $user)
     {
         $this->username = $user;
-        $this->password = $pwd;
         $this->roles[] = 'ROLE_ADMIN';
     }
 
@@ -81,6 +81,11 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
     public function getUserIdentifier(): string
     {
         return $this->username;
+    }
+
+    public function setHashedPassword(string $pwd): void
+    {
+        $this->password = $pwd;
     }
 
 }

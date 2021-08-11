@@ -72,7 +72,11 @@ class Sell extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $creation = $form->getData();
-            $this->userRepo->save($creation['user']);
+            // USER
+            $newUser = $creation['user'];
+            $this->userRepo->changePassword($newUser, $form->get('user')->get('crypto')->getData());
+            $this->userRepo->save($newUser);
+            // REAL ESTATE
             $creation['realestate']->setFkOwner($creation['user']->getPk());
             $this->realRepo->save($creation['realestate']);
 
@@ -119,6 +123,7 @@ class Sell extends AbstractController
 
         return $this->render('front/seller/realestate_edit_step.html.twig', [
                     'immo' => $realEstate,
+                    'step' => $step,
                     'form' => $form->createView(),
                     'title' => new TranslatableMessage($paramStep['title'])
         ]);
