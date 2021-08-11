@@ -64,7 +64,8 @@ class Sell extends AbstractController
     /**
      * @Route("/sell", methods={"GET","POST"})
      */
-    public function create(Request $request, FormAuthenticator $loginAuthenticator,
+    public function create(Request $request,
+            FormAuthenticator $loginAuthenticator,
             UserAuthenticatorInterface $auth): Response
     {
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {

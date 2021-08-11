@@ -74,7 +74,7 @@ diagnosticsFlag:
     
 energyPerformance:
     - Non Assujeti
-    - Dpe Vierge
+    - DPE Vierge
     
 lighting:
     - Est
@@ -112,10 +112,10 @@ neighborhood:
     - Ville
     
 condition:
-    - A rafraichir
-    - A rénover
+    - À rafraichir
+    - À rénover
     - Bon état
-    - Etat d'usage
+    - État d'usage
     - Exceptionnel
     - Neuf
     
