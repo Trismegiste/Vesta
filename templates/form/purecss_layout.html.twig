@@ -26,7 +26,8 @@
         {%- set widget_attr = {attr: {class:'pure-input-1-2', 'aria-describedby': id ~"_help"}} -%}
     {%- endif -%}    
     <div class="pure-g">
-        <div class="pure-u-1-1">{{- form_errors(form) -}}</div>
+        <div class="pure-u-1-2"></div>
+        <div class="pure-u-1-2 form-error">{{- form_errors(form) -}}</div>
         <div class="pure-u-1-2">{{- form_label(form) -}}</div>
         <div class="pure-u-1-2">{{- form_widget(form, widget_attr) -}}{{- form_help(form) -}}</div>
     </div>
