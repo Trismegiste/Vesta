@@ -28,7 +28,6 @@ class RealEstate implements Immovable, Root
     protected $city = '';
     protected $latitude = 0;
     protected $longitude = 0;
-    // @todo autre possibilité : faire un tableau pour le stockage ['addr'=>'','pc'=>''...], les accesseurs étant inchangés
     // fk
     protected $owner;
     public $dweller = false;
