@@ -14,11 +14,13 @@ use App\Form\NewRealEstate;
 use App\Form\SubscribingType;
 use App\Repository\RealEstateRepo;
 use App\Repository\UserService;
+use App\Security\FormAuthenticator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Symfony\Component\Translation\TranslatableMessage;
 
 /**
@@ -61,8 +63,13 @@ class Sell extends AbstractController
     /**
      * @Route("/sell", methods={"GET","POST"})
      */
-    public function create(Request $request): Response
+    public function create(Request $request, FormAuthenticator $loginAuthenticator,
+            UserAuthenticatorInterface $auth): Response
     {
+        if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('app_sell_profile');
+        }
+
         $form = $this->createFormBuilder()
                 ->add('user', SubscribingType::class)
                 ->add('realestate', NewRealEstate::class)
@@ -79,6 +86,9 @@ class Sell extends AbstractController
             // REAL ESTATE
             $creation['realestate']->setFkOwner($creation['user']->getPk());
             $this->realRepo->save($creation['realestate']);
+
+            // AUTHENTICATE ON THE FLY
+            $auth->authenticateUser($newUser, $loginAuthenticator, $request);
 
             return $this->redirectToRoute('app_sell_profile');
         }
