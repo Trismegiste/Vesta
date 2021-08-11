@@ -14,7 +14,9 @@ class RealEstate implements Immovable, Root
 
     use RootImpl;
 
-    protected $currentState;
+    protected $currentState = ['photoshoot' => true];
+    // FRONT INFORMATION
+    protected $category;
     protected $title = '';
     protected $description = '';
     protected $tag = [];
@@ -47,6 +49,16 @@ class RealEstate implements Immovable, Root
     public function setCurrentState($param, $context = [])
     {
         $this->currentState = $param;
+    }
+
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
+
+    public function setCategory(string $param)
+    {
+        $this->category = $param;
     }
 
     public function setTitle(string $t): void

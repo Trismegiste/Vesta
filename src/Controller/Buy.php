@@ -40,7 +40,7 @@ class Buy extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $criterion = $form->getData();
-            $listing = $this->realestateRepo->search();
+            $listing = $this->realestateRepo->search(['currentState.photoshoot' => true, 'category' => ['$ne' => null]]);
 
             return $this->render('front/buyer/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => $criterion['city']]);
         }

@@ -346,6 +346,10 @@
                 <source>STEP EDIT</source>
                 <target>Étape</target>
             </trans-unit>
+            <trans-unit id="STEPEDITSTART">
+                <source>CHOOSE REAL ESTATE CATEGORY</source>
+                <target>Choisissez le type de bien immobilier</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>
