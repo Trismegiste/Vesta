@@ -342,6 +342,22 @@
                 <source>Scenery</source>
                 <target>Vue</target>
             </trans-unit>     
+            <trans-unit id="appartdesc14">
+                <source>Neighborhood</source>
+                <target>Environnement</target>
+            </trans-unit>                 
+            <trans-unit id="appartdesc15">
+                <source>Condition</source>
+                <target>État</target>
+            </trans-unit>         
+            <trans-unit id="appartdesc16">
+                <source>Transportation</source>
+                <target>Transports</target>
+            </trans-unit> 
+            <trans-unit id="choicetype">
+                <source>Category</source>
+                <target>Type</target>
+            </trans-unit>                                
             <trans-unit id="STEPEDIT">
                 <source>STEP EDIT</source>
                 <target>Étape</target>
