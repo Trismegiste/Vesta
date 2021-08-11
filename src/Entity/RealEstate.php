@@ -20,8 +20,6 @@ class RealEstate implements Immovable, Root
     protected $title = '';
     protected $description = '';
     protected $tag = [];
-    protected $room = 0;
-    protected $floorNumber = 0;
     protected $price = 0;
     protected $currency = 'EUR';
     // location
@@ -68,16 +66,6 @@ class RealEstate implements Immovable, Root
     public function setDescription(string $t): void
     {
         $this->description = $t;
-    }
-
-    public function setFloor(int $param): void
-    {
-        $this->floorNumber = $param;
-    }
-
-    public function setRoom(int $p): void
-    {
-        $this->room = $p;
     }
 
     public function getTitle(): string
@@ -178,7 +166,7 @@ class RealEstate implements Immovable, Root
      */
     public function getFloor(): int
     {
-        return $this->floorNumber;
+        return $this->appartDescr->floor;
     }
 
     /**
