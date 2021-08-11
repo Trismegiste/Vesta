@@ -6,13 +6,14 @@
 
 namespace App\Controller;
 
+use App\Entity\ImmoSet;
 use App\Form\SearchType;
 use App\Repository\RealEstateRepo;
+use MongoDB\BSON\Regex;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\ImmoSet;
 
 /**
  * Section Achat de biens immobilier
@@ -40,7 +41,11 @@ class Buy extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $criterion = $form->getData();
-            $listing = $this->realestateRepo->search(['currentState.photoshoot' => true, 'category' => ['$ne' => null]]);
+            $listing = $this->realestateRepo->search([
+                'currentState.photoshoot' => true,
+                'city' => new Regex('^' . $criterion['city'] . '$', 'i'),
+                'category' => $criterion['type']
+            ]);
 
             return $this->render('front/buyer/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => $criterion['city']]);
         }

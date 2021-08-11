@@ -8,6 +8,7 @@ namespace App\Repository;
 
 use App\Entity\RealEstate;
 use Iterator;
+use MongoDB\BSON\ObjectIdInterface;
 use Trismegiste\Toolbox\MongoDb\Repository;
 
 /**
@@ -38,7 +39,7 @@ class RealEstateRepo
         return $this->repo->load($pk);
     }
 
-    public function findByOwner(\MongoDB\BSON\ObjectIdInterface $fk): \Iterator
+    public function findByOwner(ObjectIdInterface $fk): \Iterator
     {
         return $this->repo->search(['owner' => $fk]);
     }

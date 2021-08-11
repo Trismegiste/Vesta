@@ -20,7 +20,6 @@ class RealEstate implements Immovable, Root
     protected $title = '';
     protected $description = '';
     protected $tag = [];
-    protected $surface = 0;
     protected $room = 0;
     protected $floorNumber = 0;
     protected $price = 0;
@@ -71,11 +70,6 @@ class RealEstate implements Immovable, Root
         $this->description = $t;
     }
 
-    public function setSurface(int $s): void
-    {
-        $this->surface = $s;
-    }
-
     public function setFloor(int $param): void
     {
         $this->floorNumber = $param;
@@ -98,12 +92,12 @@ class RealEstate implements Immovable, Root
 
     public function getSurface(): int
     {
-        return $this->surface;
+        return $this->appartDescr->carrezArea;
     }
 
     public function getRoom(): int
     {
-        return $this->room;
+        return $this->appartDescr->room;
     }
 
     public function addTag(string $tag): void
