@@ -44,7 +44,8 @@ class Buy extends AbstractController
             $listing = $this->realestateRepo->search([
                 'currentState.photoshoot' => true,
                 'city' => new Regex('^' . $criterion['city'] . '$', 'i'),
-                'category' => $criterion['type']
+                'category' => $criterion['type'],
+                'appartDescr' => ['$ne' => null]
             ]);
 
             return $this->render('front/buyer/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => $criterion['city']]);
