@@ -18,6 +18,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * Description of SubscribingType
@@ -45,10 +46,11 @@ class SubscribingType extends AbstractType
                     'required' => true,
                     'first_options' => ['label' => 'Password'],
                     'second_options' => ['label' => 'Repeat Password'],
-                    'mapped' => false
+                    'mapped' => false,
+                    'constraints' => [new Length(['min' => 3])]
                 ])
-                ->add('firstname', TextType::class)
-                ->add('lastname', TextType::class)
+                ->add('firstname', TextType::class, ['constraints' => [new Length(['min' => 3])]])
+                ->add('lastname', TextType::class, ['constraints' => [new Length(['min' => 3])]])
                 ->add('phone', TelType::class, ['attr' => ['class' => 'pure-input-1-2']])
                 ->add('professional', CheckboxType::class, ['required' => false]);
         //      ->add('identity', FileType::class, ['required' => false]);

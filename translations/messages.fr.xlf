@@ -345,7 +345,7 @@
             <trans-unit id="STEPEDIT">
                 <source>STEP EDIT</source>
                 <target>Étape</target>
-            </trans-unit>                                                             
+            </trans-unit>
         </body>
     </file>
 </xliff>
