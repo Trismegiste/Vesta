@@ -27,7 +27,7 @@ class ImmoSet implements \Iterator
 
     public function current()
     {
-        $this;
+        $this->updateBoudaries();
         return $this->iter->current();
     }
 

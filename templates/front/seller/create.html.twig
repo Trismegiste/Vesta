@@ -38,6 +38,7 @@
 
         new autoComplete({
             minChars: 5,
+            delay: 500,
             selector: '#form_realestate_address',
             source: function (term, response) {
                 provider.search({query: term}).then(function (data) {
