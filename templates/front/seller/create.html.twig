@@ -26,19 +26,38 @@
         rel="stylesheet"
         href="https://unpkg.com/leaflet-geosearch@3.4.0/dist/geosearch.css"
         />
+    <link rel="stylesheet" href="{{ asset('pixabay/auto-complete.css') }}"/>
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     <script src="https://unpkg.com/leaflet-geosearch@3.4.0/dist/geosearch.umd.js"></script>  
+    <script src="{{ asset('pixabay/auto-complete.min.js') }}"></script>  
     <script>
         const provider = new GeoSearch.GeoApiFrProvider()
 
-        document.getElementById('form_realestate_address').onkeyup = function (e) {
-            console.log(e.target.value)
-            provider.search({query: e.target.value}).then(function (data) {
-                console.log(data)
-            })
-        }
+        new autoComplete({
+            minChars: 5,
+            selector: '#form_realestate_address',
+            source: function (term, response) {
+                provider.search({query: term}).then(function (data) {
+                    console.log(data)
+                    response(data)
+                })
+            },
+            renderItem: function (item, search) {
+                var found = item.raw.properties
+                search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+                var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi")
+                return '<div class="autocomplete-suggestion" data-street="' + found.name
+                        + '" data-long="' + item.x + '" data-lat="' + item.y
+                        + '" data-cp="' + found.postcode + '" data-city="' + found.city + '">'
+                        + item.label.replace(re, "<b>$1</b>")
+                        + '</div>'
+            },
+            onSelect: function (e, term, item) {
+                console.log(item.dataset)
+            }
+        })
     </script>
 {% endblock %}
