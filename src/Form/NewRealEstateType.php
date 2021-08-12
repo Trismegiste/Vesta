@@ -17,7 +17,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 /**
  * Creation of a new RealEstate
  */
-class NewRealEstate extends AbstractType
+class NewRealEstateType extends AbstractType
 {
 
     public function buildForm(FormBuilderInterface $builder, array $options): void

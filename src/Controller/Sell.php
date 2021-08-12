@@ -7,11 +7,11 @@
 namespace App\Controller;
 
 use App\Form\Immo\AppartDescrType;
-use App\Form\Immo\CategoryType;
 use App\Form\Immo\BuildingType;
+use App\Form\Immo\CategoryType;
 use App\Form\Immo\DiagnosticsType;
 use App\Form\Immo\TermsOfSaleType;
-use App\Form\NewRealEstate;
+use App\Form\NewRealEstateType;
 use App\Form\SubscribingType;
 use App\Repository\RealEstateRepo;
 use App\Repository\UserService;
@@ -74,7 +74,7 @@ class Sell extends AbstractController
 
         $form = $this->createFormBuilder()
                 ->add('user', SubscribingType::class)
-                ->add('realestate', NewRealEstate::class)
+                ->add('realestate', NewRealEstateType::class)
                 ->add('subscribe', SubmitType::class)
                 ->getForm();
 
