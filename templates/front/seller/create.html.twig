@@ -19,3 +19,26 @@
         </div>
     </div>
 {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet-geosearch@3.4.0/dist/geosearch.css"
+        />
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://unpkg.com/leaflet-geosearch@3.4.0/dist/geosearch.umd.js"></script>  
+    <script>
+        const provider = new GeoSearch.GeoApiFrProvider()
+
+        document.getElementById('form_realestate_address').onkeyup = function (e) {
+            console.log(e.target.value)
+            provider.search({query: e.target.value}).then(function (data) {
+                console.log(data)
+            })
+        }
+    </script>
+{% endblock %}
