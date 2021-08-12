@@ -1,1 +1,1 @@
-git bundle create ~/Bureau/backup-vesta.gitbundle --all
+git bundle create ~/Documents/backup-vesta.gitbundle --all
