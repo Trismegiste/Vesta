@@ -49,14 +49,16 @@
                 var found = item.raw.properties
                 search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
                 var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi")
-                return '<div class="autocomplete-suggestion" data-street="' + found.name
+                return '<div class="autocomplete-suggestion" data-val="' + found.name
                         + '" data-long="' + item.x + '" data-lat="' + item.y
                         + '" data-cp="' + found.postcode + '" data-city="' + found.city + '">'
                         + item.label.replace(re, "<b>$1</b>")
                         + '</div>'
             },
             onSelect: function (e, term, item) {
-                console.log(item.dataset)
+                var found = item.dataset
+                document.getElementById('form_realestate_postalcode').value = found.cp
+                document.getElementById('form_realestate_city').value = found.city
             }
         })
     </script>
