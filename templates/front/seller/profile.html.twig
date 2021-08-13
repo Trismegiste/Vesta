@@ -11,7 +11,7 @@
             <ul>
                 {% for immo in list %}
                     <li>
-                        <a href="{{ path('app_sell_editrealestatestep',{pk: immo.pk, step:0}) }}">Bien immobilier  {{ immo.address }} {{ immo.city }}</a>
+                        <a href="{{ path('app_sell_editrealestatestep',{pk: immo.pk, step:1}) }}">Bien immobilier  {{ immo.address }} {{ immo.city }}</a>
                     </li>
                 {% endfor %}
             </ul>

@@ -34,7 +34,7 @@ class RealEstateRepo
         return $this->repo->search($filter, $excludedField, $descendingSortField);
     }
 
-    public function findByPk(string $pk)
+    public function findByPk(string $pk): RealEstate
     {
         return $this->repo->load($pk);
     }
