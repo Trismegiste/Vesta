@@ -145,6 +145,10 @@
                 <source>The password fields must match.</source>
                 <target>Les mots de passe ne sont pas identiques.</target>
             </trans-unit>
+            <trans-unit id="Invalid_Address">
+                <source>Invalid Address</source>
+                <target>Adresse invalide ou non reconnue</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

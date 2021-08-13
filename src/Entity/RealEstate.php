@@ -264,4 +264,9 @@ class RealEstate implements Immovable, Root
         $this->appartDescr = $info;
     }
 
+    public function isGeoValid(): bool
+    {
+        return ($this->latitude != 0) && ($this->longitude != 0);
+    }
+
 }

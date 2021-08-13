@@ -39,9 +39,9 @@ class Sell extends AbstractController
             'title' => 'BUILDING INFORMATION'
         ],
         2 => [
-            'type' => TermsOfSaleType::class,
-            'property' => 'termsOfSale',
-            'title' => 'TERMS OF SALE'
+            'type' => AppartDescrType::class,
+            'property' => 'appartDescr',
+            'title' => 'DESCRIPTION'
         ],
         3 => [
             'type' => DiagnosticsType::class,
@@ -49,9 +49,9 @@ class Sell extends AbstractController
             'title' => 'DESCRIPTION'
         ],
         4 => [
-            'type' => AppartDescrType::class,
-            'property' => 'appartDescr',
-            'title' => 'DESCRIPTION'
+            'type' => TermsOfSaleType::class,
+            'property' => 'termsOfSale',
+            'title' => 'TERMS OF SALE'
         ]
     ];
 
