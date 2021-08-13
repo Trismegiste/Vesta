@@ -83,6 +83,12 @@
       "css": "location",
       "code": 59395,
       "src": "elusive"
+    },
+    {
+      "uid": "3c7eb0c1678e6fa93cc4264bad3150d6",
+      "css": "street-view",
+      "code": 61981,
+      "src": "fontawesome"
     }
   ]
 }

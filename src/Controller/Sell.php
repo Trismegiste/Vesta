@@ -34,19 +34,19 @@ class Sell extends AbstractController
     protected $realRepo;
     protected $realEstateStep = [
         1 => [
-            'type' => BuildingType::class,
-            'property' => 'building',
-            'title' => 'BUILDING INFORMATION'
-        ],
-        2 => [
             'type' => AppartDescrType::class,
             'property' => 'appartDescr',
             'title' => 'DESCRIPTION'
         ],
-        3 => [
+        2 => [
             'type' => DiagnosticsType::class,
             'property' => 'diagnostics',
             'title' => 'DESCRIPTION'
+        ],
+        3 => [
+            'type' => BuildingType::class,
+            'property' => 'building',
+            'title' => 'BUILDING INFORMATION'
         ],
         4 => [
             'type' => TermsOfSaleType::class,

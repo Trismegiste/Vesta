@@ -43,24 +43,30 @@
                             <p>{{ immo.description }}</p>
                         </a>
                         <nav class="pure-g navbar">
-                            <div class="pure-u-1-3">
+                            <div class="pure-u-1-4">
                                 <a href="{{ path('app_buy_detail', {pk: immo.pk}) }}">
                                     <i class="icon-loupe"></i>
                                     {% trans %}VIEW DETAIL{% endtrans %}
                                 </a>
                             </div>                           
-                            <div class="pure-u-1-3">
+                            <div class="pure-u-1-4">
                                 <a href="{{ path('app_buy_visit', {pk: immo.pk}) }}">
                                     <i class="icon-vr360"></i>
                                     {% trans %}VIRTUAL VISIT{% endtrans %}
                                 </a>
                             </div>
-                            <div class="pure-u-1-3">
+                            <div class="pure-u-1-4">
                                 <a href="#" id="openpopup{{ immo.pk }}">
                                     <i class="icon-location"></i>
                                     {% trans %}WATCH ON MAP{% endtrans %}
                                 </a>
                             </div>
+                            <div class="pure-u-1-4">
+                                <a href="http://maps.google.com/maps?q=&layer=c&cbll={{ immo.latitude }},{{ immo.longitude }}&cbp=11,0,0,0,0" target="_blank">
+                                    <i class="icon-street-view"></i>
+                                    {% trans %}WATCH ON STREETVIEW{% endtrans %}
+                                </a>
+                            </div>                                
                         </nav>
                         <ul class="tags">
                             {% for tag in immo.tag %}

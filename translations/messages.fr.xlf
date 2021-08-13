@@ -365,7 +365,11 @@
             <trans-unit id="STEPEDITSTART">
                 <source>CHOOSE REAL ESTATE CATEGORY</source>
                 <target>Choisissez le type de bien immobilier</target>
-            </trans-unit>            
+            </trans-unit>        
+            <trans-unit id="STREETVIEW">
+                <source>WATCH ON STREETVIEW</source>
+                <target>Voir sur Streetview</target>
+            </trans-unit>        
         </body>
     </file>
 </xliff>
