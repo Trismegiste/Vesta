@@ -19,7 +19,8 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
     public $lastname;
     public $phone;
     public $professional;
-    public $fingerPrint;
+    public $fingerPrint; // browser fingerprint
+    public $searchCriterion; // last search
 
     /**
      * @var string The hashed password

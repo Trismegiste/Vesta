@@ -47,6 +47,8 @@ class Buy extends AbstractController
                 'category' => $criterion['type'],
                 'appartDescr' => ['$ne' => null]
             ]);
+            // saving criterion in session
+            $request->getSession()->set('search_criterion', $criterion);
 
             return $this->render('front/buyer/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => $criterion['city']]);
         }
