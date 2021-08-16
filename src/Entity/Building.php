@@ -6,13 +6,16 @@
 
 namespace App\Entity;
 
+use MongoDB\BSON\Persistable;
+use Trismegiste\Toolbox\MongoDb\PersistableImpl;
+
 /**
  * Description of a building
  */
-class Building implements \MongoDB\BSON\Persistable
+class Building implements Persistable
 {
 
-    use \Trismegiste\Toolbox\MongoDb\PersistableImpl;
+    use PersistableImpl;
 
     public $name; // the name of the building
     public $district;

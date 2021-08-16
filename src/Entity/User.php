@@ -19,6 +19,7 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
     public $lastname;
     public $phone;
     public $professional;
+    public $fingerPrint;
 
     /**
      * @var string The hashed password

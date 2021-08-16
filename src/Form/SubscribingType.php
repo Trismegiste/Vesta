@@ -11,6 +11,7 @@ use App\Repository\UserService;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
@@ -52,7 +53,8 @@ class SubscribingType extends AbstractType
                 ->add('firstname', TextType::class, ['constraints' => [new Length(['min' => 3])]])
                 ->add('lastname', TextType::class, ['constraints' => [new Length(['min' => 3])]])
                 ->add('phone', TelType::class, ['attr' => ['class' => 'pure-input-1-2']])
-                ->add('professional', CheckboxType::class, ['required' => false]);
+                ->add('professional', CheckboxType::class, ['required' => false])
+                ->add('fingerPrint', HiddenType::class);
         //      ->add('identity', FileType::class, ['required' => false]);
     }
 
