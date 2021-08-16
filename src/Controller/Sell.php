@@ -104,32 +104,8 @@ class Sell extends AbstractController
     public function sellingList(): Response
     {
         $pkUser = $this->getUser()->getPk();
-        
+
         return $this->render('front/seller/listing.html.twig', ['list' => $this->realRepo->findByOwner($pkUser)]);
-    }
-
-    /**
-     * @Route("/realestate/edit/{pk}/step/0", methods={"GET","POST"}, requirements={"pk"="[\da-f]{24}"})
-     */
-    public function editRealEstateStart(string $pk, Request $request): Response
-    {
-        $realEstate = $this->realRepo->findByPk($pk);
-        $form = $this->createForm(CategoryType::class);
-        $form->setData($realEstate);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $obj = $form->getData();
-            $this->realRepo->save($obj);
-
-            return $this->redirectToRoute('app_sell_editrealestatestep', ['pk' => $pk, 'step' => 1]);
-        }
-        return $this->render('front/seller/realestate_edit_start.html.twig', [
-                    'immo' => $realEstate,
-                    'step' => 0,
-                    'form' => $form->createView(),
-                    'title' => new TranslatableMessage('CHOOSE REAL ESTATE CATEGORY')
-        ]);
     }
 
     /**
