@@ -69,7 +69,7 @@ class Sell extends AbstractController
             UserAuthenticatorInterface $auth): Response
     {
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
-            return $this->redirectToRoute('app_sell_profile');
+            return $this->redirectToRoute('app_sell_sellinglist');
         }
 
         $form = $this->createFormBuilder()
@@ -92,19 +92,20 @@ class Sell extends AbstractController
             // AUTHENTICATE ON THE FLY
             $auth->authenticateUser($newUser, $loginAuthenticator, $request);
 
-            return $this->redirectToRoute('app_sell_profile');
+            return $this->redirectToRoute('app_sell_sellinglist');
         }
 
         return $this->render('front/seller/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
-     * @Route("/account/seller", methods={"GET"})
+     * @Route("/selling", methods={"GET"})
      */
-    public function profile(): Response
+    public function sellingList(): Response
     {
         $pkUser = $this->getUser()->getPk();
-        return $this->render('front/seller/profile.html.twig', ['list' => $this->realRepo->findByOwner($pkUser)]);
+        
+        return $this->render('front/seller/listing.html.twig', ['list' => $this->realRepo->findByOwner($pkUser)]);
     }
 
     /**

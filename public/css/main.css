@@ -262,3 +262,10 @@ nav a.color-action {
     background-color: #f7f7f7;
     padding: 1.5em;
 }
+
+.right-title-header {
+    text-align: right;
+    vertical-align: bottom;
+    padding-top: 0.8em;
+    padding-right: 2em;
+}

@@ -370,6 +370,10 @@
                 <source>WATCH ON STREETVIEW</source>
                 <target>Voir sur Streetview</target>
             </trans-unit>        
+            <trans-unit id="BOOKMARK">
+                <source>BOOKMARK</source>
+                <target>Ajouter favoris</target>
+            </trans-unit>                    
         </body>
     </file>
 </xliff>
