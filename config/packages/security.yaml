@@ -35,5 +35,5 @@ security:
     access_control:
         - { path: ^/selling, roles: ROLE_USER }
         - { path: ^/buying, roles: ROLE_USER }
-        - { path: ^/negotiate, roles: ROLE_NEGOTIATOR }
+        - { path: ^/workflow, roles: ROLE_NEGOTIATOR }
         - { path: ^/admin, roles: ROLE_ADMIN }

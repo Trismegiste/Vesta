@@ -131,12 +131,6 @@ button.button-primary  {
     background-color: #5ce1e6;
 }
 
-/* LISTING */
-
-.listing {
-    padding: 0 1em;
-}
-
 header.content-header {
     color: white;
     text-align: center;
@@ -144,6 +138,18 @@ header.content-header {
     font-weight: 600;
     margin-bottom: 0.5em;
     padding-top: 0.6em;
+}
+
+.right-title-header {
+    text-align: right;
+    padding-top: 1em;
+    padding-right: 2em;
+}
+
+/* LISTING */
+
+.listing {
+    padding: 0 1em;
 }
 
 .realestate {
@@ -261,11 +267,4 @@ nav a.color-action {
     margin: 0 1.5em 1.5em;
     background-color: #f7f7f7;
     padding: 1.5em;
-}
-
-.right-title-header {
-    text-align: right;
-    vertical-align: bottom;
-    padding-top: 0.8em;
-    padding-right: 2em;
 }
