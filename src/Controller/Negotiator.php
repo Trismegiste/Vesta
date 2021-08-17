@@ -36,11 +36,27 @@ class Negotiator extends AbstractController
     {
         $negotiator = $this->getUser();
         $listing = $this->realestateRepo->search([
-          //  'city' => new Regex('^' . $negotiator->getCity() . '$', 'i'),
+            'city' => new Regex('^' . $negotiator->getCity() . '$', 'i'),
             'negotiator' => null
         ]);
 
         return $this->render('/negotiator/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => $negotiator->getCity()]);
+    }
+
+    /**
+     * List all real estates affected to the current negotiator
+     * 
+     * @Route("/workflow/affected", methods={"GET"})
+     * @return Response
+     */
+    public function listAffectedImmo(): Response
+    {
+        $negotiator = $this->getUser();
+        $listing = $this->realestateRepo->search([
+            'negotiator' => $negotiator->getPk()
+        ]);
+
+        return $this->render('/negotiator/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => '']);
     }
 
 }

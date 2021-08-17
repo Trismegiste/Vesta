@@ -31,8 +31,8 @@ class RealEstate implements Immovable, Root
     // fk
     protected $owner;
     protected $negotiator;
-    public $dweller = false;
     // MLS
+    public $dweller = false;
     protected $buildingInfo;
     protected $termsOfSale;
     protected $diagnosticDescr;

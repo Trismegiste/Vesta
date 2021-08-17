@@ -53,8 +53,9 @@ class CreateUser extends Command
                 $user = new User($username);
                 break;
             case 'NEGOTIATOR':
+                $city = $io->ask('City');
                 $user = new Negotiator($username);
-                $user->setRoles(['ROLE_NEGOTIATOR']);
+                $user->setCity($city);
                 break;
             case 'ADMIN':
                 $user = new User($username);

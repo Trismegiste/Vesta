@@ -20,14 +20,20 @@
         {% for idx, immo in result %}
             <article class="pure-g realestate">
                 <div class="pure-u-1-8">
-                    {{ immo.category }}
+                    <figcaption>
+                        {{ immo.category }}
+                    </figcaption>
                 </div>
                 <div class="pure-u-3-4">
-                    {{ immo.address }}<br/>
-                    {{ immo.postalCode }} {{ immo.city }}
+                    <figcaption>
+                        {{ immo.address }}<br/>
+                        {{ immo.postalCode }} {{ immo.city }}
+                    </figcaption>
                 </div>
                 <div class="pure-u-1-8">
-                    action
+                    <nav>
+                        action
+                    </nav>
                 </div>
             </article>
             <script>
