@@ -72,7 +72,7 @@ class UserProvider implements UserProviderInterface, PasswordUpgraderInterface
      */
     public function supportsClass($class)
     {
-        return User::class === $class;
+        return is_a($class, User::class, true);
     }
 
     /**

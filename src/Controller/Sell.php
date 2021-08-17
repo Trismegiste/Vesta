@@ -86,7 +86,7 @@ class Sell extends AbstractController
             $this->userRepo->changePassword($newUser, $form->get('user')->get('crypto')->getData());
             $this->userRepo->save($newUser);
             // REAL ESTATE
-            $creation['realestate']->setFkOwner($creation['user']->getPk());
+            $creation['realestate']->setOwnerFk($creation['user']);
             $this->realRepo->save($creation['realestate']);
 
             // AUTHENTICATE ON THE FLY

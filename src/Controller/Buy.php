@@ -42,9 +42,9 @@ class Buy extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $criterion = $form->getData();
             $listing = $this->realestateRepo->search([
-                'currentState.photoshoot' => true,
                 'city' => new Regex('^' . $criterion['city'] . '$', 'i'),
                 'category' => $criterion['type'],
+                'currentState.photoshoot' => true,
                 'appartDescr' => ['$ne' => null]
             ]);
             // saving criterion in session

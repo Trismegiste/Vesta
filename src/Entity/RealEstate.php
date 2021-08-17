@@ -30,6 +30,7 @@ class RealEstate implements Immovable, Root
     protected $longitude = 0;
     // fk
     protected $owner;
+    protected $negotiator;
     public $dweller = false;
     // MLS
     protected $buildingInfo;
@@ -219,9 +220,9 @@ class RealEstate implements Immovable, Root
         $this->longitude = $l;
     }
 
-    public function setFkOwner(ObjectIdInterface $id): void
+    public function setOwnerFk(User $u): void
     {
-        $this->owner = $id;
+        $this->owner = $u->getPk();
     }
 
     public function getBuilding(): ?Building
@@ -267,6 +268,16 @@ class RealEstate implements Immovable, Root
     public function isGeoValid(): bool
     {
         return ($this->latitude != 0) && ($this->longitude != 0);
+    }
+
+    public function setNegotiatorFk(Negotiator $neg): void
+    {
+        $this->negotiator = $neg->getPk();
+    }
+
+    public function getNegotiatorFk(): \MongoDB\BSON\ObjectIdInterface
+    {
+        return $this->negotiator;
     }
 
 }

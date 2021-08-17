@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use App\Entity\Negotiator;
 use App\Entity\User;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
@@ -45,23 +46,24 @@ class CreateUser extends Command
         $password = $io->ask('Password');
         $encodedPwd = $this->hasher->hash($password);
 
-        $user = new User($username);
-        $user->setHashedPassword($encodedPwd);
-
         // Role
         $role = $input->getArgument('role');
         switch ($role) {
             case 'USER' :
+                $user = new User($username);
                 break;
             case 'NEGOTIATOR':
+                $user = new Negotiator($username);
                 $user->setRoles(['ROLE_NEGOTIATOR']);
                 break;
             case 'ADMIN':
+                $user = new User($username);
                 $user->setRoles(['ROLE_USER', 'ROLE_NEGOTIATOR', 'ROLE_ADMIN']);
                 break;
             default :
                 throw new InvalidArgumentException("Role $role is unknown");
         }
+        $user->setHashedPassword($encodedPwd);
 
         // save to a mongo collection
         $this->repository->save($user);
