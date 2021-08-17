@@ -59,4 +59,15 @@ class Negotiator extends AbstractController
         return $this->render('/negotiator/listing.html.twig', ['result' => new ImmoSet($listing), 'city' => '']);
     }
 
+    /**
+     * Planning of a negotiator
+     * 
+     * @Route("/workflow/planning", methods={"GET"})
+     * @return Response
+     */
+    public function viewPlanning(): Response
+    {
+        return $this->render('/negotiator/planning.html.twig');
+    }
+
 }
