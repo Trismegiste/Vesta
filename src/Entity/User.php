@@ -37,6 +37,7 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
      * A visual identifier that represents this user.
      *
      * @see UserInterface
+     * @deprecated since Symfony 5.3, use getUserIdentifier() instead
      */
     public function getUsername(): string
     {

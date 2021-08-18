@@ -1,5 +1,7 @@
 <?php
 
+use App\Entity\Negotiator;
+use App\Entity\User;
 use App\Security\UserProvider;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
@@ -37,6 +39,12 @@ class UserProviderTest extends TestCase
     {
         $this->expectException(UserNotFoundException::class);
         $this->sut->loadUserByUsername('test');
+    }
+
+    public function testSupportedClass()
+    {
+        $this->assertTrue($this->sut->supportsClass(User::class));
+        $this->assertTrue($this->sut->supportsClass(Negotiator::class));
     }
 
 }

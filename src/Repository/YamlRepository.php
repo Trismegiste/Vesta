@@ -15,24 +15,20 @@ use Symfony\Component\Yaml\Yaml;
 class YamlRepository
 {
 
-    protected $data;
-    protected $path;
+    protected ?array $data = null;
+    protected string $path;
 
     public function __construct(string $path)
     {
         $this->path = $path;
     }
 
-    protected function restore(): void
+    public function findAll(string $key): array
     {
         if (is_null($this->data)) {
             $this->data = Yaml::parseFile($this->path);
         }
-    }
 
-    public function findAll(string $key): array
-    {
-        $this->restore();
         if (!array_key_exists($key, $this->data)) {
             throw new InvalidArgumentException("No data for the key '$key'");
         }
