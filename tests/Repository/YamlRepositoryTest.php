@@ -25,4 +25,10 @@ class YamlRepositoryTest extends TestCase
         $this->assertEquals('Motoko', $listing['Motoko']);
     }
 
+    public function testNotFound()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->sut->findAll('notdefined');
+    }
+
 }

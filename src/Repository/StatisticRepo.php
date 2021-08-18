@@ -45,10 +45,12 @@ class StatisticRepo
                     'key' => $pk,
                     'entity' => $entity
         ]));
-        
+
         foreach ($cursor as $cnt) {
             return $cnt->counter;
         }
+
+        return 0;
     }
 
 }

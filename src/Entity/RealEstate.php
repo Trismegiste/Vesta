@@ -16,10 +16,10 @@ class RealEstate implements Immovable, Root
 
     protected $currentState = ['photoshoot' => true];
     // FRONT INFORMATION
-    protected $category;
-    protected $tag = [];
+    protected string $category;
+    protected array $tag = [];
     protected $price = 0;
-    protected $currency = 'EUR';
+    protected string $currency = 'EUR';
     // location
     protected $streetAddr = '';
     protected $postalCode = '';
@@ -27,10 +27,10 @@ class RealEstate implements Immovable, Root
     protected $latitude = 0;
     protected $longitude = 0;
     // fk
-    protected $owner;
-    protected $negotiator;
+    protected ?ObjectIdInterface $owner;
+    protected ?ObjectIdInterface $negotiator;
     // MLS
-    public $dweller = false;
+    public bool $dweller = false;
     protected $buildingInfo;
     protected $termsOfSale;
     protected $diagnosticDescr;
@@ -263,4 +263,9 @@ class RealEstate implements Immovable, Root
         return $this->negotiator;
     }
 
+    // @todo to be removed
+    public function getDescription()
+    {
+        return '';
+    }
 }
