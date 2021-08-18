@@ -45,6 +45,11 @@ services:
         arguments: ['realestate']
     Trismegiste\Toolbox\MongoDb\Repository $realRepo: '@app.realestate.repository'
 
+    App\Repository\StatisticRepo:
+        arguments:
+            $dbName: '%env(resolve:DATABASE_NAME)%'
+            $collName: 'statistic'
+   
     # FLAT FILE SECTION
     app.realestateparameter.repository:
         class: App\Repository\YamlRepository

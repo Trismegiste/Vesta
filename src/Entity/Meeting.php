@@ -22,7 +22,7 @@ abstract class Meeting implements Root
 
     public function __construct(Immovable $loc, \DateTime $ts)
     {
-        $this->location = $loc;
+        $this->location = $loc; // @todo local copy
         $this->rdvTime = $ts;
     }
 

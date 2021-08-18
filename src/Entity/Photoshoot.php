@@ -12,7 +12,8 @@ namespace App\Entity;
 class Photoshoot extends Meeting
 {
 
-    protected $trader;
+    // fk
+    protected $negotiator;
     protected $realEstate;
 
 }

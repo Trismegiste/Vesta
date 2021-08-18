@@ -59,9 +59,11 @@ class Buy extends AbstractController
     /**
      * @Route("/visit/{pk}", methods={"GET"}, requirements={"pk"="[\da-f]{24}"})
      */
-    public function visit(string $pk): Response
+    public function visit(string $pk, \App\Repository\StatisticRepo $statRepo): Response
     {
         $immo = $this->realestateRepo->findByPk($pk);
+        $statRepo->push('realestate', $immo->getPk(), 'view');
+
         return $this->render('front/buyer/visit.html.twig', ['immo' => $immo]);
     }
 
