@@ -62,7 +62,7 @@ class Buy extends AbstractController
     public function visit(string $pk, \App\Repository\StatisticRepo $statRepo): Response
     {
         $immo = $this->realestateRepo->findByPk($pk);
-        $statRepo->push('realestate', $immo->getPk(), 'view');
+        $statRepo->incCounter('realestate', $immo->getPk());
 
         return $this->render('front/buyer/visit.html.twig', ['immo' => $immo]);
     }

@@ -24,16 +24,17 @@ class StatisticRepo
         $this->collectionName = $dbName . '.' . $collName;
     }
 
-    public function push(string $entity, string $pk, string $msg, array $ctx = [])
+    public function incCounter(string $entity, string $pk)
     {
         $bulk = new BulkWrite();
-        $bulk->insert([
-            'entity' => $entity,
-            'key' => $pk,
-            'msg' => $msg,
-            'ctx' => $ctx
-        ]);
-
+        $bulk->update(
+                [
+                    'key' => $pk,
+                    'entity' => $entity
+                ],
+                ['$inc' => ['counter' => 1]],
+                ['upsert' => true]
+        );
         $this->manager->executeBulkWrite($this->collectionName, $bulk);
     }
 
