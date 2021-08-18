@@ -17,8 +17,6 @@ class RealEstate implements Immovable, Root
     protected $currentState = ['photoshoot' => true];
     // FRONT INFORMATION
     protected $category;
-    protected $title = '';
-    protected $description = '';
     protected $tag = [];
     protected $price = 0;
     protected $currency = 'EUR';
@@ -56,26 +54,6 @@ class RealEstate implements Immovable, Root
     public function setCategory(string $param)
     {
         $this->category = $param;
-    }
-
-    public function setTitle(string $t): void
-    {
-        $this->title = $t;
-    }
-
-    public function setDescription(string $t): void
-    {
-        $this->description = $t;
-    }
-
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
     }
 
     public function getSurface(): int
@@ -225,6 +203,11 @@ class RealEstate implements Immovable, Root
         $this->owner = $u->getPk();
     }
 
+    public function getOwnerFk(): ObjectIdInterface
+    {
+        return $this->owner;
+    }
+
     public function getBuilding(): ?Building
     {
         return $this->buildingInfo;
@@ -275,7 +258,7 @@ class RealEstate implements Immovable, Root
         $this->negotiator = $neg->getPk();
     }
 
-    public function getNegotiatorFk(): \MongoDB\BSON\ObjectIdInterface
+    public function getNegotiatorFk(): ObjectIdInterface
     {
         return $this->negotiator;
     }

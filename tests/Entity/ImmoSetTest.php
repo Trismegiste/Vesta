@@ -33,14 +33,16 @@ class ImmoSetTest extends TestCase
         $bad->current();
     }
 
-    public function testDefaultBoudaries()
+    public function testDefaultBoudariesEmpty()
     {
+        $vide = new ImmoSet(new ArrayIterator([]));
         $this->assertEquals([[90, 180], [-90, -180]], $this->sut->getBoundaries());
     }
 
     public function testBoundariesAfterScan()
     {
-        foreach ($this->sut as $dummy) {
+        $this->assertEquals([[90, 180], [-90, -180]], $this->sut->getBoundaries());
+        foreach ($this->sut as $key => $dummy) {
             // nothing
         }
 
