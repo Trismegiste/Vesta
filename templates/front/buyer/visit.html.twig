@@ -17,6 +17,7 @@
             </figure>
             {% include 'front/widget/realestate_navicon.html.twig' %}
             <figcaption>
+                <p>Vue {{ immo.viewed }} fois</p>
                 <p>{{ immo.description }}</p>
                 <ul class="tags">
                     {% for tag in immo.tag %}
