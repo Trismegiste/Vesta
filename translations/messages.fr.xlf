@@ -373,7 +373,11 @@
             <trans-unit id="BOOKMARK">
                 <source>BOOKMARK</source>
                 <target>Ajouter favoris</target>
-            </trans-unit>                    
+            </trans-unit>    
+            <trans-unit id="UNAFFECTED">
+                <source>UNAFFECTED REAL ESTATE</source>
+                <target>En attente de mandat sur</target>
+            </trans-unit>                
         </body>
     </file>
 </xliff>

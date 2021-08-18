@@ -55,13 +55,16 @@ class ImmoSet implements \Iterator
      * Gets the bounding box for all **SCANNED** Immovable in this Iterator
      * 
      * @return [[$minLat, $minLong], [$maxLat, $maxLong]]
-     * @throws InvalidArgumentException
      */
     public function getBoundaries(): array
     {
         return [[$this->minLat, $this->minLong], [$this->maxLat, $this->maxLong]];
     }
 
+    /**
+     * Updates internal boundaries of the set
+     * @throws InvalidArgumentException
+     */
     private function updateBoudaries(): void
     {
         $item = $this->iter->current();

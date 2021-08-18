@@ -9,6 +9,7 @@ namespace App\Controller;
 use App\Entity\ImmoSet;
 use App\Form\SearchType;
 use App\Repository\RealEstateRepo;
+use App\Repository\StatisticRepo;
 use MongoDB\BSON\Regex;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,7 +45,6 @@ class Buy extends AbstractController
             $listing = $this->realestateRepo->search([
                 'city' => new Regex('^' . $criterion['city'] . '$', 'i'),
                 'category' => $criterion['type'],
-                'currentState.photoshoot' => true,
                 'appartDescr' => ['$ne' => null]
             ]);
             // saving criterion in session
@@ -59,7 +59,7 @@ class Buy extends AbstractController
     /**
      * @Route("/visit/{pk}", methods={"GET"}, requirements={"pk"="[\da-f]{24}"})
      */
-    public function visit(string $pk, \App\Repository\StatisticRepo $statRepo): Response
+    public function visit(string $pk, StatisticRepo $statRepo): Response
     {
         $immo = $this->realestateRepo->findByPk($pk);
         $statRepo->incCounter('realestate', $immo->getPk());

@@ -37,6 +37,7 @@ class CreateUserTest extends KernelTestCase {
 
         $commandTester->execute([
             'user' => self::username,
+            'role' => 'USER'
         ]);
 
         $output = $commandTester->getDisplay();

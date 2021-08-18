@@ -40,18 +40,6 @@ class RealEstateTest extends TestCase
         $this->assertEquals('Description', $this->sut->getDescription());
     }
 
-    public function testSurface()
-    {
-        $this->sut->setSurface(32.5);
-        $this->assertEquals(32, $this->sut->getSurface());
-    }
-
-    public function testNombrePiece()
-    {
-        $this->sut->setRoom(3.5);
-        $this->assertEquals(3, $this->sut->getRoom());
-    }
-
     public function testEmptyTag()
     {
         $this->assertCount(0, $this->sut->getTag());
