@@ -40,7 +40,7 @@ class NewRealEstateType extends AbstractType
                 ->add('city', TextType::class, ['attr' => ['class' => 'pure-input-2-3']])
                 ->add('latitude', HiddenType::class, ['empty_data' => 0])
                 ->add('longitude', HiddenType::class, ['empty_data' => 0])
-                ->add('dweller', CheckboxType::class, ['required' => false]);
+                ->add('dweller', ChoiceType::class, ['choices' => ['Non' => false, 'Oui' => true], 'expanded' => true]);
         // ->add('owner_act', FileType::class, ['required' => false]);
     }
 

@@ -12,7 +12,7 @@ use MongoDB\BSON\ObjectIdInterface;
 use Trismegiste\Toolbox\MongoDb\Repository;
 
 /**
- * Repository for RealEstate
+ * Repository for RealEstate with business knowledge
  */
 class RealEstateRepo
 {
