@@ -3,6 +3,8 @@
 .icon-vr360:before { content: '\e801'; } /* '' */
 .icon-arrowright:before { content: '\e802'; } /* '' */
 .icon-location:before { content: '\e803'; } /* '' */
+.icon-eye:before { content: '\e804'; } /* '' */
+.icon-eye-off:before { content: '\e805'; } /* '' */
 .icon-facebook-circled-1:before { content: '\f051'; } /* '' */
 .icon-twitter-circled-1:before { content: '\f057'; } /* '' */
 .icon-youtube-play:before { content: '\f16a'; } /* '' */

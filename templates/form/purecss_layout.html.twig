@@ -59,3 +59,13 @@
         </span>
     {%- endif -%}
 {%- endblock form_help %}
+
+{%- block password_widget -%}
+    {%- set type = type|default('password') -%}
+    {{ block('form_widget_simple') }}<i class="icon-eye"></i>
+    <script>
+        document.getElementById('{{ id|e('js') }}').onclick = function (e) {
+            alert('toto')
+        }
+    </script>
+{%- endblock password_widget -%}

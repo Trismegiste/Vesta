@@ -47,3 +47,8 @@
     list-style-type: none; 
     color: darkred;
 }
+
+form i.icon-eye {
+    margin-left: -30px;
+    cursor: pointer;
+}
