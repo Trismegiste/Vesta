@@ -22,7 +22,7 @@ class SellTest extends WebTestCase
         $crawler = $client->request('GET', '/sell');
         $this->assertResponseIsSuccessful();
         $this->assertPageTitleContains('Inscription');
-        $buttonCrawlerNode = $crawler->selectButton('real_estate_subscribing[subscribe]');
+        $buttonCrawlerNode = $crawler->selectButton('form[subscribe]');
         $this->assertCount(1, $buttonCrawlerNode);
     }
 
