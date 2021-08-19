@@ -62,10 +62,17 @@
 
 {%- block password_widget -%}
     {%- set type = type|default('password') -%}
-    {{ block('form_widget_simple') }}<i class="icon-eye"></i>
+    {{ block('form_widget_simple') }}<i id="{{ id }}_eye" class="icon-eye"></i>
     <script>
-        document.getElementById('{{ id|e('js') }}').onclick = function (e) {
-            alert('toto')
-        }
+        document.getElementById('{{ id|e('js') }}_eye').addEventListener('click', function (e) {
+            var icon = e.target
+            if (icon.attributes.class.value === 'icon-eye') {
+                icon.attributes.class.value = 'icon-eye-off'
+                icon.previousSibling.type = 'text'
+            } else {
+                icon.attributes.class.value = 'icon-eye'
+                icon.previousSibling.type = 'password'
+            }
+        })
     </script>
 {%- endblock password_widget -%}

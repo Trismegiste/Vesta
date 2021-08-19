@@ -13,6 +13,10 @@
                 <source>Password</source>
                 <target>Votre mot de passe</target>
             </trans-unit>
+            <trans-unit id="588_9PF-bis">
+                <source>Repeat Password</source>
+                <target>Répétez votre mot de passe</target>
+            </trans-unit>            
             <trans-unit id="v9QCsvb" resname="Sign in">
                 <source>Sign in</source>
                 <target>Se connecter</target>

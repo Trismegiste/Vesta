@@ -48,7 +48,7 @@
     color: darkred;
 }
 
-form i.icon-eye {
+form i.icon-eye, form i.icon-eye-off {
     margin-left: -30px;
     cursor: pointer;
 }
