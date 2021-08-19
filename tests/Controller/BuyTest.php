@@ -6,14 +6,15 @@
 
 namespace App\Tests\Controller;
 
-use App\Entity\AppartDescr;
-use App\Entity\RealEstate;
+use App\Tests\Entity\RealEstateFixture;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Trismegiste\Toolbox\MongoDb\Repository;
 
 class BuyTest extends WebTestCase
 {
+
+    use RealEstateFixture;
 
     protected KernelBrowser $client;
     protected Repository $repo;
@@ -38,20 +39,6 @@ class BuyTest extends WebTestCase
         $this->assertPageTitleContains('Recherchez');
         $buttonCrawlerNode = $crawler->selectButton('search[search]');
         $this->assertCount(1, $buttonCrawlerNode);
-    }
-
-    protected function createRealEstate(string $city): RealEstate
-    {
-        $re = new RealEstate();
-        $re->setCategory('Appartement');
-        $info = new AppartDescr();
-        $info->room = 5;
-        $info->carrezArea = 55;
-        $info->floor = 3;
-        $re->setCity($city);
-        $re->setAppartDescr($info);
-
-        return $re;
     }
 
     public function testSearchCity()

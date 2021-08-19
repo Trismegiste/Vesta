@@ -4,12 +4,16 @@
  * Vesta
  */
 
+use App\Entity\RealEstate;
+use App\Tests\Entity\RealEstateFixture;
 use App\Twig\AppExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class AppExtensionTest extends TestCase
 {
+
+    use RealEstateFixture;
 
     protected $sut;
 
@@ -38,13 +42,10 @@ class AppExtensionTest extends TestCase
 
     public function testCatchline()
     {
-        $immo = new App\Entity\RealEstate();
-        $immo->setTitle('appart');
-        $immo->setSurface(45);
-        $immo->setRoom(4);
-        $immo->setFloor(5);
+        $immo = $this->createRealEstate('nissa');
         $render = $this->sut->getCatchLine($immo);
-        $this->assertStringContainsString('appart', $render);
+        $this->assertStringContainsString('Appartement', $render);
+        $this->assertStringContainsString('Nissa', $render);
     }
 
 }
