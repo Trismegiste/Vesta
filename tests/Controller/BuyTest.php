@@ -6,27 +6,48 @@
 
 namespace App\Tests\Controller;
 
+use App\Entity\AppartDescr;
+use App\Entity\RealEstate;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Trismegiste\Toolbox\MongoDb\Repository;
 
 class BuyTest extends WebTestCase
 {
 
+    protected KernelBrowser $client;
+    protected Repository $repo;
+
+    protected function setUp(): void
+    {
+        $this->client = static::createClient();
+        $this->repo = static::getContainer()->get('app.realestate.repository');
+    }
+
+    public function testResetRealEstate()
+    {
+        $all = iterator_to_array($this->repo->search());
+        $this->assertIsArray($all);
+        $this->repo->delete($all);
+    }
+
     public function testSearchEmpty()
     {
-        $client = static::createClient();
-        $crawler = $client->request('GET', '/search');
+        $crawler = $this->client->request('GET', '/search');
         $this->assertResponseIsSuccessful();
         $this->assertPageTitleContains('Recherchez');
         $buttonCrawlerNode = $crawler->selectButton('search[search]');
         $this->assertCount(1, $buttonCrawlerNode);
     }
 
-    protected function createRealEstate(string $city): \App\Entity\RealEstate
+    protected function createRealEstate(string $city): RealEstate
     {
-        $re = new \App\Entity\RealEstate();
-        $info = new \App\Entity\AppartDescr();
+        $re = new RealEstate();
+        $re->setCategory('Appartement');
+        $info = new AppartDescr();
         $info->room = 5;
         $info->carrezArea = 55;
+        $info->floor = 3;
         $re->setCity($city);
         $re->setAppartDescr($info);
 
@@ -35,31 +56,51 @@ class BuyTest extends WebTestCase
 
     public function testSearchCity()
     {
-        $client = static::createClient();
-        $repo = static::getContainer()->get('app.realestate.repository');
-        $repo->save($this->createRealEstate('nissa'));
+        $this->repo->save($this->createRealEstate('nissa'));
 
-        $crawler = $client->request('GET', '/search');
+        $crawler = $this->client->request('GET', '/search');
         $buttonCrawlerNode = $crawler->selectButton('search[search]');
         $form = $buttonCrawlerNode->form();
         $form['search[city]'] = 'nissa';
-        $crawler = $client->submit($form);
+        $crawler = $this->client->submit($form);
         $this->assertPageTitleContains('Résultat');
-        $this->assertCount(1, $crawler->filter('section.listing article.realestate'));
+
+        $listingNode = $crawler->filter('section.listing');
+        $this->assertCount(1, $listingNode, "Listing entry not found");
+        $re = $listingNode->filter('article.realestate');
+        $this->assertCount(1, $re, 'Real estate not found');
+        // choose the first (and only)
+        $first = $re->eq(0);
+        $this->assertStringContainsString('Appartement', $first->filter('figcaption h3')->text());
+        $href = $first->filter('figcaption > a')->attr('href');
+        $this->assertStringContainsString('visit', $href);
+
+        return $href;
     }
 
-    public function testVisit()
+    /**
+     * @depends testSearchCity
+     */
+    public function testVisit(string $href)
     {
-        $client = static::createClient();
-        $client->request('GET', '/visit/123456789012345678901234');
+        $crawler = $this->client->request('GET', $href);
         $this->assertResponseIsSuccessful();
+        $this->assertStringContainsString('Appartement', $crawler->filter('header.content-header')->text());
+
+        $nav = $crawler->filter('nav.realestate-navicon');
+        $detailUrl = $nav->filterXPath('//a[contains(@href, "detail")]')->attr('href');
+
+        return $detailUrl;
     }
 
-    public function testDetail()
+    /**
+     * @depends testVisit
+     */
+    public function testDetail($url)
     {
-        $client = static::createClient();
-        $client->request('GET', '/detail/123456789012345678901234');
+        $crawler = $this->client->request('GET', $url);
         $this->assertResponseIsSuccessful();
+        $this->assertStringContainsString('Appartement', $crawler->filter('header.content-header')->text());
     }
 
 }

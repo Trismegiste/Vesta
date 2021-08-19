@@ -17,7 +17,7 @@ class TermsOfSale implements Persistable
 
     use PersistableImpl;
 
-    // mandatary
+    // mandatary <= backend
     public $mandataryName;
     public $mandataryFk;
     public $mandateNumber;

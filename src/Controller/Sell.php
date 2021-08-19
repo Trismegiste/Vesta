@@ -105,7 +105,7 @@ class Sell extends AbstractController
     {
         $pkUser = $this->getUser()->getPk();
 
-        //   return $this->render('/negotiator/planning.html.twig');
+        // return $this->render('/negotiator/planning.html.twig');
         return $this->render('front/seller/listing.html.twig', ['list' => $this->realRepo->findByOwner($pkUser)]);
     }
 
