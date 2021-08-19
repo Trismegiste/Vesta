@@ -27,7 +27,7 @@ class User implements UserInterface, Root, PasswordAuthenticatedUserInterface
      */
     private $password;
 
-    public function __construct(string $user)
+    public function __construct(?string $user)
     {
         $this->username = $user;
         $this->roles = ['ROLE_USER'];
