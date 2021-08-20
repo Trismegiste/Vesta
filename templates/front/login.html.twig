@@ -3,6 +3,7 @@
 {% block title %}Log in{% endblock %}
 
 {% block one_column %}
+    {{ error.messageKey|trans(error.messageData, 'security') }}
     {{ form(form) }}
     <h3>Vous n'êtes pas inscrit ? <a href="{{ path('app_security_subscribe') }}">Inscrivez-vous ici</a></h3>
 {% endblock %}

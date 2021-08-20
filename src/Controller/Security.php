@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\LoginType;
 use App\Form\SubscribingType;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,11 +24,9 @@ class Security extends AbstractController
         $error = $authenticationUtils->getLastAuthenticationError();
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+        $form = $this->createForm(LoginType::class, ['username' => $lastUsername]);
 
-        $form = $this->createForm(\App\Form\LoginType::class, ['username' => $lastUsername]);
-        $form->addError(new \Symfony\Component\Form\FormError($error));
-
-        return $this->render('front/login.html.twig', ['form' => $form->createView()]);
+        return $this->render('front/login.html.twig', ['form' => $form->createView(), 'error' => $error]);
     }
 
     /**
