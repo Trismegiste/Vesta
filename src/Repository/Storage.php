@@ -42,7 +42,7 @@ class Storage
         $meta['mime'] = $uf->getMimeType();
 
         try {
-            $id = $this->bucket->uploadFromStream($uf->getFilename(), $stream, ['metadata' => $meta]);
+            $id = $this->bucket->uploadFromStream($uf->getFilename(), $stream, ['metadata' => $meta]); // @todo choose the right filename
             fclose($stream);
             $this->logger->info("Writing " . $uf->getFilename()); // @todo better info
         } catch (Exception $e) {
@@ -65,7 +65,8 @@ class Storage
                     fpassthru($stream);
                 });
         $response->setImmutable();
-        $response->setDate($metadata->uploadDate->toDateTime());
+        $response->setLastModified($metadata->uploadDate->toDateTime());
+        $response->setEtag($metadata->md5);
         $response->headers->set('Content-Type', $metadata->metadata->mime);
 
         return $response;

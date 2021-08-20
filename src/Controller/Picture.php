@@ -28,9 +28,17 @@ class Picture extends AbstractController
     /**
      * @Route("/picture/{pk}", methods={"GET"}, requirements={"pk"="[\da-f]{24}"})
      */
-    public function read(string $pk): Response
+    public function read(string $pk, \Symfony\Component\HttpFoundation\Request $request): Response
     {
-        return $this->repository->get(new ObjectId($pk));
+        $response = $this->repository->get(new ObjectId($pk));
+        $response->setPublic();
+
+        if ($response->isNotModified($request)) {
+            // return the 304 Response immediately
+            return $response;
+        }
+
+        return $response;
     }
 
 }
