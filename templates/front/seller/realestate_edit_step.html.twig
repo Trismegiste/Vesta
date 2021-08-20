@@ -4,17 +4,10 @@
 
 {% block content_title %}{% trans %}STEP EDIT{% endtrans %} {{ step }} : {{ title|trans }}{% endblock %}
 
-{% block content %}
-    <div class="pure-g seller-subscribing">
-        <div class="pure-u-1-4"></div>
-        <div class="pure-u-1-2">
-            <div class="seller-form">
-                {{ form_start(form) }}
-                <fieldset>
-                    {{ form_widget(form.step) }}
-                </fieldset>
-                {{ form_end(form) }}
-            </div>
-        </div>
-    </div>
+{% block one_column %}
+    {{ form_start(form) }}
+    <fieldset>
+        {{ form_widget(form.step) }}
+    </fieldset>
+    {{ form_end(form) }}
 {% endblock %}

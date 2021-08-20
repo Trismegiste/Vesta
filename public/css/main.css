@@ -261,8 +261,8 @@ nav a.color-action {
     font-size: 220%;
 }
 
-/* SELLER */
-.seller-form {
+/* one column canvas */
+.column-canvas {
     border: #eb008a solid 3px;
     margin: 0 1.5em 1.5em;
     background-color: #f7f7f7;
