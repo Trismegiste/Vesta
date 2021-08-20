@@ -11,12 +11,14 @@ use MongoDB\BSON\ObjectIdInterface;
 use MongoDB\Database;
 use MongoDB\Driver\Manager;
 use MongoDB\GridFS\Bucket;
+use MongoDB\GridFS\Exception\FileNotFoundException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RuntimeException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * This is a storage engine on MongoDB
@@ -52,7 +54,11 @@ class Storage
 
     public function get(ObjectIdInterface $pk): Response
     {
-        $stream = $this->bucket->openDownloadStream($pk);
+        try {
+            $stream = $this->bucket->openDownloadStream($pk);
+        } catch (FileNotFoundException $e) {
+            throw new NotFoundHttpException("Stored object $pk not found");
+        }
         $metadata = $this->bucket->getFileDocumentForStream($stream);
 
         $response = new StreamedResponse(function () use ($stream) {
@@ -63,6 +69,11 @@ class Storage
         $response->headers->set('Content-Type', $metadata->metadata->mime);
 
         return $response;
+    }
+
+    public function delete(ObjectIdInterface $pk)
+    {
+        $this->bucket->delete($pk);
     }
 
 }

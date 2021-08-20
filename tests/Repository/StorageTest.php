@@ -1,10 +1,12 @@
 <?php
 
 use App\Repository\Storage;
+use MongoDB\BSON\ObjectId;
 use MongoDB\BSON\ObjectIdInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /*
  * Vesta
@@ -40,6 +42,12 @@ class StorageTest extends KernelTestCase
         $response->sendContent();
         $dump = ob_get_clean();
         $this->assertEquals(file_get_contents(join_paths(__DIR__, 'image.jpg')), $dump);
+    }
+
+    public function testNotFound()
+    {
+        $this->expectException(NotFoundHttpException::class);
+        $this->sut->get(new ObjectId());
     }
 
 }
