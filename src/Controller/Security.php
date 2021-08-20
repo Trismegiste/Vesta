@@ -24,7 +24,10 @@ class Security extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('front/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        $form = $this->createForm(\App\Form\LoginType::class, ['username' => $lastUsername]);
+        $form->addError(new \Symfony\Component\Form\FormError($error));
+
+        return $this->render('front/login.html.twig', ['form' => $form->createView()]);
     }
 
     /**
@@ -32,7 +35,7 @@ class Security extends AbstractController
      */
     public function logout()
     {
-        // Don\'t forget to activate logout in security.yaml
+        // Don't forget to activate logout in security.yaml
         throw new Exception('Bad config');
     }
 
