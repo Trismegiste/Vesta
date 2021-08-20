@@ -10,6 +10,7 @@ use Exception;
 use MongoDB\BSON\ObjectIdInterface;
 use MongoDB\Database;
 use MongoDB\Driver\Manager;
+use MongoDB\GridFS\Bucket;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RuntimeException;
@@ -23,8 +24,8 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 class Storage
 {
 
-    protected $bucket;
-    protected $logger;
+    protected Bucket $bucket;
+    protected LoggerInterface $logger;
 
     public function __construct(Manager $manager, string $dbName, LoggerInterface $log = null)
     {
@@ -41,8 +42,9 @@ class Storage
         try {
             $id = $this->bucket->uploadFromStream($uf->getFilename(), $stream, ['metadata' => $meta]);
             fclose($stream);
+            $this->logger->info("Writing " . $uf->getFilename()); // @todo better info
         } catch (Exception $e) {
-            throw RuntimeException("Unable to store " . $uf->getClientOriginalName(), 500, $e);
+            throw new RuntimeException("Unable to store " . $uf->getClientOriginalName(), 500, $e);
         }
 
         return $id;
@@ -58,6 +60,7 @@ class Storage
                 });
         $response->setImmutable();
         $response->setDate($metadata->uploadDate->toDateTime());
+        $response->headers->set('Content-Type', $metadata->metadata->mime);
 
         return $response;
     }
