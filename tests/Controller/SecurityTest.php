@@ -22,9 +22,8 @@ class SecurityTest extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
         $crawler = $client->request('GET', '/account/login');
         $loginForm = $crawler->selectButton('Se connecter')->form();
         $client->submit($loginForm, [
-            'username' => CreateUserTest::username,
-            'password' => CreateUserTest::password,
-            'csrf_token' => $loginForm->get('csrf_token')->getValue(),
+            'login[username]' => CreateUserTest::username,
+            'login[password]' => CreateUserTest::password,
         ]);
 
         if ($client->getResponse()->headers->get('Location') === '/account/login') {
