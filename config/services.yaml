@@ -49,6 +49,13 @@ services:
         arguments:
             $dbName: '%env(resolve:DATABASE_NAME)%'
             $collName: 'statistic'
+
+    app.storage:
+        public: true
+        class: App\Repository\Storage
+        arguments:
+            $dbName: '%env(resolve:DATABASE_NAME)%'
+            $log: '@logger'
    
     # FLAT FILE SECTION
     app.realestateparameter.repository:
