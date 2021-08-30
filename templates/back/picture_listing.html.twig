@@ -1,6 +1,8 @@
-{# empty Twig template #}
-<ul>
-    {% for picture in listing %}
-        <li>{{ picture.pk }}</li>
-        {% endfor %}
-</ul>
+{% extends "base.html.twig" %}
+{% block body %}
+    <ul>
+        {% for picture in listing %}
+            <li>{{ picture.pk }}</li>
+            {% endfor %}
+    </ul>
+{% endblock %}

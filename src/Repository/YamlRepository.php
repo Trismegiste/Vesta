@@ -34,12 +34,7 @@ class YamlRepository
         }
         $tmp = $this->data[$key];
 
-        $listing = [];
-        foreach ($tmp as $row) {
-            $listing[$row] = $row;
-        }
-
-        return $listing;
+        return array_combine($tmp, $tmp);
     }
 
 }

@@ -56,4 +56,14 @@ class StorageTest extends KernelTestCase
         $this->assertIsIterable($it);
     }
 
+    public function testDelete()
+    {
+        $it = $this->sut->searchByMimeType('image/jpeg');
+        foreach ($it as $img) {
+            $this->sut->delete($img['_id']);
+        }
+        $it = $this->sut->searchByMimeType('image/jpeg');
+        $this->assertCount(0, $it);
+    }
+
 }
