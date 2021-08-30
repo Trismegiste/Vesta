@@ -6,15 +6,11 @@
 
 use App\Entity\RealEstate;
 use App\Repository\RealEstateRepo;
+use MongoDB\BSON\ObjectIdInterface;
 use PHPUnit\Framework\TestCase;
 use Tests\Toolbox\MongoDb\MongoCheck;
 use Trismegiste\Toolbox\MongoDb\Repository;
 
-/**
- * Description of RealEstateRepoTest
- *
- * @author flo
- */
 class RealEstateRepoTest extends TestCase
 {
 
@@ -47,15 +43,17 @@ class RealEstateRepoTest extends TestCase
     public function testSearchByOwner()
     {
         $this->repo->expects($this->once())
-                ->method('search');
-        $this->sut->searchByOwner(new MongoDB\BSON\ObjectId());
+                ->method('search')
+                ->with($this->arrayHasKey('owner'));
+        $this->sut->searchByOwner($this->createStub(ObjectIdInterface::class));
     }
 
     public function testSearchByNegotiator()
     {
         $this->repo->expects($this->once())
-                ->method('search');
-        $this->sut->searchByNegociator(new MongoDB\BSON\ObjectId());
+                ->method('search')
+                ->with($this->arrayHasKey('negotiator'));
+        $this->sut->searchByNegociator($this->createStub(ObjectIdInterface::class));
     }
 
 }
