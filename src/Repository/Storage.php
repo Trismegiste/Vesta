@@ -14,11 +14,11 @@ use MongoDB\GridFS\Bucket;
 use MongoDB\GridFS\Exception\FileNotFoundException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
-use RuntimeException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
 
 /**
  * This is a storage engine on MongoDB
@@ -42,11 +42,12 @@ class Storage
         $meta['mime'] = $uf->getMimeType();
 
         try {
-            $id = $this->bucket->uploadFromStream($uf->getFilename(), $stream, ['metadata' => $meta]); // @todo choose the right filename
+            $this->logger->info("Storing " . $uf->getFilename());
+            $id = $this->bucket->uploadFromStream($uf->getFilename(), $stream, ['metadata' => $meta]);
             fclose($stream);
-            $this->logger->info("Writing " . $uf->getFilename()); // @todo better info
+            $this->logger->info("Stored " . $uf->getFilename());
         } catch (Exception $e) {
-            throw new RuntimeException("Unable to store " . $uf->getClientOriginalName(), 500, $e);
+            throw new ServiceUnavailableHttpException(3, "Unable to store " . $uf->getFilename(), $e);
         }
 
         return $id;
@@ -64,7 +65,6 @@ class Storage
         $response = new StreamedResponse(function () use ($stream) {
                     fpassthru($stream);
                 });
-        $response->setImmutable();
         $response->setLastModified($metadata->uploadDate->toDateTime());
         $response->setEtag($metadata->md5);
         $response->headers->set('Content-Type', $metadata->metadata->mime);
