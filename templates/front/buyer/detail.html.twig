@@ -1,8 +1,0 @@
-{% extends "front/base.html.twig" %}
-{% block title %}{{ immo|catchline }} - {% trans %}SLOGAN IMMO{% endtrans %}{% endblock %}
-
-{% block content_title %}{{ immo|catchline }}{% endblock %}
-
-{% block content %}
-    {{ dump(immo)|nl2br }}
-{% endblock %}
