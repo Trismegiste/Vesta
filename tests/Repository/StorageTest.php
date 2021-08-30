@@ -50,4 +50,10 @@ class StorageTest extends KernelTestCase
         $this->sut->get(new ObjectId());
     }
 
+    public function testSearchByMime()
+    {
+        $it = $this->sut->searchByMimeType('image/jpeg');
+        $this->assertIsIterable($it);
+    }
+
 }

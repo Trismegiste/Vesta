@@ -77,4 +77,9 @@ class Storage
         $this->bucket->delete($pk);
     }
 
+    public function searchByMimeType(string $mime): \Iterator
+    {
+        return $this->bucket->find(['metadata' => ['mime' => $mime]]);
+    }
+
 }

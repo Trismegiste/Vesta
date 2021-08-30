@@ -42,4 +42,14 @@ class Picture extends AbstractController
         return $response;
     }
 
+    /**
+     * @Route("/admin/picture/list", methods={"GET"})
+     */
+    public function adminList()
+    {
+        $it = $this->repository->searchByMimeType('image/jpeg');
+
+        return $this->render('back/picture_listing.html.twig', ['listing' => $it]);
+    }
+
 }
