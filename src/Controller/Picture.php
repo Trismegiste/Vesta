@@ -32,11 +32,7 @@ class Picture extends AbstractController
     public function read(string $pk, Request $request): Response
     {
         $response = $this->repository->get(new ObjectId($pk));
-        $response->setPublic();
-        $response->setMaxAge(86400);
         $response->setSharedMaxAge(86400);
-        $response->headers->addCacheControlDirective('must-revalidate', false);
-        $response->setImmutable();
 
         if ($response->isNotModified($request)) {
             // return the 304 Response immediately
