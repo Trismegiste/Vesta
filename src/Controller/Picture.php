@@ -34,6 +34,7 @@ class Picture extends AbstractController
         $response = $this->repository->get(new ObjectId($pk));
         $response->setPublic();
         $response->setMaxAge(86400);
+        $response->setSharedMaxAge(86400);
         $response->headers->addCacheControlDirective('must-revalidate', false);
         $response->setImmutable();
 
