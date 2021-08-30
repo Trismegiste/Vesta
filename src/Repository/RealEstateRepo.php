@@ -39,9 +39,14 @@ class RealEstateRepo
         return $this->repo->load($pk);
     }
 
-    public function findByOwner(ObjectIdInterface $fk): \Iterator
+    public function searchByOwner(ObjectIdInterface $fk): \Iterator
     {
         return $this->repo->search(['owner' => $fk]);
+    }
+
+    public function searchByNegociator(ObjectIdInterface $fk): \Iterator
+    {
+        return $this->repo->search(['negotiator' => $fk]);
     }
 
 }
