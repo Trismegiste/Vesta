@@ -4,7 +4,7 @@
  * Vesta
  */
 
-namespace App\Repository;
+namespace Trismegiste\SymfoTools\Repository;
 
 use InvalidArgumentException;
 use Symfony\Component\Yaml\Yaml;
@@ -12,11 +12,11 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * A repository for flat list stored in yml file
  */
-class YamlRepository
+class YamlRepository implements FlatRepository
 {
 
-    protected ?array $data = null;
-    protected string $path;
+    protected $data = null;
+    protected $path;
 
     public function __construct(string $path)
     {

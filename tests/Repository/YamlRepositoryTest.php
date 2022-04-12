@@ -4,7 +4,7 @@
  * Vesta
  */
 
-use App\Repository\YamlRepository;
+use Trismegiste\SymfoTools\Repository\YamlRepository;
 use PHPUnit\Framework\TestCase;
 
 class YamlRepositoryTest extends TestCase
@@ -14,7 +14,7 @@ class YamlRepositoryTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->sut = new YamlRepository(join_paths(__DIR__, 'test_repo.yml'));
+        $this->sut = new YamlRepository(__DIR__ . '/test_repo.yml');
     }
 
     public function testFindAll()
