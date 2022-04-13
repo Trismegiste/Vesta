@@ -1,0 +1,23 @@
+{# 
+1. Put <script async src="//cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@3/dist/fp.min.js"></script> somewhere in the page
+2. Add a field for persisting the fingerprint in your entity
+3. Add a field in the form with ->add('tracker', FingerprintType::class);
+4. Enjoy
+#}
+{%  block fingerprint_widget %}
+    {{ block('hidden_widget') }}
+    <script>
+        window.addEventListener('load', (event) => {
+            if (typeof FingerprintJS === 'object') {
+                const fpPromise = FingerprintJS.load()
+                fpPromise
+                        .then(fp => fp.get())
+                        .then(result => {
+                            document.getElementById('{{ form.vars.id }}').value = result.visitorId
+                        })
+            } else {
+                console.error('Did you forget to include the Fingerprint library ?')
+            }
+        })
+    </script>
+{% endblock %}
