@@ -17,6 +17,11 @@ class ExtensionTest extends TestCase
         $this->sut = new Extension();
     }
 
+    public function testHasFilter()
+    {
+        $this->assertIsArray($this->sut->getFilters());
+    }
+
     public function testThreeDigitFileSize()
     {
         $this->assertEquals('1 B', $this->sut->getFileSize(1));
