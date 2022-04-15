@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Vesta
+ * Symfotools
  */
 
 namespace Trismegiste\SymfoTools\Repository;
